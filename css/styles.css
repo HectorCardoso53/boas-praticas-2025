@@ -1,0 +1,426 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CORES */
+:root {
+  --azul-principal: #0b5aa3;
+  --azul-escuro: #083c6d;
+  --cinza-fundo: #f4f6f8;
+  --branco: #ffffff;
+  --cinza-texto: #333;
+}
+
+/* BASE */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--cinza-fundo);
+  color: var(--cinza-texto);
+  line-height: 1.7;
+}
+
+/* HEADER */
+.header-simples {
+  background-color: var(--azul-principal);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--branco);
+}
+
+.header-inner img {
+  height: 60px;
+}
+
+.header-texto h1 {
+  font-size: 1.5rem;
+}
+
+.header-texto p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* BANNER SOMENTE IMAGEM – AJUSTADO */
+.banner-imagem {
+  background-image: url('../src/img/BANNER-1.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* NÃO ESTICA */
+  background-color: #e9edf2; /* fundo neutro */
+  height:380px; /* altura menor */
+}
+
+
+/* CONTEÚDO */
+.container {
+  max-width: 1100px;
+  margin: 30px auto 50px auto;
+  padding: 0 20px;
+}
+
+.texto-intro {
+  max-width: 720px;
+  margin-bottom: 50px;
+}
+
+.texto-intro p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* AÇÕES */
+.acoes-concurso {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.acao-card {
+  background-color: var(--branco);
+  border-top: 4px solid var(--azul-principal);
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.acao-card h3 {
+  color: var(--azul-principal);
+  margin-bottom: 10px;
+}
+
+.acao-card p {
+  font-size: 0.95rem;
+}
+
+.acao-card:hover {
+  background-color: #f1f6fb;
+}
+
+/* FOOTER */
+.footer-fino {
+  background-color: var(--azul-escuro);
+  color: var(--branco);
+  font-size: 0.8rem;
+  margin-top: 60px;
+}
+
+.footer-fino-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* HEADER LAYOUT */
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* MENU EDIÇÕES */
+.menu-edicoes {
+  position: relative;
+}
+
+.menu-botao {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.6);
+  color: var(--branco);
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.menu-botao:hover {
+  background-color: rgba(255,255,255,0.15);
+}
+
+/* DROPDOWN */
+.menu-dropdown {
+  list-style: none;
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background-color: var(--branco);
+  color: var(--cinza-texto);
+  min-width: 200px;
+  border-radius: 4px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  display: none;
+  z-index: 10;
+}
+
+/* MOSTRAR MENU */
+.menu-edicoes:hover .menu-dropdown {
+  display: block;
+}
+
+/* ITENS */
+.menu-dropdown li {
+  border-bottom: 1px solid #eee;
+}
+
+.menu-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.menu-dropdown a,
+.menu-dropdown li.menu-desativado {
+  display: block;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+}
+
+.menu-dropdown a {
+  color: var(--cinza-texto);
+}
+
+.menu-dropdown a:hover {
+  background-color: #f1f6fb;
+}
+
+/* STATUS */
+.menu-dropdown span {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.menu-desativado {
+  color: #999;
+  cursor: default;
+}
+
+/* ============================= */
+/* LISTA DE PROJETOS – 2025 */
+/* ============================= */
+
+#lista-projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* CARD DO PROJETO */
+.projeto-card {
+  background-color: var(--branco);
+  border-left: 5px solid var(--azul-principal);
+  border-radius: 4px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.2s ease;
+}
+
+.projeto-card:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* TÍTULO */
+.projeto-card h3 {
+  color: var(--azul-principal);
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* SECRETARIA */
+.projeto-secretaria {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+/* RESUMO */
+.projeto-resumo {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* BOTÃO DETALHES */
+.projeto-card a {
+  align-self: flex-start;
+  background-color: var(--azul-principal);
+  color: var(--branco);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.projeto-card a:hover {
+  background-color: var(--azul-escuro);
+}
+
+/* ============================= */
+/* DETALHE DO PROJETO */
+/* ============================= */
+
+.detalhe-projeto {
+  background-color: var(--branco);
+  padding: 40px;
+  border-radius: 4px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.detalhe-projeto h2 {
+  color: var(--azul-principal);
+  margin-bottom: 10px;
+}
+
+.detalhe-projeto h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: var(--azul-principal);
+  border-bottom: 2px solid #e5edf5;
+  padding-bottom: 5px;
+}
+
+.detalhe-projeto p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.detalhe-projeto ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.detalhe-projeto ul li {
+  margin-bottom: 8px;
+}
+
+
+/* ============================= */
+/* RESPONSIVO – MOBILE */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .header-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .header-inner img {
+    height: 50px;
+  }
+
+  .header-texto h1 {
+    font-size: 1.2rem;
+  }
+
+  .header-texto p {
+    font-size: 0.85rem;
+  }
+
+  /* BANNER */
+  .banner-imagem {
+    height: 220px;
+    background-size: contain;
+  }
+
+  /* CONTAINER */
+  .container {
+    margin: 20px auto 30px auto;
+    padding: 0 15px;
+  }
+
+  /* TEXTO */
+  .texto-intro {
+    margin-bottom: 30px;
+  }
+
+  .texto-intro p {
+    font-size: 0.95rem;
+  }
+
+  /* AÇÕES / CARDS */
+  .acoes-concurso {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .acao-card {
+    padding: 20px 15px;
+  }
+
+  /* LISTA DE PROJETOS */
+  #lista-projetos {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .projeto-card {
+    padding: 15px;
+  }
+
+  .projeto-card h3 {
+    font-size: 1rem;
+  }
+
+  .projeto-resumo {
+    font-size: 0.9rem;
+  }
+
+  /* DETALHE DO PROJETO */
+  .detalhe-projeto {
+    padding: 20px;
+  }
+
+  .detalhe-projeto h2 {
+    font-size: 1.3rem;
+  }
+
+  .detalhe-projeto h3 {
+    font-size: 1.05rem;
+  }
+
+  .detalhe-projeto p,
+  .detalhe-projeto ul li {
+    font-size: 0.95rem;
+  }
+
+  /* FOOTER */
+  .footer-fino-container {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+}
+
+
