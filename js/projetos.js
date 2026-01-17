@@ -2,10 +2,14 @@ fetch('data/projetos.json')
   .then(res => res.json())
   .then(projetos => {
 
-    /* LISTA DE PROJETOS */
+    /* ============================
+       LISTA DE PROJETOS (2025)
+    ============================ */
     const lista = document.getElementById('lista-projetos');
 
     if (lista) {
+      lista.innerHTML = '';
+
       projetos.forEach(p => {
         lista.innerHTML += `
           <div class="projeto-card">
@@ -19,56 +23,117 @@ fetch('data/projetos.json')
               ${p.resumo}
             </div>
 
-            <a href="projeto.html?id=${p.id}">Ver detalhes</a>
+            <a href="projeto.html?id=${p.id}">
+              Ver detalhes
+            </a>
           </div>
         `;
       });
     }
-    /* DETALHE DO PROJETO */
+
+    /* ============================
+       DETALHE DO PROJETO
+    ============================ */
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
     const detalhe = document.getElementById('detalhe-projeto');
 
- if (id && detalhe) {
-  const projeto = projetos.find(p => p.id == id);
+    if (!id || !detalhe) return;
 
-  if (!projeto) {
-    detalhe.innerHTML = "<p>Projeto não encontrado.</p>";
-    return;
-  }
+    const projeto = projetos.find(p => p.id == id);
 
-  detalhe.innerHTML = `
-    <h2>${projeto.titulo}</h2>
-    <p><strong>Secretaria:</strong> ${projeto.secretaria}</p>
+    if (!projeto) {
+      detalhe.innerHTML = '<p>Projeto não encontrado.</p>';
+      return;
+    }
 
-    <h3>Resumo</h3>
-    <p>${projeto.resumo}</p>
+    detalhe.innerHTML = `
+      <h2>${projeto.titulo}</h2>
+      <p><strong>Secretaria:</strong> ${projeto.secretaria}</p>
 
-    <h3>Contexto</h3>
-    <p>${projeto.contexto}</p>
+      ${projeto.resumo ? `
+        <h3>Resumo</h3>
+        <p>${projeto.resumo}</p>
+      ` : ''}
 
-    <h3>Problema</h3>
-    <p>${projeto.problema}</p>
+      ${projeto.introducao ? `
+        <h3>Introdução</h3>
+        <p>${projeto.introducao}</p>
+      ` : ''}
 
-    <h3>Objetivo</h3>
-    <p>${projeto.objetivo}</p>
+      ${projeto.desafio ? `
+        <h3>Desafio</h3>
+        <p>${projeto.desafio}</p>
+      ` : ''}
 
-    <h3>Metodologia</h3>
-    <p>${projeto.metodologia}</p>
+      ${projeto.resposta ? `
+        <h3>Resposta</h3>
+        <p>${projeto.resposta}</p>
+      ` : ''}
 
-    <h3>Resultados</h3>
-    <p>${projeto.resultados}</p>
+      ${Array.isArray(projeto.etapas) ? `
+        <h3>Etapas da Solução</h3>
+        <ul>
+          ${projeto.etapas.map(e => `<li>${e}</li>`).join('')}
+        </ul>
+      ` : ''}
 
-    <h3>Impacto</h3>
-    <p>${projeto.impacto}</p>
+      ${projeto.objetivoGeral ? `
+        <h3>Objetivo Geral</h3>
+        <p>${projeto.objetivoGeral}</p>
+      ` : ''}
 
-    <div style="margin-top:40px;">
-      <a href="${projeto.pdf}" class="btn-download" download>
-        📄 Baixar projeto em PDF
-      </a>
-    </div>
-  `;
-}
+      ${Array.isArray(projeto.objetivosEspecificos) ? `
+        <h3>Objetivos Específicos</h3>
+        <ul>
+          ${projeto.objetivosEspecificos.map(o => `<li>${o}</li>`).join('')}
+        </ul>
+      ` : ''}
 
+      ${Array.isArray(projeto.metodologia) ? `
+        <h3>Metodologia</h3>
+        <ul>
+          ${projeto.metodologia.map(m => `<li>${m}</li>`).join('')}
+        </ul>
+      ` : ''}
 
+      ${Array.isArray(projeto.resultadosEsperados) ? `
+        <h3>Resultados Esperados</h3>
+        <ul>
+          ${projeto.resultadosEsperados.map(r => `<li>${r}</li>`).join('')}
+        </ul>
+      ` : ''}
+
+      ${Array.isArray(projeto.indicadores) ? `
+        <h3>Indicadores de Sucesso</h3>
+        <ul>
+          ${projeto.indicadores.map(i => `<li>${i}</li>`).join('')}
+        </ul>
+      ` : ''}
+
+      ${Array.isArray(projeto.cronograma) ? `
+        <h3>Cronograma de Execução</h3>
+        <ul>
+          ${projeto.cronograma.map(c => `<li>${c.etapa} – ${c.prazo}</li>`).join('')}
+        </ul>
+      ` : ''}
+
+      ${Array.isArray(projeto.orcamento) ? `
+        <h3>Orçamento Estimado</h3>
+        <ul>
+          ${projeto.orcamento.map(o => `<li>${o.item}: ${o.valor}</li>`).join('')}
+        </ul>
+      ` : ''}
+
+      ${projeto.consideracoes ? `
+        <h3>Considerações Finais</h3>
+        <p>${projeto.consideracoes}</p>
+      ` : ''}
+
+      ${projeto.pdf ? `
+        <a href="${projeto.pdf}" class="btn-download" download>
+          📄 Baixar PDF do Projeto
+        </a>
+      ` : ''}
+    `;
   });

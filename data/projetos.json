@@ -1,17 +1,69 @@
 [
   {
-    "id": 1,
-    "titulo": "Documentação – Transformando o Passado em Acesso",
-    "secretaria": "Secretaria Municipal de Educação",
-    "resumo": "Criação de arquivo técnico digital para resgate, digitalização e organização de documentos de escolas extintas.",
-    "contexto": "A Secretaria Municipal de Educação de Oriximiná possui acervo documental de escolas desativadas, atualmente armazenado de forma inadequada.",
-    "problema": "Documentos de escolas extintas estão mal armazenados, dificultando o acesso e comprometendo a integridade.",
-    "objetivo": "Instituir um arquivo digital centralizado e seguro.",
-    "metodologia": "Levantamento, triagem, digitalização e implantação de sistema de gestão documental.",
-    "resultados": "Agilidade no atendimento, preservação do acervo e liberação de espaço físico.",
-    "impacto": "Modernização da gestão educacional e garantia de acesso à informação.",
-    "pdf": "pdf/001 - DocumentAção – Transformando o Passado em Acesso.pdf"
-  },
+  "id": 1,
+  "titulo": "Documentação – Transformando o Passado em Acesso",
+  "secretaria": "Secretaria Municipal de Educação de Oriximiná",
+  "resumo": "Projeto voltado à organização, digitalização e preservação de documentos escolares provenientes de escolas extintas, garantindo acesso rápido à população e otimização dos espaços físicos das unidades escolares ativas.",
+  "introducao": "A Secretaria Municipal de Educação de Oriximiná detém um acervo documental de grande relevância histórica e administrativa, pertencente a escolas que foram desativadas ao longo dos anos. Atualmente, esses documentos encontram-se armazenados de forma inadequada em unidades escolares em funcionamento, comprometendo a organização, dificultando o acesso e ocupando espaços destinados às demandas atuais. A implantação de um Arquivo Técnico Digital representa um avanço significativo na modernização da gestão documental, contribuindo para a melhoria do atendimento ao cidadão e para a preservação da memória educacional do município.",
+  "desafio": "Os documentos oriundos de escolas extintas encontram-se armazenados de forma inadequada em escolas ativas, comprometendo sua integridade física, dificultando o acesso às informações e ocupando espaços necessários para a guarda de documentos em uso corrente.",
+  "resposta": "Criar um arquivo digital centralizado no âmbito da Diretoria Técnica, com a finalidade de reunir, organizar e disponibilizar de forma segura os documentos das escolas extintas.",
+  "etapas": [
+    "Levantamento e coleta dos documentos físicos",
+    "Triagem, organização e digitalização do acervo",
+    "Implantação de sistema de gestão documental",
+    "Disponibilização de atendimento digitalizado à população"
+  ],
+  "objetivoGeral": "Instituir um arquivo digital centralizado e eficiente para a gestão de documentos escolares provenientes de escolas extintas.",
+  "objetivosEspecificos": [
+    "Identificar e resgatar documentos de escolas desativadas",
+    "Liberar espaço físico nas unidades escolares ativas",
+    "Digitalizar e armazenar os documentos em sistema seguro",
+    "Garantir acesso rápido a declarações e históricos escolares",
+    "Preservar o acervo histórico da educação municipal"
+  ],
+  "metodologia": [
+    "Diagnóstico inicial com visitas técnicas às escolas",
+    "Coleta e transporte seguro dos documentos",
+    "Triagem e organização por unidade, período e tipo documental",
+    "Digitalização conforme normas técnicas",
+    "Implantação de software de gestão documental",
+    "Treinamento da equipe responsável",
+    "Implantação de atendimento presencial e/ou remoto"
+  ],
+  "resultadosEsperados": [
+    "Redução do acúmulo de documentos físicos nas escolas",
+    "Maior agilidade no atendimento às solicitações",
+    "Maior segurança e preservação do acervo documental",
+    "Criação de banco de dados histórico da educação municipal",
+    "Redução de prazos para emissão de documentos",
+    "Aumento da satisfação dos usuários"
+  ],
+  "indicadores": [
+    "Percentual de documentos digitalizados",
+    "Tempo médio de resposta às solicitações",
+    "Número de atendimentos realizados",
+    "Grau de satisfação dos usuários"
+  ],
+  "cronograma": [
+    { "etapa": "Levantamento e planejamento", "prazo": "Agosto/2025" },
+    { "etapa": "Coleta e transporte dos arquivos", "prazo": "Setembro/2025" },
+    { "etapa": "Triagem e organização", "prazo": "Outubro/2025" },
+    { "etapa": "Digitalização dos documentos", "prazo": "Novembro–Dezembro/2025" },
+    { "etapa": "Implantação do sistema digital", "prazo": "Janeiro/2026" },
+    { "etapa": "Início do atendimento ao público", "prazo": "Fevereiro/2026" }
+  ],
+  "orcamento": [
+    { "item": "Scanner profissional", "valor": "R$ 7.000,00" },
+    { "item": "HDs externos ou servidor local", "valor": "R$ 5.000,00" },
+    { "item": "Mobiliário e adequação do espaço", "valor": "R$ 3.000,00" },
+    { "item": "Software de gestão documental", "valor": "R$ 6.000,00" },
+    { "item": "Equipe técnica temporária", "valor": "Já existente" },
+    { "item": "Materiais de organização", "valor": "R$ 2.000,00" }
+  ],
+  "consideracoes": "O projeto representa um avanço significativo na modernização da Secretaria Municipal de Educação de Oriximiná, assegurando maior segurança, integridade e acessibilidade aos documentos provenientes de escolas extintas. A centralização e digitalização do acervo fortalecem a gestão educacional, promovem sustentabilidade administrativa e garantem o direito de acesso à informação à população.",
+  "pdf": "pdf/001-Documentacao-Transformando-o-Passado-em-Acesso.pdf"
+}
+,
   {
     "id": 2,
     "titulo": "SPOKAMUNDI",
