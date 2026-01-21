@@ -8,28 +8,55 @@ fetch('data/projetos.json')
     const lista = document.getElementById('lista-projetos');
 
     if (lista) {
-      lista.innerHTML = '';
+  lista.innerHTML = '';
 
-      projetos.forEach(p => {
-        lista.innerHTML += `
-          <div class="projeto-card">
-            <h3>${p.titulo}</h3>
+  projetos.forEach((p, index) => {
 
-            <div class="projeto-secretaria">
-              ${p.secretaria}
-            </div>
+    let podiumClass = '';
+    let podiumText = '';
+    let podiumIcon = '';
 
-            <div class="projeto-resumo">
-              ${p.resumo}
-            </div>
-
-            <a href="projeto.html?id=${p.id}">
-              Ver detalhes
-            </a>
-          </div>
-        `;
-      });
+    if (index === 0) {
+      podiumClass = 'primeiro-lugar';
+      podiumText = '1º Lugar';
+      podiumIcon = '🥇';
+    } else if (index === 1) {
+      podiumClass = 'segundo-lugar';
+      podiumText = '2º Lugar';
+      podiumIcon = '🥈';
+    } else if (index === 2) {
+      podiumClass = 'terceiro-lugar';
+      podiumText = '3º Lugar';
+      podiumIcon = '🥉';
     }
+
+    lista.innerHTML += `
+      <div class="projeto-card ${podiumClass}">
+        <h3>${p.titulo}</h3>
+
+        <div class="projeto-secretaria">
+          ${p.secretaria}
+        </div>
+
+        <div class="projeto-resumo">
+          ${p.resumo}
+        </div>
+
+        <div class="projeto-footer">
+          ${podiumText ? `
+            <span class="selo-podio">
+              ${podiumIcon} ${podiumText}
+            </span>
+          ` : ''}
+
+          <a href="projeto.html?id=${p.id}">
+            Ver detalhes
+          </a>
+        </div>
+      </div>
+    `;
+  });
+}
 
     /* ============================
        DETALHE DO PROJETO
@@ -136,4 +163,5 @@ fetch('data/projetos.json')
         </a>
       ` : ''}
     `;
+
   });

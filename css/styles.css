@@ -286,6 +286,9 @@ body {
   background-color: var(--azul-escuro);
 }
 
+
+
+
 /* ============================= */
 /* BOTÃO DOWNLOAD */
 /* ============================= */
@@ -717,3 +720,88 @@ body {
   }
 }
 
+/* ============================= */
+/* RODAPÉ DO CARD (BOTÃO + PÓDIO) */
+/* ============================= */
+.projeto-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* ============================= */
+/* SELO DO PÓDIO */
+/* ============================= */
+.selo-podio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 0.8rem;
+  font-weight: bold;
+
+  padding: 6px 12px;
+  border-radius: 20px;
+
+  white-space: nowrap;
+}
+
+/* ============================= */
+/* 1º LUGAR – DOURADO */
+/* ============================= */
+.projeto-card.primeiro-lugar {
+  border-left-color: #d4af37;
+}
+
+.projeto-card.primeiro-lugar .selo-podio {
+  background-color: #d4af37;
+  color: #001b3d;
+}
+
+/* ============================= */
+/* 2º LUGAR – PRATA */
+/* ============================= */
+.projeto-card.segundo-lugar {
+  border-left-color: #c0c0c0;
+}
+
+.projeto-card.segundo-lugar .selo-podio {
+  background-color: #c0c0c0;
+  color: #001b3d;
+}
+
+/* ============================= */
+/* 3º LUGAR – BRONZE */
+/* ============================= */
+.projeto-card.terceiro-lugar {
+  border-left-color: #cd7f32;
+}
+
+.projeto-card.terceiro-lugar .selo-podio {
+  background-color: #cd7f32;
+  color: #ffffff;
+}
+
+/* ============================= */
+/* AJUSTE DO BOTÃO NO CARD */
+/* ============================= */
+.projeto-card a {
+  margin-left: auto;
+}
+
+/* ============================= */
+/* RESPONSIVO – MOBILE */
+/* ============================= */
+@media (max-width: 600px) {
+  .projeto-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projeto-card a {
+    width: 100%;
+    text-align: center;
+  }
+}
