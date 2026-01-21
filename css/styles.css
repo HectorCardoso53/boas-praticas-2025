@@ -43,12 +43,13 @@ body {
 .header-container {
   max-width: 1100px;
   margin: auto;
-  padding: 14px 20px;
+  padding: 18px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* LOGO */
 .header-brand {
   display: flex;
   align-items: center;
@@ -70,7 +71,7 @@ body {
 }
 
 /* ============================= */
-/* MENU EDIÇÕES */
+/* MENU EDIÇÕES (CLIQUES) */
 /* ============================= */
 .header-nav {
   display: flex;
@@ -90,12 +91,14 @@ body {
   font-size: 0.9rem;
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .menu-botao:hover {
   background-color: #f1c40f;
 }
 
+/* DROPDOWN (controlado por JS) */
 .menu-dropdown {
   display: none;
   position: absolute;
@@ -109,7 +112,7 @@ body {
   z-index: 10;
 }
 
-.menu-edicoes:hover .menu-dropdown {
+.menu-dropdown.ativo {
   display: block;
 }
 
@@ -122,7 +125,7 @@ body {
 }
 
 .menu-dropdown a,
-.menu-dropdown .menu-desativado {
+.menu-desativado {
   display: block;
   padding: 10px 14px;
   font-size: 0.85rem;
@@ -130,6 +133,7 @@ body {
 
 .menu-dropdown a {
   color: var(--cinza-texto);
+  text-decoration: none;
 }
 
 .menu-dropdown a:hover {
@@ -139,12 +143,25 @@ body {
 
 .menu-desativado {
   color: #999;
+  cursor: default;
 }
 
 /* ============================= */
-/* BANNER */
+/* BANNERS */
 /* ============================= */
-.banner-imagem {
+
+/* HOME */
+.banner-home {
+  background-image: url('../src/img/banner.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: #e9edf2;
+  height: 380px;
+}
+
+/* EDIÇÃO 2025 */
+.banner-2025 {
   background-image: url('../src/img/BANNER-1.png');
   background-repeat: no-repeat;
   background-position: center;
@@ -158,22 +175,23 @@ body {
 /* ============================= */
 .container {
   max-width: 1100px;
-  margin: 30px auto 50px;
+  margin: 40px auto 60px;
   padding: 0 20px;
 }
 
 .texto-intro {
-  max-width: 720px;
-  margin-bottom: 50px;
+  max-width: 760px;
+  margin: 0 auto 60px;
+  text-align: center;
 }
 
 .texto-intro p {
-  margin-bottom: 15px;
-  text-align: justify;
+  margin-bottom: 16px;
+  font-size: 1rem;
 }
 
 /* ============================= */
-/* AÇÕES PRINCIPAIS */
+/* AÇÕES */
 /* ============================= */
 .acoes-concurso {
   display: grid;
@@ -189,22 +207,28 @@ body {
   text-align: center;
   text-decoration: none;
   color: var(--cinza-texto);
-  transition: transform .2s, box-shadow .2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .acao-icone {
   font-size: 2.2rem;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
 }
 
 .acao-card h3 {
   color: var(--azul-principal);
   margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.acao-card p {
+  font-size: 0.95rem;
 }
 
 .acao-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  border-top-color: var(--azul-claro);
 }
 
 /* ============================= */
@@ -220,7 +244,7 @@ body {
   background-color: var(--branco);
   border-left: 5px solid var(--azul-principal);
   padding: 20px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .projeto-card h3 {
@@ -234,6 +258,7 @@ body {
 }
 
 .projeto-card a {
+  display: inline-block;
   background-color: var(--azul-principal);
   color: var(--branco);
   padding: 8px 16px;
@@ -280,7 +305,7 @@ body {
 .footer-fino-container {
   max-width: 1100px;
   margin: auto;
-  padding: 10px 20px;
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
 }
@@ -289,14 +314,20 @@ body {
 /* RESPONSIVO */
 /* ============================= */
 @media (max-width: 768px) {
+
   .header-container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 14px;
   }
 
-  .banner-imagem {
+  .banner-home,
+  .banner-2025 {
     height: 220px;
+  }
+
+  .texto-intro {
+    text-align: left;
   }
 
   .acoes-concurso {
@@ -309,3 +340,366 @@ body {
     gap: 6px;
   }
 }
+
+/* ============================= */
+/* AJUSTES ESPECÍFICOS – EDIÇÃO 2025 */
+/* ============================= */
+
+/* BOTÃO "PROJETOS 2025" NO HEADER */
+.header-nav .btn-2025 {
+  background-color: var(--amarelo-destaque);
+  color: var(--azul-principal);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+
+  transition: 
+    background-color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.header-nav .btn-2025:hover {
+  background-color: #f1c40f;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* ============================= */
+/* BANNER 2025 – MAIS IMPACTO */
+/* ============================= */
+.banner-2025 {
+  margin-bottom: 40px;
+}
+
+/* ============================= */
+/* TEXTO INTRO – EDIÇÃO */
+/* ============================= */
+.texto-intro h2 {
+  color: var(--azul-principal);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* ============================= */
+/* BOTÃO VOLTAR */
+/* ============================= */
+
+.barra-voltar {
+  max-width: 1100px;
+  margin: 20px auto 0;
+  padding: 0 20px;
+}
+
+/* ============================= */
+/* SETA VOLTAR – HEADER */
+/* ============================= */
+
+.seta-voltar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  margin-right: 6px;
+
+  border-radius: 50%;
+  background-color:var(--amarelo-destaque);
+
+  color: var(--azul-escuro);
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.seta-voltar:hover {
+  background-color: var(--amarelo-destaque);
+  color: var(--azul-principal);
+  transform: translateX(-3px);
+}
+
+
+.btn-voltar {
+  background-color: transparent;
+  color: var(--azul-principal);
+  border: 2px solid var(--azul-principal);
+
+  padding: 8px 16px;
+  border-radius: 6px;
+
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.btn-voltar:hover {
+  background-color: var(--azul-principal);
+  color: var(--branco);
+}
+
+
+/* ============================= */
+/* BREADCRUMB */
+/* ============================= */
+.breadcrumb {
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.breadcrumb a {
+  color: var(--azul-principal);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.breadcrumb span {
+  margin: 0 6px;
+}
+
+/* ============================= */
+/* TEXTO INTRO – ESQUERDA */
+/* ============================= */
+.texto-left {
+  text-align: left;
+}
+
+.texto-intro small {
+  font-size: 1rem;
+  color: #555;
+  font-weight: normal;
+}
+
+/* ============================= */
+/* LISTA DE DOCUMENTOS */
+/* ============================= */
+.lista-documentos {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.doc-item {
+  background-color: var(--branco);
+  border-left: 5px solid var(--azul-principal);
+  padding: 16px 18px;
+  border-radius: 6px;
+
+  color: var(--cinza-texto);
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.doc-item span {
+  display: block;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 4px;
+}
+
+.doc-item:hover {
+  background-color: #f1f6fb;
+  transform: translateX(4px);
+}
+
+.doc-item.destaque {
+  border-left-color: var(--amarelo-destaque);
+}
+
+
+/* LINHA DECORATIVA */
+.texto-intro h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--amarelo-destaque);
+  margin: 14px auto 0;
+  border-radius: 2px;
+}
+
+.texto-intro p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/* AÇÕES DA EDIÇÃO 2025 */
+/* ============================= */
+.acoes-concurso {
+  margin-top: 20px;
+}
+
+/* DIFERENCIAL VISUAL DOS CARDS */
+.acoes-concurso .acao-card {
+  border-top-width: 6px;
+}
+
+.acoes-concurso .acao-card:hover {
+  border-top-color: var(--amarelo-destaque);
+}
+
+/* ============================= */
+/* RESPONSIVO – EDIÇÃO 2025 */
+/* ============================= */
+@media (max-width: 768px) {
+
+  .header-nav {
+    width: 100%;
+  }
+
+  .header-nav .btn-2025 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .texto-intro h2 {
+    font-size: 1.5rem;
+  }
+
+  .texto-intro h2::after {
+    margin-left: 0;
+  }
+}
+
+/* ============================= */
+/* PÁGINAS INSTITUCIONAIS 2025 */
+/* REGULAMENTO / ACOMPANHAMENTO */
+/* ============================= */
+
+.bloco-documentos {
+  background-color: var(--branco);
+  border-left: 6px solid var(--azul-principal);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-bottom: 30px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* TÍTULO DE CADA BLOCO */
+.bloco-documentos h3 {
+  color: var(--azul-principal);
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+/* LINHA DECORATIVA */
+.bloco-documentos h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--amarelo-destaque);
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+/* LISTA DE DOCUMENTOS */
+.lista-documentos {
+  list-style: none;
+  padding-left: 0;
+}
+
+.lista-documentos li {
+  margin-bottom: 12px;
+}
+
+/* LINKS DOS PDFs */
+.lista-documentos a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 0.95rem;
+  color: var(--azul-principal);
+  text-decoration: none;
+  font-weight: bold;
+
+  padding: 8px 10px;
+  border-radius: 6px;
+
+  transition: background-color 0.2s ease,
+              transform 0.15s ease;
+}
+
+/* ÍCONE PDF */
+.lista-documentos a::before {
+  content: "📄";
+  font-size: 1.1rem;
+}
+
+/* HOVER */
+.lista-documentos a:hover {
+  background-color: #f1f6fb;
+  transform: translateX(4px);
+}
+
+/* ============================= */
+/* BREADCRUMB (CAMINHO) */
+/* ============================= */
+.breadcrumb {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+.breadcrumb a {
+  color: var(--azul-principal);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* ============================= */
+/* TÍTULO PRINCIPAL DA PÁGINA */
+/* ============================= */
+.texto-intro h2 {
+  font-size: 1.9rem;
+  color: var(--azul-principal);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ============================= */
+/* RESPONSIVO */
+/* ============================= */
+@media (max-width: 768px) {
+
+  .bloco-documentos {
+    padding: 20px;
+  }
+
+  .bloco-documentos h3 {
+    font-size: 1.1rem;
+  }
+
+  .lista-documentos a {
+    font-size: 0.9rem;
+  }
+
+  .texto-intro h2 {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+}
+

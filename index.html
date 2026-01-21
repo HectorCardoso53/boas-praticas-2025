@@ -8,7 +8,6 @@
 </head>
 
 <body>
-
     <!-- HEADER COM MENU -->
     <header class="header-institucional">
         <div class="header-container">
@@ -21,12 +20,14 @@
                     <span>Prefeitura Municipal de Oriximiná</span>
                 </div>
             </div>
-
             <!-- BLOCO DIREITO -->
             <nav class="header-nav">
                 <div class="menu-edicoes">
-                    <button class="menu-botao">Edições do Concurso</button>
-                    <ul class="menu-dropdown">
+                    <button class="menu-botao" id="btn-edicoes">
+                        Edições do Concurso
+                    </button>
+
+                    <ul class="menu-dropdown" id="menu-edicoes">
                         <li><a href="projetos-2025.html">2025 – Concluída</a></li>
                         <li class="menu-desativado">2026 – Em Breve</li>
                         <li class="menu-desativado">Próximas edições</li>
@@ -34,15 +35,17 @@
                 </div>
             </nav>
 
+
         </div>
     </header>
     <!-- BANNER (SOMENTE IMAGEM) -->
-    <div class="banner-imagem"></div>
-
+    <div class="banner-home"></div>
     <!-- CONTEÚDO -->
     <main class="container">
         <!-- TEXTO INTRODUTÓRIO -->
         <section class="texto-intro">
+            <h2>Sobre o Concurso</h2>
+
             <p>
                 O <strong>Concurso de Boas Práticas</strong> é uma iniciativa da
                 Prefeitura Municipal de Oriximiná que tem como objetivo reconhecer,
@@ -57,30 +60,6 @@
             </p>
         </section>
 
-        <!-- AÇÕES PRINCIPAIS -->
-        <section class="acoes-concurso">
-
-            <a href="regulamento.html" class="acao-card">
-                <span class="acao-icone">📘</span>
-                <h3>Regulamento</h3>
-                <p>Normas, critérios e diretrizes do concurso</p>
-            </a>
-
-            <a href="inscricoes.html" class="acao-card">
-                <span class="acao-icone">📝</span>
-                <h3>Inscrições</h3>
-                <p>Orientações sobre o processo de inscrição</p>
-            </a>
-
-            <a href="acompanhamento.html" class="acao-card">
-                <span class="acao-icone">📊</span>
-                <h3>Acompanhamento</h3>
-                <p>Edições, projetos inscritos e resultados</p>
-            </a>
-
-        </section>
-
-
     </main>
     <!-- FOOTER -->
     <footer class="footer-fino">
@@ -90,6 +69,7 @@
         </div>
     </footer>
 
+    <script src="js/menu.js"></script>
 </body>
 
 </html>
