@@ -247,6 +247,20 @@ body {
   border-radius: 6px;
 }
 
+/* HOVER – PROJETOS INSCRITOS */
+.projeto-card {
+  transition: 
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-left-color 0.2s ease;
+}
+
+.projeto-card:hover {
+  border-left-color: var(--amarelo-destaque);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
 .projeto-card h3 {
   color: var(--azul-principal);
   margin-bottom: 8px;
