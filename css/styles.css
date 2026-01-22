@@ -31,6 +31,7 @@ body {
   line-height: 1.7;
 }
 
+
 /* ============================= */
 /* HEADER INSTITUCIONAL */
 /* ============================= */
@@ -286,9 +287,71 @@ body {
   background-color: var(--azul-escuro);
 }
 
+/* ============================= */
+/* CARD COMO COLUNA FLEX */
+/* ============================= */
+.projeto-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
+/* O conteúdo cresce e empurra o rodapé para baixo */
+.projeto-resumo {
+  flex-grow: 1;
+}
 
+/* ============================= */
+/* RODAPÉ DO CARD (BOTÃO + PÓDIO) */
+/* ============================= */
+.projeto-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
 
+/* ============================= */
+/* SELO DO PÓDIO */
+/* ============================= */
+.selo-podio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ============================= */
+/* ALINHAMENTO DO BOTÃO */
+/* ============================= */
+.projeto-footer a {
+  margin-left: auto;
+}
+
+/* ============================= */
+/* RESPONSIVO – MOBILE */
+/* ============================= */
+@media (max-width: 600px) {
+  .projeto-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .projeto-footer a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .selo-podio {
+    order: -1;
+    align-self: flex-start;
+  }
+}
 /* ============================= */
 /* BOTÃO DOWNLOAD */
 /* ============================= */
