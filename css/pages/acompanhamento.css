@@ -1,0 +1,19 @@
+.texto-left {
+  text-align: left;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+.breadcrumb a {
+  color: var(--azul-principal);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}

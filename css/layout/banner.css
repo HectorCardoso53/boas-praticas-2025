@@ -1,0 +1,35 @@
+.banner-home {
+  background-image: url('/src/img/banner.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: #e9edf2;
+  height: 520px; /* aumentei aqui */
+}
+
+.banner-2025 {
+  background-image: url('/src/img/BANNER-1.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: #e9edf2;
+  min-height: 400px;
+  padding: 40px 0;
+}
+
+
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .banner-home,
+  .banner-2025 {
+    height: 300px; /* antes 220px */
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-home,
+  .banner-2025 {
+    height: 220px;
+  }
+}

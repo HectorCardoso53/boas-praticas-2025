@@ -1,0 +1,25 @@
+.header-institucional {
+  background-color: var(--azul-principal);
+  color: var(--branco);
+  border-bottom: 4px solid var(--amarelo-destaque);
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.header-brand img {
+  height: 55px;
+}

@@ -1,0 +1,50 @@
+.menu-edicoes {
+  position: relative;
+}
+
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 115%;
+  background-color: var(--branco);
+  min-width: 220px;
+  border-radius: 6px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  list-style: none;
+  z-index: 1000;
+}
+
+.menu-dropdown.ativo {
+  display: block;
+}
+
+.menu-dropdown li {
+  border-bottom: 1px solid #eee;
+}
+
+.menu-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.menu-dropdown a,
+.menu-desativado {
+  display: block;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+}
+
+.menu-dropdown a {
+  color: var(--cinza-texto);
+  text-decoration: none;
+}
+
+.menu-dropdown a:hover {
+  background-color: var(--azul-claro);
+  color: var(--azul-principal);
+}
+
+.menu-desativado {
+  color: #999;
+  cursor: default;
+}

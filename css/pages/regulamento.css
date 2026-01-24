@@ -1,0 +1,96 @@
+/* ============================= */
+/* BLOCO DE DOCUMENTOS */
+/* ============================= */
+
+.bloco-documentos {
+  background-color: var(--branco);
+  border-left: 6px solid var(--azul-principal);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* TÍTULO DO BLOCO */
+.bloco-documentos h3 {
+  color: var(--azul-principal);
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.bloco-documentos h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--amarelo-destaque);
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+/* ============================= */
+/* LISTA DE DOCUMENTOS */
+/* ============================= */
+
+.lista-documentos {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ITEM (LINK) */
+.lista-documentos a {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  background-color: #ffffff;
+  border-left: 5px solid var(--azul-principal);
+  border-radius: 6px;
+
+  padding: 14px 16px;
+
+  text-decoration: none;
+  color: var(--cinza-texto);
+
+  transition: 
+    background-color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* ÍCONE */
+.lista-documentos a::before {
+  content: "📄";
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+/* TEXTO PRINCIPAL */
+.lista-documentos a strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--azul-principal);
+}
+
+/* TEXTO SECUNDÁRIO */
+.lista-documentos a span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* HOVER */
+.lista-documentos a:hover {
+  background-color: #f1f6fb;
+  transform: translateX(4px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+/* DESTAQUE */
+.lista-documentos a.destaque {
+  border-left-color: var(--amarelo-destaque);
+  background-color: #fffbe6;
+}

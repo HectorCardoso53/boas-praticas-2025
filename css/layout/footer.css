@@ -1,0 +1,23 @@
+.footer-fino {
+  background-color: var(--azul-escuro);
+  color: var(--branco);
+}
+
+.footer-fino-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+
+@media (max-width: 768px) {
+  .footer-fino-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+}

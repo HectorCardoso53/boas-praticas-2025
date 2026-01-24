@@ -1,0 +1,6 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--cinza-fundo);
+  color: var(--cinza-texto);
+  line-height: 1.7;
+}

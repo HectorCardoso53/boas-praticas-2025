@@ -1,0 +1,29 @@
+.acoes-concurso {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.acao-card {
+  background-color: var(--branco);
+  border-top: 6px solid var(--azul-principal);
+  border-radius: 10px;
+
+  padding: 32px 24px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--cinza-texto);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.acao-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.15);
+  border-top-color: var(--amarelo-destaque);
+}

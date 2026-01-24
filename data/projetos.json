@@ -1,107 +1,348 @@
 [
   {
-  "id": 1,
-  "titulo": "Documentação – Transformando o Passado em Acesso",
-  "secretaria": "Secretaria Municipal de Educação de Oriximiná",
-  "resumo": "Projeto voltado à organização, digitalização e preservação de documentos escolares provenientes de escolas extintas, garantindo acesso rápido à população e otimização dos espaços físicos das unidades escolares ativas.",
-  "introducao": "A Secretaria Municipal de Educação de Oriximiná detém um acervo documental de grande relevância histórica e administrativa, pertencente a escolas que foram desativadas ao longo dos anos. Atualmente, esses documentos encontram-se armazenados de forma inadequada em unidades escolares em funcionamento, comprometendo a organização, dificultando o acesso e ocupando espaços destinados às demandas atuais. A implantação de um Arquivo Técnico Digital representa um avanço significativo na modernização da gestão documental, contribuindo para a melhoria do atendimento ao cidadão e para a preservação da memória educacional do município.",
-  "desafio": "Os documentos oriundos de escolas extintas encontram-se armazenados de forma inadequada em escolas ativas, comprometendo sua integridade física, dificultando o acesso às informações e ocupando espaços necessários para a guarda de documentos em uso corrente.",
-  "resposta": "Criar um arquivo digital centralizado no âmbito da Diretoria Técnica, com a finalidade de reunir, organizar e disponibilizar de forma segura os documentos das escolas extintas.",
-  "etapas": [
-    "Levantamento e coleta dos documentos físicos",
-    "Triagem, organização e digitalização do acervo",
-    "Implantação de sistema de gestão documental",
-    "Disponibilização de atendimento digitalizado à população"
-  ],
-  "objetivoGeral": "Instituir um arquivo digital centralizado e eficiente para a gestão de documentos escolares provenientes de escolas extintas.",
-  "objetivosEspecificos": [
-    "Identificar e resgatar documentos de escolas desativadas",
-    "Liberar espaço físico nas unidades escolares ativas",
-    "Digitalizar e armazenar os documentos em sistema seguro",
-    "Garantir acesso rápido a declarações e históricos escolares",
-    "Preservar o acervo histórico da educação municipal"
-  ],
-  "metodologia": [
-    "Diagnóstico inicial com visitas técnicas às escolas",
-    "Coleta e transporte seguro dos documentos",
-    "Triagem e organização por unidade, período e tipo documental",
-    "Digitalização conforme normas técnicas",
-    "Implantação de software de gestão documental",
-    "Treinamento da equipe responsável",
-    "Implantação de atendimento presencial e/ou remoto"
-  ],
-  "resultadosEsperados": [
-    "Redução do acúmulo de documentos físicos nas escolas",
-    "Maior agilidade no atendimento às solicitações",
-    "Maior segurança e preservação do acervo documental",
-    "Criação de banco de dados histórico da educação municipal",
-    "Redução de prazos para emissão de documentos",
-    "Aumento da satisfação dos usuários"
-  ],
-  "indicadores": [
-    "Percentual de documentos digitalizados",
-    "Tempo médio de resposta às solicitações",
-    "Número de atendimentos realizados",
-    "Grau de satisfação dos usuários"
-  ],
-  "cronograma": [
-    { "etapa": "Levantamento e planejamento", "prazo": "Agosto/2025" },
-    { "etapa": "Coleta e transporte dos arquivos", "prazo": "Setembro/2025" },
-    { "etapa": "Triagem e organização", "prazo": "Outubro/2025" },
-    { "etapa": "Digitalização dos documentos", "prazo": "Novembro–Dezembro/2025" },
-    { "etapa": "Implantação do sistema digital", "prazo": "Janeiro/2026" },
-    { "etapa": "Início do atendimento ao público", "prazo": "Fevereiro/2026" }
-  ],
-  "orcamento": [
-    { "item": "Scanner profissional", "valor": "R$ 7.000,00" },
-    { "item": "HDs externos ou servidor local", "valor": "R$ 5.000,00" },
-    { "item": "Mobiliário e adequação do espaço", "valor": "R$ 3.000,00" },
-    { "item": "Software de gestão documental", "valor": "R$ 6.000,00" },
-    { "item": "Equipe técnica temporária", "valor": "Já existente" },
-    { "item": "Materiais de organização", "valor": "R$ 2.000,00" }
-  ],
-  "consideracoes": "O projeto representa um avanço significativo na modernização da Secretaria Municipal de Educação de Oriximiná, assegurando maior segurança, integridade e acessibilidade aos documentos provenientes de escolas extintas. A centralização e digitalização do acervo fortalecem a gestão educacional, promovem sustentabilidade administrativa e garantem o direito de acesso à informação à população.",
-  "pdf": "pdf/001-Documentacao-Transformando-o-Passado-em-Acesso.pdf"
-}
-,
+    "id": 1,
+    "titulo": "Documentação – Transformando o Passado em Acesso",
+    "secretaria": "Secretaria Municipal de Educação de Oriximiná",
+    "resumo": "Projeto voltado à organização, digitalização e preservação de documentos escolares provenientes de escolas extintas, garantindo acesso rápido à população e otimização dos espaços físicos das unidades escolares ativas.",
+    "introducao": "A Secretaria Municipal de Educação de Oriximiná detém um acervo documental de grande relevância histórica e administrativa, pertencente a escolas que foram desativadas ao longo dos anos. Atualmente, esses documentos encontram-se armazenados de forma inadequada em unidades escolares em funcionamento, comprometendo a organização, dificultando o acesso e ocupando espaços destinados às demandas atuais. A implantação de um Arquivo Técnico Digital representa um avanço significativo na modernização da gestão documental, contribuindo para a melhoria do atendimento ao cidadão e para a preservação da memória educacional do município.",
+    "desafio": "Os documentos oriundos de escolas extintas encontram-se armazenados de forma inadequada em escolas ativas, comprometendo sua integridade física, dificultando o acesso às informações e ocupando espaços necessários para a guarda de documentos em uso corrente.",
+    "resposta": "Criar um arquivo digital centralizado no âmbito da Diretoria Técnica, com a finalidade de reunir, organizar e disponibilizar de forma segura os documentos das escolas extintas.",
+    "etapas": [
+      "Levantamento e coleta dos documentos físicos",
+      "Triagem, organização e digitalização do acervo",
+      "Implantação de sistema de gestão documental",
+      "Disponibilização de atendimento digitalizado à população"
+    ],
+    "objetivoGeral": "Instituir um arquivo digital centralizado e eficiente para a gestão de documentos escolares provenientes de escolas extintas.",
+    "objetivosEspecificos": [
+      "Identificar e resgatar documentos de escolas desativadas",
+      "Liberar espaço físico nas unidades escolares ativas",
+      "Digitalizar e armazenar os documentos em sistema seguro",
+      "Garantir acesso rápido a declarações e históricos escolares",
+      "Preservar o acervo histórico da educação municipal"
+    ],
+    "metodologia": [
+      "Diagnóstico inicial com visitas técnicas às escolas",
+      "Coleta e transporte seguro dos documentos",
+      "Triagem e organização por unidade, período e tipo documental",
+      "Digitalização conforme normas técnicas",
+      "Implantação de software de gestão documental",
+      "Treinamento da equipe responsável",
+      "Implantação de atendimento presencial e/ou remoto"
+    ],
+    "resultadosEsperados": [
+      "Redução do acúmulo de documentos físicos nas escolas",
+      "Maior agilidade no atendimento às solicitações",
+      "Maior segurança e preservação do acervo documental",
+      "Criação de banco de dados histórico da educação municipal",
+      "Redução de prazos para emissão de documentos",
+      "Aumento da satisfação dos usuários"
+    ],
+    "indicadores": [
+      "Percentual de documentos digitalizados",
+      "Tempo médio de resposta às solicitações",
+      "Número de atendimentos realizados",
+      "Grau de satisfação dos usuários"
+    ],
+    "cronograma": [
+      {
+        "etapa": "Levantamento e planejamento",
+        "prazo": "Agosto/2025"
+      },
+      {
+        "etapa": "Coleta e transporte dos arquivos",
+        "prazo": "Setembro/2025"
+      },
+      {
+        "etapa": "Triagem e organização",
+        "prazo": "Outubro/2025"
+      },
+      {
+        "etapa": "Digitalização dos documentos",
+        "prazo": "Novembro–Dezembro/2025"
+      },
+      {
+        "etapa": "Implantação do sistema digital",
+        "prazo": "Janeiro/2026"
+      },
+      {
+        "etapa": "Início do atendimento ao público",
+        "prazo": "Fevereiro/2026"
+      }
+    ],
+    "orcamento": [
+      {
+        "item": "Scanner profissional",
+        "valor": "R$ 7.000,00"
+      },
+      {
+        "item": "HDs externos ou servidor local",
+        "valor": "R$ 5.000,00"
+      },
+      {
+        "item": "Mobiliário e adequação do espaço",
+        "valor": "R$ 3.000,00"
+      },
+      {
+        "item": "Software de gestão documental",
+        "valor": "R$ 6.000,00"
+      },
+      {
+        "item": "Equipe técnica temporária",
+        "valor": "Já existente"
+      },
+      {
+        "item": "Materiais de organização",
+        "valor": "R$ 2.000,00"
+      }
+    ],
+    "consideracoes": "O projeto representa um avanço significativo na modernização da Secretaria Municipal de Educação de Oriximiná, assegurando maior segurança, integridade e acessibilidade aos documentos provenientes de escolas extintas. A centralização e digitalização do acervo fortalecem a gestão educacional, promovem sustentabilidade administrativa e garantem o direito de acesso à informação à população.",
+    "pdf": "pdf/001-Documentacao-Transformando-o-Passado-em-Acesso.pdf"
+  },
   {
     "id": 2,
-    "titulo": "SPOKAMUNDI",
-    "secretaria": "Secretaria Municipal de Cultura",
-    "resumo": "Projeto cultural voltado à valorização da diversidade e identidade local.",
-    "contexto": "Necessidade de fortalecer ações culturais inclusivas.",
-    "problema": "Baixa integração cultural de públicos diversos.",
-    "objetivo": "Promover cultura, diversidade e participação social.",
-    "metodologia": "Oficinas, eventos culturais e ações comunitárias.",
-    "resultados": "Maior engajamento cultural da comunidade.",
-    "impacto": "Fortalecimento da identidade cultural municipal.",
+    "titulo": "SpokaMundi – Tecnologia Social para o Município de Oriximiná/PA",
+    "secretaria": "Secretaria Municipal de Cultura / Gestão Pública Integrada",
+    "resumo": "O projeto SpokaMundi propõe o desenvolvimento de uma tecnologia social multiplataforma destinada a modernizar o atendimento ao cidadão e o registro de ocorrências no município de Oriximiná/PA. A iniciativa busca aproximar a população urbana e rural da gestão pública, oferecendo um canal digital acessível, eficiente e participativo para o monitoramento de demandas e serviços municipais.",
+    "introducao": "O município de Oriximiná, localizado na região Oeste do estado do Pará, destaca-se por sua extensa área territorial e grande diversidade geográfica, abrigando zonas urbanas, comunidades ribeirinhas, indígenas e quilombolas. Essa realidade impõe desafios significativos à prestação de serviços públicos e à comunicação institucional. A inexistência de canais digitais consolidados compromete o acompanhamento das demandas da população e dificulta a tomada de decisões estratégicas pela administração pública. Nesse contexto, o SpokaMundi surge como uma solução tecnológica voltada à modernização da governança municipal.",
+    "desafio": "O modelo atual de atendimento público depende majoritariamente de processos presenciais e canais informais de comunicação, o que se mostra ineficiente diante da grande extensão territorial do município. A ausência de uma plataforma centralizada dificulta o registro, o monitoramento e a análise de ocorrências relacionadas à infraestrutura, saúde, meio ambiente e demais serviços públicos.",
+    "resposta": "O SpokaMundi apresenta-se como uma plataforma digital que permite ao cidadão registrar ocorrências de forma simples e intuitiva, com envio de fotos, descrição textual, localização automática via GPS e acompanhamento do status da solicitação. As informações são direcionadas automaticamente aos órgãos competentes por meio de um painel administrativo integrado.",
+    "objetivoGeral": "Modernizar o sistema de atendimento à população de Oriximiná por meio de uma plataforma digital que integre tecnologia, gestão pública e participação cidadã.",
+    "objetivosEspecificos": [
+      "Criar um canal digital institucional para o registro de ocorrências e demandas públicas",
+      "Reduzir o tempo médio de resposta dos serviços municipais",
+      "Otimizar o uso de recursos públicos e o deslocamento de equipes",
+      "Fortalecer a participação cidadã nos processos de gestão pública",
+      "Disponibilizar dados georreferenciados para o planejamento municipal"
+    ],
+    "metodologia": [
+      "Diagnóstico técnico-participativo com as secretarias municipais",
+      "Mapeamento das categorias de ocorrências e fluxos internos",
+      "Desenvolvimento do aplicativo móvel e do painel administrativo",
+      "Testes-piloto na zona urbana e em comunidades ribeirinhas",
+      "Capacitação das equipes responsáveis pela operação do sistema",
+      "Lançamento oficial e campanha de mobilização social"
+    ],
+    "resultadosEsperados": [
+      "Implantação de um canal digital oficial acessível à população urbana e rural",
+      "Redução mínima de 30% no tempo médio de resposta às ocorrências",
+      "Melhoria na organização e no controle das demandas públicas",
+      "Criação de base de dados estratégica para gestão municipal",
+      "Fortalecimento da transparência e da participação social"
+    ],
+    "cronograma": [
+      {
+        "etapa": "Planejamento detalhado e escuta institucional",
+        "prazo": "Outubro/2025"
+      },
+      {
+        "etapa": "Desenvolvimento do aplicativo e painel web",
+        "prazo": "Novembro a Dezembro/2025"
+      },
+      {
+        "etapa": "Testagem piloto",
+        "prazo": "Janeiro/2026"
+      },
+      {
+        "etapa": "Treinamento das equipes",
+        "prazo": "Fevereiro/2026"
+      },
+      {
+        "etapa": "Lançamento e campanha pública",
+        "prazo": "Março/2026"
+      },
+      {
+        "etapa": "Monitoramento e expansão",
+        "prazo": "Abril a Junho/2026"
+      }
+    ],
+    "orcamento": [
+      {
+        "item": "Desenvolvimento técnico e hospedagem",
+        "valor": "R$ 15.275,23"
+      },
+      {
+        "item": "Infraestrutura digital (domínio, API, nuvem)",
+        "valor": "R$ 3.000,00"
+      },
+      {
+        "item": "Campanha educativa e material gráfico",
+        "valor": "R$ 2.000,00"
+      },
+      {
+        "item": "Total Geral",
+        "valor": "R$ 20.275,23"
+      }
+    ],
+    "consideracoes": "O projeto SpokaMundi representa uma solução inovadora e de alto impacto para a gestão pública municipal, promovendo a modernização do atendimento ao cidadão e fortalecendo a governança digital. Ao integrar tecnologia, participação social e gestão orientada por dados, o projeto posiciona Oriximiná como referência regional no uso inteligente de ferramentas digitais para a administração pública.",
     "pdf": "pdf/002 - SPOKAMUNDI.pdf"
   },
   {
     "id": 3,
-    "titulo": "Patrimônio Inteligente",
-    "secretaria": "Secretaria Municipal de Administração",
-    "resumo": "Modernização da gestão patrimonial do município.",
-    "contexto": "Gestão patrimonial descentralizada e pouco eficiente.",
-    "problema": "Dificuldade no controle dos bens públicos.",
-    "objetivo": "Implantar sistema de gestão patrimonial informatizado.",
-    "metodologia": "Mapeamento, cadastro e monitoramento digital.",
-    "resultados": "Controle eficiente do patrimônio público.",
-    "impacto": "Transparência e economia de recursos.",
+    "titulo": "Patrimônio Inteligente – Sistema Integrado de Gestão e Valorização de Bens",
+    "secretaria": "Secretaria Municipal de Administração – Diretoria de Patrimônio",
+    "resumo": "O projeto Patrimônio Inteligente propõe a criação e implementação de um sistema integrado e tecnológico de gestão de bens públicos no município de Oriximiná/PA. A iniciativa visa fortalecer o controle, a rastreabilidade, a valorização e a economicidade na utilização dos bens móveis e imóveis da Prefeitura Municipal, utilizando tecnologias como internet, inteligência artificial e identificação por QR Code, em conformidade com as exigências dos órgãos de controle externo, especialmente o Tribunal de Contas dos Municípios (TCM).",
+    "introducao": "A Diretoria de Patrimônio da Prefeitura Municipal de Oriximiná é responsável pela guarda, registro, controle e fiscalização dos bens públicos municipais. Esses bens constituem patrimônio coletivo e devem ser devidamente cadastrados, conservados e disponibilizados para atender ao interesse público. Os métodos tradicionais de controle patrimonial têm se mostrado insuficientes diante do aumento da complexidade administrativa e do volume de ativos sob gestão, dificultando a transparência, a prestação de contas e a valorização do patrimônio público. Nesse contexto, o projeto Patrimônio Inteligente surge como uma resposta estratégica e tecnológica para modernizar a administração patrimonial municipal.",
+    "desafio": "A administração pública municipal enfrenta dificuldades relacionadas a inventários desatualizados, desperdício de bens, aquisições duplicadas, ausência de controle integrado e fragilidade na rastreabilidade patrimonial, comprometendo a economicidade, a transparência e a conformidade com as exigências dos órgãos de controle externo.",
+    "resposta": "A solução proposta consiste na implantação de um sistema digital integrado de gestão patrimonial, com etiquetagem dos bens por meio de QR Code, aplicativo móvel para atualização em campo e painel gerencial com indicadores em tempo real. O projeto contempla ainda a criação de um Banco de Permutas Interno, destinado à redistribuição de bens ociosos entre secretarias, evitando novas aquisições e ampliando a vida útil dos ativos públicos.",
+    "objetivoGeral": "Implantar um sistema integrado, tecnológico e inovador de gestão e valorização de bens públicos no município de Oriximiná, promovendo economicidade, transparência e eficiência na administração patrimonial.",
+    "objetivosEspecificos": [
+      "Digitalizar e integrar os dados patrimoniais de bens móveis e imóveis",
+      "Implantar tecnologia de QR Code para rastreamento e controle em tempo real",
+      "Desenvolver ferramentas de análise preditiva com apoio de inteligência artificial",
+      "Facilitar a geração de relatórios automáticos compatíveis com as exigências do TCM",
+      "Estimular a participação cidadã por meio de um portal de transparência interativo",
+      "Capacitar a equipe da Diretoria de Patrimônio em práticas modernas de gestão pública"
+    ],
+    "metodologia": [
+      "Diagnóstico e levantamento completo dos bens móveis e imóveis",
+      "Verificação da situação atual dos registros patrimoniais",
+      "Digitalização e catalogação dos dados em banco integrado",
+      "Geração e aplicação de etiquetas com QR Code",
+      "Integração de fotografias, descrições, localização e número patrimonial",
+      "Disponibilização das informações em portal de transparência",
+      "Capacitação da equipe e monitoramento por indicadores de desempenho"
+    ],
+    "resultadosEsperados": [
+      "Redução de custos relacionados à manutenção e ao extravio de bens",
+      "Maior agilidade no atendimento às demandas do TCM",
+      "Ampliação da vida útil e valorização dos bens públicos",
+      "Fortalecimento da transparência e do controle social",
+      "Modernização da cultura organizacional da administração municipal"
+    ],
+    "cronograma": [
+      {
+        "etapa": "Diagnóstico e levantamento",
+        "prazo": "3 meses"
+      },
+      {
+        "etapa": "Digitalização e catalogação",
+        "prazo": "2 meses"
+      },
+      {
+        "etapa": "Implantação das tecnologias",
+        "prazo": "1 mês"
+      },
+      {
+        "etapa": "Transparência e participação",
+        "prazo": "1 mês"
+      },
+      {
+        "etapa": "Capacitação e monitoramento",
+        "prazo": "1 mês"
+      }
+    ],
+    "orcamento": [
+      {
+        "item": "Aquisição de etiquetas QR Code/NFC",
+        "valor": "R$ 5.000,00"
+      },
+      {
+        "item": "Capacitação da equipe",
+        "valor": "R$ 1.000,00"
+      },
+      {
+        "item": "Custos operacionais e suporte",
+        "valor": "R$ 2.000,00"
+      },
+      {
+        "item": "Total estimado",
+        "valor": "R$ 8.000,00"
+      }
+    ],
+    "consideracoes": "O projeto Patrimônio Inteligente configura-se como um instrumento de transformação da gestão patrimonial municipal, promovendo inovação tecnológica, responsabilidade fiscal e transparência. Ao alinhar controle eficiente, participação social e economicidade, fortalece a Diretoria de Patrimônio como pilar estratégico da administração pública de Oriximiná.",
     "pdf": "pdf/003 - PATRIMÔNIO INTELIGENTE.pdf"
   },
   {
     "id": 4,
-    "titulo": "Projeto Recicla",
+    "titulo": "Recicla Oriximiná – Política Municipal de Reciclagem e Inclusão Socioambiental",
     "secretaria": "Secretaria Municipal de Meio Ambiente",
-    "resumo": "Iniciativa de incentivo à coleta seletiva e reciclagem.",
-    "contexto": "Baixo índice de reciclagem no município.",
-    "problema": "Descarte inadequado de resíduos.",
-    "objetivo": "Promover educação ambiental.",
-    "metodologia": "Campanhas educativas e coleta seletiva.",
-    "resultados": "Redução de resíduos descartados incorretamente.",
-    "impacto": "Sustentabilidade ambiental.",
-    "pdf": "pdf/004 - PROJETO RECICLA.pdf"
+    "resumo": "O projeto Recicla Oriximiná tem como objetivo estruturar uma política pública municipal de reciclagem de resíduos sólidos urbanos, por meio da implantação de uma sede própria de coleta e triagem, aliada a ações permanentes de educação ambiental, capacitação de catadores e implantação de pontos de coleta seletiva em repartições públicas e unidades escolares. A iniciativa promove sustentabilidade ambiental, inclusão social e economicidade dos recursos públicos, alinhando-se às diretrizes da Política Nacional de Resíduos Sólidos.",
+    "introducao": "O município de Oriximiná enfrenta desafios ambientais e econômicos relacionados à gestão dos resíduos sólidos urbanos, com grande parte do lixo sendo destinada diretamente ao lixão municipal, sem processos de triagem ou reaproveitamento. Esse cenário gera desperdício de materiais recicláveis, impactos ambientais negativos e elevação dos custos públicos. O projeto Recicla Oriximiná surge como resposta estratégica para implantar um sistema municipal de reciclagem sustentável, em conformidade com a Lei nº 12.305/2010 – Política Nacional de Resíduos Sólidos.",
+    "desafio": "O descarte inadequado de resíduos recicláveis, a inexistência de coleta seletiva estruturada, a ausência de triagem e a informalidade do trabalho dos catadores ampliam os impactos ambientais, aumentam os custos públicos e inviabilizam a inclusão produtiva.",
+    "resposta": "Implantação de uma central municipal de reciclagem com sede própria, destinada à coleta, triagem, armazenamento e escoamento de materiais recicláveis, associada a um programa contínuo de educação ambiental, implantação de coleta seletiva institucional e apoio à organização e formalização dos catadores.",
+    "objetivoGeral": "Implantar um centro municipal de reciclagem em Oriximiná, promovendo a coleta seletiva, a educação ambiental e a valorização dos resíduos sólidos recicláveis, com geração de economia pública e inclusão social.",
+    "objetivosEspecificos": [
+      "Construir uma sede equipada para coleta, triagem e armazenamento de recicláveis",
+      "Implantar sistema de coleta seletiva em órgãos públicos e escolas",
+      "Reduzir os custos públicos com a destinação de resíduos ao lixão municipal",
+      "Promover ações contínuas de educação ambiental junto à comunidade",
+      "Formalizar e apoiar a atuação de catadores e recicladores locais"
+    ],
+    "metodologia": [
+      "Diagnóstico da geração de resíduos recicláveis no município",
+      "Construção da sede do projeto com galpão, área administrativa e depósito",
+      "Aquisição de equipamentos como prensa, balança, carrinhos e EPIs",
+      "Capacitação da equipe técnica e dos catadores",
+      "Implantação de pontos de coleta seletiva em escolas e repartições públicas",
+      "Realização de campanhas educativas e ações de conscientização ambiental",
+      "Monitoramento mensal do volume reciclado e da economia gerada"
+    ],
+    "resultadosEsperados": [
+      "Redução de 40% a 50% do volume de resíduos destinados ao lixão",
+      "Economia significativa de recursos públicos com transporte e destinação final",
+      "Geração de renda e valorização do trabalho dos catadores",
+      "Consolidação de uma política pública permanente de reciclagem",
+      "Maior engajamento da população em práticas ambientais sustentáveis"
+    ],
+    "cronograma": [
+      {
+        "etapa": "Planejamento e licitação",
+        "prazo": "Mês 1"
+      },
+      {
+        "etapa": "Construção da sede e aquisição de equipamentos",
+        "prazo": "Meses 2 e 3"
+      },
+      {
+        "etapa": "Formação da equipe e capacitação dos catadores",
+        "prazo": "Mês 4"
+      },
+      {
+        "etapa": "Instalação dos pontos de coleta seletiva",
+        "prazo": "Mês 5"
+      },
+      {
+        "etapa": "Lançamento e início das atividades",
+        "prazo": "Mês 6"
+      },
+      {
+        "etapa": "Monitoramento e expansão",
+        "prazo": "A partir do Mês 7"
+      }
+    ],
+    "orcamento": [
+      {
+        "item": "Construção da sede de reciclagem",
+        "valor": "R$ 90.000,00"
+      },
+      {
+        "item": "Equipamentos (prensa, balança, carrinhos e EPIs)",
+        "valor": "R$ 20.000,00"
+      },
+      {
+        "item": "Material educativo",
+        "valor": "R$ 6.000,00"
+      },
+      {
+        "item": "Pontos de coleta seletiva",
+        "valor": "R$ 7.500,00"
+      },
+      {
+        "item": "Oficinas e capacitações",
+        "valor": "R$ 5.000,00"
+      },
+      {
+        "item": "Mobiliário e estrutura administrativa",
+        "valor": "R$ 6.500,00"
+      },
+      {
+        "item": "Total Geral Estimado",
+        "valor": "R$ 135.000,00"
+      }
+    ],
+    "consideracoes": "O projeto Recicla Oriximiná constitui uma proposta estruturante para a gestão de resíduos sólidos no município, integrando infraestrutura adequada, educação ambiental contínua e inclusão social. A iniciativa contribui para a redução da pressão sobre o lixão municipal, gera economia orçamentária, promove sustentabilidade ambiental e fortalece uma consciência coletiva voltada ao desenvolvimento sustentável de Oriximiná.",
+    "pdf": "pdf/004 - RECICLA ORIXIMINÁ.pdf"
   },
   {
     "id": 5,
