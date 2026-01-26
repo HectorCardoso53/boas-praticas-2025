@@ -346,30 +346,135 @@
   },
   {
     "id": 5,
-    "titulo": "CRÁS Conectado",
+    "titulo": "CRAS Conectado: Informação e Direitos na Palma da Mão",
     "secretaria": "Secretaria Municipal de Assistência Social",
-    "resumo": "Uso da tecnologia para otimizar atendimentos do CRAS.",
-    "contexto": "Alta demanda por serviços sociais.",
-    "problema": "Dificuldade no acompanhamento dos atendimentos.",
-    "objetivo": "Digitalizar processos e registros.",
-    "metodologia": "Implantação de sistemas digitais.",
-    "resultados": "Atendimento mais rápido e organizado.",
-    "impacto": "Melhoria no acesso aos serviços sociais.",
-    "pdf": "pdf/005 - CRÁS CONECTADO- Projeto Boas Práticas - Prêmio “Chico Florenzano”.pdf"
+    "resumo": "Projeto que utiliza estratégias de comunicação digital para fortalecer o acesso da população ribeirinha aos direitos socioassistenciais, por meio da padronização e qualificação da comunicação institucional do CRAS.",
+    "introducao": "A comunicação direta, clara e acessível constitui um pilar essencial para a efetivação dos direitos socioassistenciais. No contexto do CRAS Ribeirinho, observou-se que muitas famílias deixavam de acessar serviços, perdiam prazos importantes ou não participavam de atividades ofertadas devido à ausência de informações acessíveis e tempestivas. A partir dessa realidade, foi desenvolvido um modelo de comunicação simples, contínuo e eficaz, já em funcionamento na unidade, com resultados comprovados na ampliação da participação dos usuários.",
+    "desafio": "A ausência de um fluxo informacional contínuo, atrativo e institucionalizado comprometia o acesso das famílias aos serviços do CRAS. Estratégias tradicionais de comunicação mostraram-se insuficientes para alcançar um público diverso, com diferentes rotinas e múltiplos canais de atenção.",
+    "resposta": "Implantação e padronização de grupos institucionais de WhatsApp e do mural informativo Comunicação Social Ribeirinhos, com linguagem acessível, planejamento de conteúdo, identidade visual institucional e diretrizes claras de uso, garantindo continuidade e possibilidade de replicação.",
+    "objetivoGeral": "Fortalecer o vínculo entre o CRAS e seus usuários por meio de estratégias de comunicação digital acessível, promovendo cidadania e o direito à informação.",
+    "objetivosEspecificos": [
+      "Consolidar os grupos institucionais de WhatsApp como ferramenta oficial de comunicação",
+      "Garantir a atualização semanal do mural informativo da unidade",
+      "Padronizar linguagem, formato e periodicidade dos conteúdos",
+      "Integrar ações de comunicação com campanhas de saúde, educação e demais políticas públicas",
+      "Disponibilizar o modelo para replicação em outras unidades do CRAS"
+    ],
+    "metodologia": [
+      "Padronização do conteúdo divulgado nos grupos de WhatsApp e no mural informativo",
+      "Definição de temas mensais e identidade visual institucional",
+      "Capacitação da equipe para uso de linguagem acessível e comunicação cidadã",
+      "Estabelecimento de regras de funcionamento e moderação dos grupos institucionais",
+      "Produção de cards, vídeos curtos e textos informativos",
+      "Aplicação de enquetes e coleta de feedbacks dos usuários",
+      "Replicação do modelo em outras unidades do CRAS do município"
+    ],
+    "resultadosEsperados": [
+      "Comunicação direta, contínua e fluida entre o CRAS e seus usuários",
+      "Aumento da adesão às atividades ofertadas",
+      "Redução de faltas em atividades por ausência de informação",
+      "Valorização do CRAS como espaço de informação, cidadania e garantia de direitos"
+    ],
+    "indicadores": [
+      "Número de participantes nos grupos institucionais de WhatsApp",
+      "Frequência de atualização dos murais e grupos digitais",
+      "Taxa de participação em eventos e atividades divulgadas",
+      "Resultados obtidos por meio de enquetes de satisfação"
+    ],
+    "cronograma": [
+      {
+        "etapa": "Sistematização e identidade visual",
+        "prazo": "Julho/2025"
+      },
+      {
+        "etapa": "Padronização dos grupos e murais",
+        "prazo": "Agosto/2025"
+      },
+      {
+        "etapa": "Replicação nos demais CRAS",
+        "prazo": "Setembro/2025"
+      },
+      {
+        "etapa": "Avaliação e relatório de resultados",
+        "prazo": "Outubro a Dezembro/2025"
+      }
+    ],
+    "orcamento": [
+      {
+        "item": "Impressão de materiais e artes para mural",
+        "valor": "R$ 400,00"
+      },
+      {
+        "item": "Criação de artes digitais",
+        "valor": "R$ 600,00"
+      },
+      {
+        "item": "Capacitação da equipe",
+        "valor": "R$ 180,00"
+      }
+    ],
+    "consideracoes": "O projeto CRAS Conectado configura-se como uma prática exitosa no CRAS Ribeirinho, transformando a comunicação em uma ponte efetiva entre os direitos socioassistenciais e os cidadãos. Sua sistematização assegura continuidade, fortalecimento institucional e replicação, consolidando a Assistência Social como promotora de cidadania informada, participativa e humanizada.",
+    "pdf": "pdf/005 - CRAS Conectado.pdf"
   },
   {
-    "id": 6,
-    "titulo": "Letrando Saberes na Terceira Idade",
-    "secretaria": "Secretaria Municipal de Educação",
-    "resumo": "Projeto de alfabetização e inclusão educacional de idosos.",
-    "contexto": "Déficit educacional na população idosa.",
-    "problema": "Baixo acesso à educação formal.",
-    "objetivo": "Promover alfabetização e inclusão social.",
-    "metodologia": "Aulas presenciais e atividades pedagógicas.",
-    "resultados": "Maior autonomia dos participantes.",
-    "impacto": "Inclusão educacional e social.",
-    "pdf": "pdf/006 - Projeto Letrando Saberes na Terceira Idade.pdf"
-  },
+  "id": 6,
+  "titulo": "Letrando Saberes na Terceira Idade",
+  "secretaria": "Secretaria Municipal de Educação",
+  "resumo": "Projeto voltado à alfabetização de idosos, promovendo inclusão social, fortalecimento da cidadania e ampliação da autonomia por meio do acesso à leitura, escrita e conhecimentos básicos.",
+  "introducao": "O projeto Letrando Saberes na Terceira Idade visa promover a alfabetização de idosos como instrumento de garantia de direitos, inclusão social e fortalecimento da cidadania. Além de contribuir para a redução do analfabetismo, a iniciativa busca ampliar a autonomia, a autoestima e a participação social da população idosa, valorizando suas experiências de vida e favorecendo sua integração à sociedade contemporânea.",
+  "desafio": "O analfabetismo entre idosos permanece como um problema estrutural que compromete a autonomia, a participação social e o acesso a serviços públicos, ampliando situações de vulnerabilidade social, exclusão digital e baixa autoestima.",
+  "resposta": "Implementação de um programa específico de alfabetização para idosos, com metodologias adaptadas, turmas reduzidas, materiais didáticos acessíveis, apoio comunitário e integração com políticas públicas locais.",
+  "objetivoGeral": "Promover a inclusão social e digital de idosos por meio da alfabetização, garantindo o acesso à leitura, à escrita e a conhecimentos básicos, fortalecendo sua autonomia e participação na sociedade.",
+  "objetivosEspecificos": [
+    "Reduzir o analfabetismo funcional e absoluto entre idosos",
+    "Oferecer aulas adaptadas às necessidades cognitivas e físicas da terceira idade",
+    "Fortalecer a autoestima e a independência para atividades cotidianas",
+    "Introduzir noções básicas de tecnologia digital, como uso de celular e internet",
+    "Promover a integração intergeracional com apoio de voluntários",
+    "Estabelecer parcerias institucionais para sustentabilidade do projeto",
+    "Avaliar continuamente os resultados e ajustar estratégias pedagógicas"
+  ],
+  "metodologia": [
+    "Diagnóstico inicial para identificação dos níveis de alfabetização",
+    "Formação de turmas reduzidas com atendimento personalizado",
+    "Aulas dialogadas e participativas valorizando vivências dos alunos",
+    "Aplicação do Método Paulo Freire com palavras geradoras do cotidiano",
+    "Utilização do Método Silábico para estruturação da leitura e escrita",
+    "Uso de materiais visuais, jogos educativos e atividades manuais",
+    "Introdução de tecnologias simples como vídeos e aplicativos educativos",
+    "Avaliação contínua sem provas formais e certificação simbólica"
+  ],
+  "resultadosEsperados": [
+    "Redução significativa do analfabetismo entre idosos atendidos",
+    "Melhoria da autoestima, autonomia e socialização",
+    "Ampliação do acesso a direitos e serviços públicos",
+    "Maior participação cidadã e comunitária",
+    "Estabelecimento de parcerias institucionais duradouras"
+  ],
+  "indicadores": [
+    "Percentual de idosos alfabetizados após seis meses",
+    "Participação em atividades comunitárias",
+    "Capacidade de realização autônoma de tarefas cotidianas",
+    "Número de parcerias e voluntários envolvidos"
+  ],
+  "cronograma": [
+    { "etapa": "Pesquisa e levantamento de dados", "prazo": "1 mês" },
+    { "etapa": "Desenvolvimento do projeto", "prazo": "2 meses" },
+    { "etapa": "Testes e ajustes", "prazo": "3 semanas" },
+    { "etapa": "Implementação", "prazo": "6 meses" },
+    { "etapa": "Avaliação e finalização", "prazo": "2 semanas" }
+  ],
+  "orcamento": [
+    { "item": "Materiais e equipamentos", "valor": "R$ 3.000,00" },
+    { "item": "Mão de obra (equipe)", "valor": "R$ 0,00" },
+    { "item": "Serviços externos", "valor": "R$ 3.500,00" },
+    { "item": "Despesas administrativas", "valor": "R$ 1.200,00" },
+    { "item": "Contingência", "valor": "R$ 2.000,00" }
+  ],
+  "consideracoes": "O projeto Letrando Saberes na Terceira Idade representa uma iniciativa de elevado impacto social, reafirmando o compromisso da administração pública com inclusão, equidade e desenvolvimento humano. Ao garantir o acesso à alfabetização, promove dignidade, autonomia e fortalecimento dos vínculos comunitários, contribuindo para a redução de desigualdades históricas.",
+  "pdf": "pdf/006 - Letrando Saberes na Terceira Idade.pdf"
+}
+,
   {
     "id": 7,
     "titulo": "Cultura Viva nas Escolas, Comunidade e Hospitais",
