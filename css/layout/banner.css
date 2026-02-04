@@ -1,10 +1,11 @@
 .banner-home {
-  background-image: url('/src/img/banner.png');
+  background-image: url('/src/img/boas-praticas.jpeg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   background-color: #e9edf2;
-  height: 520px; /* aumentei aqui */
+  min-height: 500px;
+  padding: 40px 0;
 }
 
 .banner-2025 {
