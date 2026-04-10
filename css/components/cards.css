@@ -27,3 +27,85 @@
   box-shadow: 0 14px 28px rgba(0,0,0,0.15);
   border-top-color: var(--amarelo-destaque);
 }
+
+/* =========================
+   FOOTER DO CARD DE PROJETO
+   ========================= */
+
+.projeto-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 👈 separa esquerda e direita */
+  margin-top: 16px;
+  gap: 12px;
+}
+
+/* selo do pódio */
+.selo-podio {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* botão "Ver detalhes" */
+.projeto-footer a {
+  margin-left: auto;            /* 👈 força ir para a direita */
+  text-decoration: none;
+
+  background: #001b3d;
+  color: #fff;
+
+  padding: 8px 14px;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: background .2s ease, transform .2s ease;
+}
+
+.projeto-footer a:hover {
+  background: #001b3d;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   GALERIA DENTRO DO CARD
+========================= */
+
+.galeria {
+  display: none;
+  margin-top: 14px;
+}
+
+.galeria.ativa {
+  display: block;
+}
+
+.galeria-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-behavior: smooth;
+}
+
+.galeria-track::-webkit-scrollbar {
+  display: none;
+}
+
+.galeria-track img {
+  width: 220px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  .galeria-track img {
+    width: 180px;
+    height: 120px;
+  }
+}

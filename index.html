@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="src/img/prefeitura_oriximina.png">
     <title>Concurso de Boas Práticas</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -12,29 +13,38 @@
     <header class="header-institucional">
         <div class="header-container">
 
-            <!-- BLOCO ESQUERDO -->
-            <div class="header-brand">
+            <!-- ESQUERDA -->
+            <div class="header-brand" onclick="window.location.href='index.html'">
                 <img src="src/img/prefeitura_oriximina.png" alt="Prefeitura Municipal de Oriximiná">
                 <div class="brand-text">
                     <h1>Concurso de Boas Práticas</h1>
                     <span>Prefeitura Municipal de Oriximiná</span>
                 </div>
             </div>
-            <!-- BLOCO DIREITO -->
+
+            <!-- DIREITA -->
             <nav class="header-nav">
                 <div class="menu-edicoes">
+
                     <button class="menu-botao" id="btn-edicoes">
+                        <i class="bi bi-collection me-2"></i>
                         Edições do Concurso
+                        <i class="bi bi-chevron-down ms-2"></i>
                     </button>
+
                     <ul class="menu-dropdown" id="menu-edicoes">
-                        <li><a href="projetos-2025.html">2025 – Concluída</a></li>
-                        <li class="menu-desativado">2026 – Em Breve</li>
+                        <li><a href="boas praticas 2025/projetos-2025.html">2025 – Concluída</a></li>
+                        <li><a href="boas praticas 2026/projetos-2026.html">2026 – Em andamento</a></li>
                         <li class="menu-desativado">Próximas edições</li>
                     </ul>
+
                 </div>
             </nav>
+
         </div>
     </header>
+
+
     <!-- BANNER (SOMENTE IMAGEM) -->
     <div class="banner-home"></div>
     <!-- CONTEÚDO -->
@@ -61,8 +71,17 @@
     <!-- FOOTER -->
     <footer class="footer-fino">
         <div class="footer-fino-container">
-            <span>Prefeitura Municipal de Oriximiná - A transformação não para </span>
-            <span>Secretaria Municipal de Eficiência Governamental – SEMEG</span>
+
+            <div class="footer-info">
+                <strong>Prefeitura Municipal de Oriximiná</strong>
+                <span>A transformação não vai parar</span>
+            </div>
+
+            <div class="footer-orgao">
+                <small>SEMEG</small>
+                <span>Secretaria Municipal de Eficiência Governamental</span>
+            </div>
+
         </div>
     </footer>
 

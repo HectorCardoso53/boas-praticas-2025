@@ -1,0 +1,78 @@
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;              /* espaço interno */
+  overflow: auto;             /* 🔥 permite rolar */
+
+  z-index: 9999;
+}
+
+/* só aparece quando ativo */
+.lightbox.ativo {
+  display: flex;
+}
+
+/* container da imagem */
+.lightbox-track {
+  max-width: 100%;
+  max-height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* imagem do carrossel */
+.lightbox-track img {
+  max-width: 90vw;            /* 🔥 limita largura */
+  max-height: 90vh;           /* 🔥 limita altura */
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;        /* 🔥 nunca corta */
+  border-radius: 12px;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+
+.lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  background: none;
+  border: none;
+  color: #fff;
+
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.lightbox-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: #fff;
+
+  font-size: 48px;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 50%;
+
+  z-index: 10000;
+}
+
+.lightbox-nav.prev { left: 20px; }
+.lightbox-nav.next { right: 20px; }

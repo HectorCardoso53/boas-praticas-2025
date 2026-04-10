@@ -1,23 +1,61 @@
+/* FOOTER */
 .footer-fino {
-  background-color: var(--azul-escuro);
-  color: var(--branco);
+  background: var(--azul-escuro);
+  color: #fff;
+  border-top: 3px solid #ffc107;
+  margin-top: 40px;
 }
 
 .footer-fino-container {
   max-width: 1100px;
   margin: auto;
-  padding: 12px 20px;
+  padding: 18px 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 10px;
 }
 
+/* BLOCO ESQUERDO */
+.footer-info {
+  display: flex;
+  flex-direction: column;
+}
 
+.footer-info strong {
+  font-size: 14px;
+}
+
+.footer-info span {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* BLOCO DIREITO */
+.footer-orgao {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-orgao span {
+  font-size: 13px;
+}
+
+.footer-orgao small {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* RESPONSIVO */
 @media (max-width: 768px) {
   .footer-fino-container {
     flex-direction: column;
     text-align: center;
-    gap: 6px;
+  }
+
+  .footer-orgao {
+    text-align: center;
   }
 }

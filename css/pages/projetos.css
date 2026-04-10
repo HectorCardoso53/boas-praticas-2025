@@ -72,3 +72,34 @@
 }
 
 
+.projeto-topo {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.projeto-foto {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.projeto-info h3 {
+  margin: 0 0 6px;
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  .projeto-topo {
+    flex-direction: column;
+  }
+
+  .projeto-foto {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+
