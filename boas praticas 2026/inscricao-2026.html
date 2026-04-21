@@ -22,6 +22,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Source Sans 3', sans-serif; background: var(--cinza-fundo); color: var(--cinza-texto); line-height: 1.7; }
 
+    /* HEADER */
     .header-institucional { background-color: var(--azul-principal); color: var(--branco); border-bottom: 4px solid var(--amarelo-destaque); }
     .header-container { max-width: 1100px; margin: auto; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; }
     .header-brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit; }
@@ -33,6 +34,7 @@
     .btn-voltar:hover { text-decoration: underline; }
     .container { max-width: 820px; margin: 32px auto 60px; padding: 0 20px; }
 
+    /* FORM HEADER */
     .form-header { background: linear-gradient(135deg, var(--azul-principal) 0%, #003070 100%); color: var(--branco); border-radius: 12px 12px 0 0; padding: 36px 40px 28px; position: relative; overflow: hidden; }
     .form-header::before { content:''; position:absolute; top:-40px; right:-40px; width:200px; height:200px; border-radius:50%; background:rgba(255,210,31,.08); }
     .form-header::after  { content:''; position:absolute; bottom:-60px; left:60px; width:280px; height:280px; border-radius:50%; background:rgba(56,182,255,.06); }
@@ -43,48 +45,45 @@
 
     .form-body { background:var(--branco); border-radius:0 0 12px 12px; padding:0 40px 40px; box-shadow:0 8px 32px rgba(0,0,0,.09); }
 
-    /* STEPPER */
-    .stepper { display:flex; align-items:center; justify-content:center; padding:28px 0 20px; overflow-x:auto; }
-    .step-item { display:flex; flex-direction:column; align-items:center; position:relative; flex:1; min-width:60px; }
-    .step-item:not(:last-child)::after { content:''; position:absolute; top:15px; left:calc(50% + 15px); right:calc(-50% + 15px); height:2px; background:var(--borda); transition:background .3s; z-index:0; }
-    .step-item.concluido:not(:last-child)::after { background:var(--verde-ok); }
-    .step-bolinha { width:30px; height:30px; border-radius:50%; background:var(--cinza-fundo); border:2px solid var(--borda); display:flex; align-items:center; justify-content:center; font-size:.78rem; font-weight:700; color:#999; position:relative; z-index:1; transition:all .3s; flex-shrink:0; }
-    .step-item.ativo     .step-bolinha { background:var(--azul-principal); border-color:var(--azul-principal); color:var(--amarelo-destaque); box-shadow:0 0 0 4px rgba(0,27,61,.12); }
-    .step-item.concluido .step-bolinha { background:var(--verde-ok); border-color:var(--verde-ok); color:#fff; }
-    .step-label { font-size:.65rem; font-weight:600; color:#aaa; margin-top:6px; text-align:center; line-height:1.2; max-width:70px; transition:color .3s; }
-    .step-item.ativo     .step-label { color:var(--azul-principal); }
-    .step-item.concluido .step-label { color:var(--verde-ok); }
-
-    /* ETAPAS */
-    .etapa { display:none; animation:fadeIn .25s ease; }
-    .etapa.ativa { display:block; }
-    @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
-
-    .secao-titulo { display:flex; align-items:center; gap:12px; font-family:'Merriweather',serif; font-size:1.05rem; font-weight:700; color:var(--azul-principal); padding-bottom:12px; border-bottom:2px solid var(--borda); margin-bottom:24px; margin-top:28px; flex-wrap:wrap; }
-    .secao-titulo .secao-num { background:var(--azul-principal); color:var(--amarelo-destaque); width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.85rem; font-family:'Source Sans 3',sans-serif; flex-shrink:0; }
-    .secao-titulo .ref-edital { font-size:.72rem; font-weight:400; color:#888; font-family:'Source Sans 3',sans-serif; }
-    .secao-desc { background:#fffbe6; border-left:4px solid var(--amarelo-destaque); border-radius:4px; padding:12px 16px; font-size:.88rem; color:#5a4a00; margin-bottom:22px; }
+    /* AVISOS */
     .aviso-intro { background:#eaf4ff; border-left:5px solid var(--azul-claro); border-radius:6px; padding:20px 22px; margin:28px 0 16px; font-size:.93rem; line-height:1.65; }
     .aviso-intro strong { color:var(--azul-principal); }
     .aviso-intro a { color:var(--azul-principal); font-weight:700; }
     .aviso-sigilo { background:#f0fff4; border-left:5px solid var(--verde-ok); border-radius:6px; padding:12px 18px; margin-bottom:28px; font-size:.87rem; color:#155724; display:flex; align-items:flex-start; gap:10px; }
     .aviso-atencao { background:#fff8e1; border-left:5px solid #f59e0b; border-radius:6px; padding:14px 18px; margin-bottom:22px; font-size:.87rem; color:#5a4a00; display:flex; align-items:flex-start; gap:10px; }
 
+    /* CATEGORIA CARDS */
     .categoria-cards { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:4px; }
-    .categoria-card { border:2px solid var(--borda); border-radius:10px; padding:20px 18px; cursor:pointer; transition:border-color .2s,background .2s,box-shadow .2s; position:relative; }
+    .categoria-card { border:2px solid var(--borda); border-radius:12px; padding:24px 20px; cursor:pointer; transition:border-color .2s,background .2s,box-shadow .2s; position:relative; }
     .categoria-card:hover { border-color:var(--azul-claro); background:#f0f8ff; }
     .categoria-card input[type="radio"] { position:absolute; opacity:0; width:0; height:0; }
     .categoria-card.selecionado { border-color:var(--azul-principal); background:#eaf1ff; box-shadow:0 0 0 3px rgba(0,27,61,.08); }
-    .cat-icon { font-size:1.8rem; margin-bottom:8px; display:block; }
+    .cat-icon-wrap { width:52px; height:52px; border-radius:12px; background:var(--cinza-fundo); display:flex; align-items:center; justify-content:center; margin-bottom:14px; font-size:1.6rem; color:var(--azul-principal); transition:background .2s,color .2s; }
+    .categoria-card.selecionado .cat-icon-wrap { background:var(--azul-principal); color:var(--amarelo-destaque); }
     .cat-titulo { font-weight:700; color:var(--azul-principal); font-size:.95rem; margin-bottom:4px; }
     .cat-desc { font-size:.8rem; color:#555; line-height:1.4; }
-    .cat-check { position:absolute; top:12px; right:12px; width:22px; height:22px; border-radius:50%; border:2px solid var(--borda); background:var(--branco); display:flex; align-items:center; justify-content:center; transition:all .2s; font-size:.8rem; }
+    .cat-check { position:absolute; top:14px; right:14px; width:22px; height:22px; border-radius:50%; border:2px solid var(--borda); background:var(--branco); display:flex; align-items:center; justify-content:center; transition:all .2s; font-size:.8rem; }
     .categoria-card.selecionado .cat-check { background:var(--azul-principal); border-color:var(--azul-principal); color:var(--amarelo-destaque); }
 
+    /* BADGE DE CATEGORIA SELECIONADA */
+    .badge-categoria { display:none; align-items:center; gap:10px; background:var(--azul-principal); color:var(--branco); border-radius:8px; padding:10px 16px; margin-bottom:28px; font-size:.88rem; font-weight:600; }
+    .badge-categoria.visivel { display:flex; }
+    .badge-categoria .badge-mudar { margin-left:auto; background:rgba(255,255,255,.15); border:none; color:var(--branco); padding:4px 12px; border-radius:20px; font-size:.78rem; font-weight:700; cursor:pointer; font-family:inherit; transition:background .2s; }
+    .badge-categoria .badge-mudar:hover { background:rgba(255,255,255,.28); }
+
+    /* SEÇÕES */
+    .secao { margin-top:36px; }
+    .secao-titulo { display:flex; align-items:center; gap:12px; font-family:'Merriweather',serif; font-size:1.05rem; font-weight:700; color:var(--azul-principal); padding-bottom:12px; border-bottom:2px solid var(--borda); margin-bottom:24px; flex-wrap:wrap; }
+    .secao-titulo .secao-num { background:var(--azul-principal); color:var(--amarelo-destaque); width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.85rem; font-family:'Source Sans 3',sans-serif; flex-shrink:0; }
+    .secao-titulo .ref-edital { font-size:.72rem; font-weight:400; color:#888; font-family:'Source Sans 3',sans-serif; }
+    .secao-desc { background:#fffbe6; border-left:4px solid var(--amarelo-destaque); border-radius:4px; padding:12px 16px; font-size:.88rem; color:#5a4a00; margin-bottom:22px; }
+
+    /* INTEGRANTE */
     .integrante-bloco { background:var(--cinza-fundo); border:1px solid var(--borda); border-radius:8px; padding:20px 22px; margin-bottom:18px; }
     .integrante-titulo { font-weight:700; font-size:.9rem; color:var(--azul-principal); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
     .integrante-titulo .tag { color:var(--branco); font-size:.72rem; padding:2px 8px; border-radius:10px; }
 
+    /* CAMPOS */
     .campo-grupo { margin-bottom:20px; }
     .campo-grupo label { display:block; font-weight:700; font-size:.9rem; color:var(--azul-principal); margin-bottom:6px; }
     .campo-grupo label .obrigatorio { color:var(--erro); margin-left:2px; }
@@ -97,6 +96,7 @@
     .linha-dupla  { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
     .linha-tripla { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; }
 
+    /* UPLOAD */
     .upload-area { border:2px dashed var(--borda); border-radius:8px; padding:24px; text-align:center; cursor:pointer; transition:border-color .2s,background .2s; position:relative; }
     .upload-area:hover { border-color:var(--azul-claro); background:#f0f8ff; }
     .upload-area input[type="file"] { position:absolute; inset:0; opacity:0; cursor:pointer; width:100%; height:100%; border:none; box-shadow:none; }
@@ -105,6 +105,7 @@
     .upload-texto strong { color:var(--azul-principal); }
     .upload-nome { margin-top:8px; font-size:.82rem; color:var(--verde-ok); font-weight:600; display:none; }
 
+    /* CHECKBOX */
     .checkbox-grupo { display:flex; align-items:flex-start; gap:12px; background:var(--cinza-fundo); border:1.5px solid var(--borda); border-radius:8px; padding:18px 20px; cursor:pointer; transition:border-color .2s; margin-bottom:12px; }
     .checkbox-grupo:hover { border-color:var(--azul-claro); }
     .checkbox-grupo input[type="checkbox"] { width:20px; height:20px; min-width:20px; margin-top:2px; accent-color:var(--azul-principal); cursor:pointer; }
@@ -112,26 +113,30 @@
     .checkbox-label strong { color:var(--azul-principal); }
     .checkbox-erro { border-color:var(--erro)!important; background:#fff5f5!important; }
 
+    /* ERROS */
     input.campo-erro,select.campo-erro,textarea.campo-erro { border-color:var(--erro); background:#fff5f5; }
     .msg-erro { color:var(--erro); font-size:.8rem; margin-top:4px; display:none; }
     .msg-erro.visivel { display:block; }
 
-    /* WIZARD NAV */
-    .wizard-nav { display:flex; justify-content:space-between; align-items:center; margin-top:36px; padding-top:24px; border-top:2px solid var(--borda); gap:12px; }
-    .wizard-progresso { font-size:.8rem; color:#888; }
-    .btn-anterior { background:transparent; border:2px solid var(--borda); color:var(--azul-principal); padding:12px 28px; border-radius:50px; font-size:.95rem; font-weight:700; font-family:inherit; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:border-color .2s,background .2s; }
-    .btn-anterior:hover { border-color:var(--azul-principal); background:#f0f4fa; }
-    .btn-proximo { background:linear-gradient(135deg,var(--azul-principal),#003070); color:var(--branco); border:none; padding:14px 36px; border-radius:50px; font-size:.95rem; font-weight:700; font-family:inherit; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:transform .2s,box-shadow .2s; box-shadow:0 6px 20px rgba(0,27,61,.25); margin-left:auto; }
-    .btn-proximo:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(0,27,61,.35); }
-    .btn-enviar { background:linear-gradient(135deg,#1a7a4a,#145e38); color:var(--branco); border:none; padding:14px 36px; border-radius:50px; font-size:.95rem; font-weight:700; font-family:inherit; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:transform .2s,box-shadow .2s; box-shadow:0 6px 20px rgba(26,122,74,.3); margin-left:auto; }
-    .btn-enviar:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(26,122,74,.4); }
-    .btn-enviar:disabled,.btn-proximo:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+    /* BLOCO COMPLETO DO FORM (escondido até categoria ser escolhida) */
+    #bloco-formulario { display:none; animation:fadeIn .3s ease; }
+    #bloco-formulario.visivel { display:block; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
 
+    /* BOTÃO ENVIAR */
+    .form-footer { margin-top:40px; padding-top:28px; border-top:2px solid var(--borda); display:flex; flex-direction:column; align-items:center; gap:14px; }
+    .btn-enviar { background:linear-gradient(135deg,var(--azul-principal),#003070); color:var(--branco); border:none; padding:16px 48px; border-radius:50px; font-size:1rem; font-weight:700; font-family:inherit; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:transform .2s,box-shadow .2s; box-shadow:0 6px 20px rgba(0,27,61,.25); }
+    .btn-enviar:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(0,27,61,.35); }
+    .btn-enviar:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+    .aviso-lgpd { font-size:.79rem; color:#777; text-align:center; max-width:520px; }
+
+    /* SPINNER */
     .spinner { display:none; width:16px; height:16px; border:2px solid rgba(255,255,255,.4); border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; }
     @keyframes spin { to{transform:rotate(360deg)} }
     .btn-enviar.carregando .spinner { display:inline-block; }
     .btn-enviar.carregando .btn-texto { display:none; }
 
+    /* MODAL */
     .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:9999; align-items:center; justify-content:center; }
     .modal-overlay.ativo { display:flex; }
     .modal-box { background:var(--branco); border-radius:16px; padding:48px 40px; max-width:480px; width:90%; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,.25); animation:modal-in .3s ease; }
@@ -142,6 +147,7 @@
     .btn-modal { background:var(--azul-principal); color:var(--branco); border:none; padding:12px 32px; border-radius:50px; font-size:.95rem; font-weight:700; cursor:pointer; font-family:inherit; transition:background .2s; }
     .btn-modal:hover { background:var(--azul-escuro); }
 
+    /* FOOTER */
     .footer-fino { background-color:var(--azul-escuro); color:var(--branco); }
     .footer-fino-container { max-width:1100px; margin:auto; padding:12px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; font-size:.85rem; }
 
@@ -150,7 +156,6 @@
       .linha-dupla,.linha-tripla,.categoria-cards { grid-template-columns:1fr; }
       .form-header h2 { font-size:1.15rem; }
       .footer-fino-container { flex-direction:column; text-align:center; }
-      .step-label { display:none; }
     }
   </style>
 </head>
@@ -182,382 +187,364 @@
 
   <div class="form-body">
 
-    <!-- STEPPER -->
-    <nav class="stepper" id="stepper">
-      <div class="step-item ativo" data-step="1"><div class="step-bolinha">1</div><div class="step-label">Categoria</div></div>
-      <div class="step-item" data-step="2"><div class="step-bolinha">2</div><div class="step-label">Responsável</div></div>
-      <div class="step-item" data-step="3"><div class="step-bolinha">3</div><div class="step-label">Equipe</div></div>
-      <div class="step-item" data-step="4"><div class="step-bolinha">4</div><div class="step-label">Descrição</div></div>
-      <div class="step-item" data-step="5"><div class="step-bolinha">5</div><div class="step-label">Justificativa</div></div>
-      <div class="step-item" data-step="6"><div class="step-bolinha">6</div><div class="step-label">Documentos</div></div>
-      <div class="step-item" data-step="7"><div class="step-bolinha">7</div><div class="step-label">Declarações</div></div>
-    </nav>
+    <div class="aviso-intro">
+      <i class="bi bi-info-circle-fill" style="color:var(--azul-claro);margin-right:6px;"></i>
+      Bem-vindo(a)! Preencha todas as informações conforme as diretrizes do <a href="regulamento.html">Edital</a> e do Manual do Candidato (Anexo III). Cada equipe pode inscrever apenas <strong>uma iniciativa</strong>.
+    </div>
+    <div class="aviso-sigilo">
+      <i class="bi bi-shield-lock-fill" style="margin-top:2px;"></i>
+      <span>As respostas são <strong>sigilosas</strong> e serão utilizadas apenas para fins da Administração Pública.</span>
+    </div>
 
     <form id="form-inscricao" novalidate>
 
-      <!-- ETAPA 1 -->
-      <div class="etapa ativa" id="etapa-1">
-        <div class="aviso-intro">
-          <i class="bi bi-info-circle-fill" style="color:var(--azul-claro);margin-right:6px;"></i>
-          Bem-vindo(a)! Preencha o formulário etapa por etapa, conforme as diretrizes do <a href="regulamento.html">Edital</a> e do Manual do Candidato (Anexo III). Cada equipe pode inscrever apenas <strong>uma iniciativa</strong>.
+      <!-- ══ SEÇÃO 1: CATEGORIA ══ -->
+      <div class="secao-titulo" style="margin-top:0;">
+        <span class="secao-num">1</span>
+        Categoria de Participação
+        <span class="ref-edital">Item II – Edital 5.7</span>
+      </div>
+
+      <div class="campo-grupo">
+        <label>Selecione a categoria <span class="obrigatorio">*</span></label>
+        <div class="categoria-cards">
+          <label class="categoria-card" id="card-servidores" onclick="selecionarCategoria('servidores')">
+            <input type="radio" name="categoria" value="servidores" id="cat-servidores">
+            <span class="cat-check" id="check-servidores"></span>
+            <div class="cat-icon-wrap"><i class="bi bi-building-fill"></i></div>
+            <div class="cat-titulo">Servidores Públicos Municipais</div>
+            <div class="cat-desc">Servidores ativos do quadro da Prefeitura Municipal de Oriximiná.</div>
+          </label>
+          <label class="categoria-card" id="card-cidadaos" onclick="selecionarCategoria('cidadaos')">
+            <input type="radio" name="categoria" value="cidadaos" id="cat-cidadaos">
+            <span class="cat-check" id="check-cidadaos"></span>
+            <div class="cat-icon-wrap"><i class="bi bi-people-fill"></i></div>
+            <div class="cat-titulo">Cidadãos</div>
+            <div class="cat-desc">Qualquer cidadão interessado em contribuir com a gestão pública municipal.</div>
+          </label>
         </div>
-        <div class="aviso-sigilo">
-          <i class="bi bi-shield-lock-fill" style="margin-top:2px;"></i>
-          <span>As respostas são <strong>sigilosas</strong> e serão utilizadas apenas para fins da Administração Pública.</span>
+        <span class="msg-erro" id="erro-categoria">Selecione uma categoria para continuar.</span>
+      </div>
+
+      <!-- ══ RESTO DO FORMULÁRIO (aparece após escolha da categoria) ══ -->
+      <div id="bloco-formulario">
+
+        <!-- Badge de categoria selecionada -->
+        <div class="badge-categoria visivel" id="badge-categoria">
+          <i class="bi bi-check-circle-fill" style="color:var(--amarelo-destaque);"></i>
+          <span id="badge-categoria-texto"></span>
+          <button type="button" class="badge-mudar" onclick="mudarCategoria()">
+            <i class="bi bi-pencil-fill"></i> Alterar
+          </button>
         </div>
-        <div class="secao-titulo">
-          <span class="secao-num">1</span>
-          Categoria de Participação
-          <span class="ref-edital">Item II – Edital 5.7</span>
+
+        <!-- ══ SEÇÃO 2: RESPONSÁVEL ══ -->
+        <div class="secao">
+          <div class="secao-titulo">
+            <span class="secao-num">2</span>
+            Dados do Responsável pela Inscrição
+            <span class="ref-edital">Itens III, IV, V e VI – Edital 5.7</span>
+          </div>
+          <div class="campo-grupo">
+            <label for="nome-responsavel">Nome completo <span class="obrigatorio">*</span></label>
+            <input type="text" id="nome-responsavel" name="nome_responsavel" placeholder="Digite o nome completo">
+            <span class="msg-erro" id="erro-nome-responsavel">Campo obrigatório.</span>
+          </div>
+          <div class="linha-dupla">
+            <div class="campo-grupo">
+              <label for="cpf-responsavel">CPF <span class="obrigatorio">*</span></label>
+              <input type="text" id="cpf-responsavel" name="cpf_responsavel" placeholder="000.000.000-00" maxlength="14">
+              <span class="msg-erro" id="erro-cpf-responsavel">CPF inválido.</span>
+            </div>
+            <div class="campo-grupo">
+              <label for="nasc-responsavel">Data de Nascimento <span class="obrigatorio">*</span></label>
+              <input type="date" id="nasc-responsavel" name="nasc_responsavel">
+              <span class="msg-erro" id="erro-nasc-responsavel">Campo obrigatório.</span>
+            </div>
+          </div>
+          <div class="linha-dupla">
+            <div class="campo-grupo">
+              <label for="email-responsavel">E-mail <span class="obrigatorio">*</span></label>
+              <input type="email" id="email-responsavel" name="email_responsavel" placeholder="seunome@email.com">
+              <span class="msg-erro" id="erro-email-responsavel">E-mail inválido.</span>
+            </div>
+            <div class="campo-grupo">
+              <label for="telefone-responsavel">Telefone <span class="obrigatorio">*</span></label>
+              <input type="tel" id="telefone-responsavel" name="telefone_responsavel" placeholder="(93) 9 0000-0000" maxlength="16">
+              <span class="msg-erro" id="erro-telefone-responsavel">Campo obrigatório.</span>
+            </div>
+          </div>
+          <div class="campo-grupo" id="bloco-unidade-responsavel" style="display:none;">
+            <label for="unidade-responsavel">Unidade Administrativa de Origem <span class="obrigatorio">*</span></label>
+            <span class="dica">Obrigatório para Servidores Públicos Municipais (Item VI – Edital 5.7).</span>
+            <select id="unidade-responsavel" name="unidade_responsavel">
+              <option value="">— Selecione a unidade —</option>
+              <option>Procuradoria Geral do Município</option>
+              <option>Secretaria de Integração Municipal</option>
+              <option>Secretaria Municipal de Planejamento e Administração</option>
+              <option>Secretaria Municipal de Agricultura</option>
+              <option>Secretaria Municipal de Assistência Social</option>
+              <option>Secretaria Municipal de Cultura e Turismo</option>
+              <option>Secretaria Municipal de Infraestrutura</option>
+              <option>Secretaria Municipal de Educação</option>
+              <option>Secretaria Municipal de Finanças</option>
+              <option>Secretaria Municipal de Meio Ambiente e Mineração</option>
+              <option>Secretaria Municipal de Obras e Habitação</option>
+              <option>Secretaria Municipal de Saúde</option>
+              <option>Secretaria Municipal de Segurança Pública e Defesa Social</option>
+              <option>Secretaria Municipal de Comunicação</option>
+              <option>Secretaria Municipal da Juventude</option>
+              <option value="outro">Outro</option>
+            </select>
+            <span class="msg-erro" id="erro-unidade-responsavel">Campo obrigatório para Servidores.</span>
+          </div>
+          <div class="campo-grupo" id="campo-outra-unidade" style="display:none;">
+            <label for="outra-unidade">Especifique a Unidade <span class="obrigatorio">*</span></label>
+            <input type="text" id="outra-unidade" name="outra_unidade" placeholder="Nome da unidade administrativa">
+          </div>
         </div>
-        <div class="campo-grupo">
-          <label>Selecione a categoria <span class="obrigatorio">*</span></label>
-          <div class="categoria-cards">
-            <label class="categoria-card" id="card-servidores" onclick="selecionarCategoria('servidores')">
-              <input type="radio" name="categoria" value="servidores" id="cat-servidores">
-              <span class="cat-check" id="check-servidores"></span>
-              <span class="cat-icon">🏛️</span>
-              <div class="cat-titulo">Servidores Públicos Municipais</div>
-              <div class="cat-desc">Servidores ativos do quadro da Prefeitura Municipal de Oriximiná.</div>
+
+        <!-- ══ SEÇÃO 3: EQUIPE ══ -->
+        <div class="secao">
+          <div class="secao-titulo">
+            <span class="secao-num">3</span>
+            Dados Completos da Equipe
+            <span class="ref-edital">Item VII – Edital 5.7</span>
+          </div>
+          <div class="secao-desc">A equipe deve ter <strong>exatamente 3 integrantes</strong> no total (incluindo o responsável). Preencha os dados dos dois integrantes adicionais.</div>
+
+          <div class="integrante-bloco">
+            <div class="integrante-titulo">
+              <i class="bi bi-person-fill"></i> Integrante 2
+              <span class="tag" style="background:var(--azul-principal);">Obrigatório</span>
+            </div>
+            <div class="campo-grupo">
+              <label for="nome-int2">Nome Completo <span class="obrigatorio">*</span></label>
+              <input type="text" id="nome-int2" name="nome_int2" placeholder="Nome completo">
+              <span class="msg-erro" id="erro-nome-int2">Campo obrigatório.</span>
+            </div>
+            <div class="linha-tripla">
+              <div class="campo-grupo">
+                <label for="cpf-int2">CPF <span class="obrigatorio">*</span></label>
+                <input type="text" id="cpf-int2" name="cpf_int2" placeholder="000.000.000-00" maxlength="14">
+                <span class="msg-erro" id="erro-cpf-int2">CPF inválido.</span>
+              </div>
+              <div class="campo-grupo">
+                <label for="nasc-int2">Data de Nascimento <span class="obrigatorio">*</span></label>
+                <input type="date" id="nasc-int2" name="nasc_int2">
+                <span class="msg-erro" id="erro-nasc-int2">Campo obrigatório.</span>
+              </div>
+              <div class="campo-grupo" id="bloco-unidade-int2" style="display:none;">
+                <label for="unidade-int2">Unidade Administrativa</label>
+                <select id="unidade-int2" name="unidade_int2">
+                  <option value="">— Selecione —</option>
+                  <option>Procuradoria Geral do Município</option><option>Secretaria de Integração Municipal</option><option>Secretaria Municipal de Planejamento e Administração</option><option>Secretaria Municipal de Agricultura</option><option>Secretaria Municipal de Assistência Social</option><option>Secretaria Municipal de Cultura e Turismo</option><option>Secretaria Municipal de Infraestrutura</option><option>Secretaria Municipal de Educação</option><option>Secretaria Municipal de Finanças</option><option>Secretaria Municipal de Meio Ambiente e Mineração</option><option>Secretaria Municipal de Obras e Habitação</option><option>Secretaria Municipal de Saúde</option><option>Secretaria Municipal de Segurança Pública e Defesa Social</option><option>Secretaria Municipal de Comunicação</option><option>Secretaria Municipal da Juventude</option><option>Outro</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="integrante-bloco">
+            <div class="integrante-titulo">
+              <i class="bi bi-person-fill"></i> Integrante 3
+              <span class="tag" style="background:var(--azul-principal);">Obrigatório</span>
+            </div>
+            <div class="campo-grupo">
+              <label for="nome-int3">Nome Completo <span class="obrigatorio">*</span></label>
+              <input type="text" id="nome-int3" name="nome_int3" placeholder="Nome completo">
+              <span class="msg-erro" id="erro-nome-int3">Campo obrigatório.</span>
+            </div>
+            <div class="linha-tripla">
+              <div class="campo-grupo">
+                <label for="cpf-int3">CPF <span class="obrigatorio">*</span></label>
+                <input type="text" id="cpf-int3" name="cpf_int3" placeholder="000.000.000-00" maxlength="14">
+                <span class="msg-erro" id="erro-cpf-int3">CPF inválido.</span>
+              </div>
+              <div class="campo-grupo">
+                <label for="nasc-int3">Data de Nascimento <span class="obrigatorio">*</span></label>
+                <input type="date" id="nasc-int3" name="nasc_int3">
+                <span class="msg-erro" id="erro-nasc-int3">Campo obrigatório.</span>
+              </div>
+              <div class="campo-grupo" id="bloco-unidade-int3" style="display:none;">
+                <label for="unidade-int3">Unidade Administrativa</label>
+                <select id="unidade-int3" name="unidade_int3">
+                  <option value="">— Selecione —</option>
+                  <option>Procuradoria Geral do Município</option><option>Secretaria de Integração Municipal</option><option>Secretaria Municipal de Planejamento e Administração</option><option>Secretaria Municipal de Agricultura</option><option>Secretaria Municipal de Assistência Social</option><option>Secretaria Municipal de Cultura e Turismo</option><option>Secretaria Municipal de Infraestrutura</option><option>Secretaria Municipal de Educação</option><option>Secretaria Municipal de Finanças</option><option>Secretaria Municipal de Meio Ambiente e Mineração</option><option>Secretaria Municipal de Obras e Habitação</option><option>Secretaria Municipal de Saúde</option><option>Secretaria Municipal de Segurança Pública e Defesa Social</option><option>Secretaria Municipal de Comunicação</option><option>Secretaria Municipal da Juventude</option><option>Outro</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ SEÇÃO 4: DESCRIÇÃO ══ -->
+        <div class="secao">
+          <div class="secao-titulo">
+            <span class="secao-num">4</span>
+            Descrição da Ideia Inovadora
+            <span class="ref-edital">Itens I, VIII e IX – Edital 5.7</span>
+          </div>
+          <div class="campo-grupo">
+            <label for="titulo-iniciativa">Título da Ideia Inovadora <span class="obrigatorio">*</span></label>
+            <input type="text" id="titulo-iniciativa" name="titulo_iniciativa" placeholder="Nome da sua ideia ou projeto">
+            <span class="msg-erro" id="erro-titulo-iniciativa">Campo obrigatório.</span>
+          </div>
+          <div class="campo-grupo">
+            <label for="descricao-iniciativa">Descrição Detalhada <span class="obrigatorio">*</span></label>
+            <span class="dica">Descreva o problema, solução, ações e resultados esperados. Mín. 200 caracteres — ou faça upload do documento abaixo (máx. 7 páginas, sendo até 2 de anexos, conforme Anexo IV).</span>
+            <textarea id="descricao-iniciativa" name="descricao_iniciativa" placeholder="Descreva sua ideia ou utilize o campo de upload abaixo..." rows="8"></textarea>
+            <span class="msg-erro" id="erro-descricao-iniciativa">Preencha com mínimo 200 caracteres ou faça o upload do documento.</span>
+          </div>
+          <div class="campo-grupo">
+            <label>Upload do Documento da Ideia <span style="font-weight:400;font-size:.82rem;color:#777;">(PDF – máx. 7 páginas / 10 MB)</span></label>
+            <span class="dica">Conforme modelo do Anexo IV. Substitui ou complementa o campo de texto acima.</span>
+            <div class="upload-area">
+              <input type="file" id="arquivo-descricao" name="arquivo_descricao" accept=".pdf">
+              <span class="upload-icon"><i class="bi bi-file-earmark-pdf-fill" style="color:#c0392b;font-size:2rem;"></i></span>
+              <div class="upload-texto"><strong>Clique para selecionar</strong> ou arraste o PDF aqui</div>
+              <div class="upload-nome" id="nome-arquivo-descricao"></div>
+            </div>
+          </div>
+          <div class="campo-grupo">
+            <label for="evidencias">Evidências e Materiais Complementares</label>
+            <span class="dica">Links de vídeos, imagens, protótipos ou outros registros (Item IX – Edital 5.7).</span>
+            <textarea id="evidencias" name="evidencias" placeholder="Cole links ou descreva as evidências disponíveis..." rows="4"></textarea>
+          </div>
+          <div class="campo-grupo">
+            <label>Upload de Evidências <span style="font-weight:400;font-size:.82rem;color:#777;">(opcional – imagem, PDF ou apresentação, máx. 10 MB)</span></label>
+            <div class="upload-area">
+              <input type="file" id="arquivo-evidencias" name="arquivo_evidencias" accept=".pdf,.png,.jpg,.jpeg,.pptx,.docx">
+              <span class="upload-icon"><i class="bi bi-paperclip" style="font-size:2rem;"></i></span>
+              <div class="upload-texto"><strong>Clique para selecionar</strong> ou arraste o arquivo aqui</div>
+              <div class="upload-nome" id="nome-arquivo-evidencias"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ SEÇÃO 5: JUSTIFICATIVA ══ -->
+        <div class="secao">
+          <div class="secao-titulo">
+            <span class="secao-num">5</span>
+            Justificativa dos Critérios de Avaliação
+            <span class="ref-edital">Item X – Edital 5.7</span>
+          </div>
+          <div class="secao-desc">Demonstre, em um único texto, como sua ideia atende aos três critérios do Edital: <strong>Inovação</strong>, <strong>Economicidade</strong> e <strong>Aplicabilidade</strong>.</div>
+          <div class="campo-grupo">
+            <label for="justificativa-criterios">Justificativa <span class="obrigatorio">*</span></label>
+            <span class="dica">Aborde claramente: <strong>(1) Inovação</strong> — como inova nos processos ou serviços públicos; <strong>(2) Economicidade</strong> — como gerou ou pode gerar economia; <strong>(3) Aplicabilidade</strong> — como pode ser replicada.</span>
+            <textarea id="justificativa-criterios" name="justificativa_criterios" placeholder="(1) Inovação: ...&#10;(2) Economicidade: ...&#10;(3) Aplicabilidade: ..." rows="10"></textarea>
+            <span class="msg-erro" id="erro-justificativa-criterios">Campo obrigatório (mínimo 100 caracteres).</span>
+          </div>
+        </div>
+
+        <!-- ══ SEÇÃO 6: DOCUMENTAÇÃO ══ -->
+        <div class="secao">
+          <div class="secao-titulo">
+            <span class="secao-num">6</span>
+            Documentação Obrigatória
+            <span class="ref-edital">Item XI e 5.7.1 – Edital</span>
+          </div>
+          <div class="campo-grupo">
+            <label>Termo de Responsabilidade (Anexo V) <span class="obrigatorio">*</span></label>
+            <span class="dica">Faça upload do Termo devidamente assinado, declarando autoria, ineditismo e veracidade das informações. <a href="pdf/regulamentos/ANEXO V - TERMO DE RESPONSABILIDADE.pdf" target="_blank">Baixar modelo ↗</a></span>
+            <div class="upload-area">
+              <input type="file" id="arquivo-termo" name="arquivo_termo" accept=".pdf,.jpg,.jpeg,.png">
+              <span class="upload-icon"><i class="bi bi-file-earmark-check-fill" style="color:var(--verde-ok);font-size:2rem;"></i></span>
+              <div class="upload-texto"><strong>Clique para selecionar</strong> o Termo assinado</div>
+              <div class="upload-nome" id="nome-arquivo-termo"></div>
+            </div>
+            <span class="msg-erro" id="erro-arquivo-termo">O Termo de Responsabilidade assinado é obrigatório.</span>
+          </div>
+
+          <!-- Menor CIDADÃO -->
+          <div id="bloco-menor-cidadao" style="display:none;">
+            <div class="aviso-atencao">
+              <i class="bi bi-exclamation-triangle-fill" style="color:#f59e0b;margin-top:2px;flex-shrink:0;font-size:1.1rem;"></i>
+              <span><strong>Participante menor de 18 anos (Categoria Cidadão).</strong> Conforme o item 5.7.1 do Edital, é obrigatória a apresentação do <strong>Termo de Responsabilidade do Menor</strong>, assinado pelo responsável legal. A ausência implicará no <strong>indeferimento da inscrição</strong>.</span>
+            </div>
+            <div class="campo-grupo">
+              <label>Termo de Responsabilidade do Menor – Cidadão (Anexo V) <span class="obrigatorio">*</span></label>
+              <span class="dica">Documento assinado pelo responsável legal. <a href="pdf/regulamentos/ANEXO V - TERMO-MENOR-CIDADAO.pdf" target="_blank">Baixar modelo ↗</a></span>
+              <div class="upload-area">
+                <input type="file" id="arquivo-termo-menor-cidadao" name="arquivo_termo_menor_cidadao" accept=".pdf,.jpg,.jpeg,.png">
+                <span class="upload-icon"><i class="bi bi-file-earmark-person-fill" style="color:#f59e0b;font-size:2rem;"></i></span>
+                <div class="upload-texto"><strong>Clique para selecionar</strong> o Termo do Menor assinado</div>
+                <div class="upload-nome" id="nome-termo-menor-cidadao"></div>
+              </div>
+              <span class="msg-erro" id="erro-termo-menor-cidadao">Obrigatório para cidadão menor de idade.</span>
+            </div>
+          </div>
+
+          <!-- Menor SERVIDOR -->
+          <div id="bloco-menor-servidor" style="display:none;">
+            <div class="aviso-atencao">
+              <i class="bi bi-exclamation-triangle-fill" style="color:#f59e0b;margin-top:2px;flex-shrink:0;font-size:1.1rem;"></i>
+              <span><strong>Participante menor de 18 anos (Categoria Servidor).</strong> Conforme o item 5.7.1 do Edital, é obrigatória a apresentação do Termo de Autorização do Responsável Legal e do documento de identificação. A <strong>ausência implicará no indeferimento da inscrição</strong>.</span>
+            </div>
+            <div class="campo-grupo">
+              <label>Termo de Autorização do Responsável Legal <span class="obrigatorio">*</span></label>
+              <span class="dica"><a href="pdf/regulamentos/ANEXO V - AUTORIZACAO-MENOR.pdf" target="_blank">Baixar modelo ↗</a></span>
+              <div class="upload-area">
+                <input type="file" id="arquivo-autorizacao-menor" name="arquivo_autorizacao_menor" accept=".pdf,.jpg,.jpeg,.png">
+                <span class="upload-icon"><i class="bi bi-file-earmark-person-fill" style="color:var(--azul-claro);font-size:2rem;"></i></span>
+                <div class="upload-texto"><strong>Clique para selecionar</strong> a autorização assinada</div>
+                <div class="upload-nome" id="nome-autorizacao-menor"></div>
+              </div>
+              <span class="msg-erro" id="erro-autorizacao-menor">Obrigatório para servidor menor de idade.</span>
+            </div>
+            <div class="campo-grupo">
+              <label>Documento de Identificação do Responsável Legal <span class="obrigatorio">*</span></label>
+              <span class="dica">RG, CNH ou outro documento oficial com foto.</span>
+              <div class="upload-area">
+                <input type="file" id="arquivo-doc-responsavel-legal" name="arquivo_doc_responsavel_legal" accept=".pdf,.jpg,.jpeg,.png">
+                <span class="upload-icon"><i class="bi bi-credit-card-fill" style="color:#555;font-size:2rem;"></i></span>
+                <div class="upload-texto"><strong>Clique para selecionar</strong> o documento de identificação</div>
+                <div class="upload-nome" id="nome-doc-responsavel-legal"></div>
+              </div>
+              <span class="msg-erro" id="erro-doc-responsavel-legal">Obrigatório para servidor menor de idade.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ SEÇÃO 7: DECLARAÇÕES ══ -->
+        <div class="secao">
+          <div class="secao-titulo">
+            <span class="secao-num">7</span>
+            Declarações e Concordâncias
+          </div>
+          <div class="campo-grupo">
+            <label class="checkbox-grupo" id="label-termo-autoria">
+              <input type="checkbox" id="check-autoria" name="check_autoria">
+              <span class="checkbox-label"><strong>Declaro autoria e ineditismo:</strong> confirmo que a ideia é de minha autoria (ou da equipe), é original e inédita, e que todas as informações são verdadeiras, sob responsabilidade civil e criminal — Edital 5.7, Item XI.</span>
             </label>
-            <label class="categoria-card" id="card-cidadaos" onclick="selecionarCategoria('cidadaos')">
-              <input type="radio" name="categoria" value="cidadaos" id="cat-cidadaos">
-              <span class="cat-check" id="check-cidadaos"></span>
-              <span class="cat-icon">👥</span>
-              <div class="cat-titulo">Cidadãos</div>
-              <div class="cat-desc">Qualquer cidadão interessado em contribuir com a gestão pública municipal.</div>
+            <span class="msg-erro" id="erro-check-autoria">Esta declaração é obrigatória.</span>
+
+            <label class="checkbox-grupo" id="label-termo-edital">
+              <input type="checkbox" id="check-edital" name="check_edital">
+              <span class="checkbox-label"><strong>Concordo com o Edital:</strong> li e aceito todas as normas, prazos e critérios do concurso, ciente de que inscrições fora do prazo ou com documentação incompleta serão indeferidas — Edital, itens 5.8 e 5.9.</span>
             </label>
-          </div>
-          <span class="msg-erro" id="erro-categoria">Selecione uma categoria para continuar.</span>
-        </div>
-        <div class="wizard-nav">
-          <span class="wizard-progresso">Etapa 1 de 7</span>
-          <button type="button" class="btn-proximo" onclick="avancar(1)">Próximo <i class="bi bi-arrow-right"></i></button>
-        </div>
-      </div>
+            <span class="msg-erro" id="erro-check-edital">Esta concordância é obrigatória.</span>
 
-      <!-- ETAPA 2 -->
-      <div class="etapa" id="etapa-2">
-        <div class="secao-titulo">
-          <span class="secao-num">2</span>
-          Dados do Responsável pela Inscrição
-          <span class="ref-edital">Itens III, IV, V e VI – Edital 5.7</span>
-        </div>
-        <div class="campo-grupo">
-          <label for="nome-responsavel">Nome completo <span class="obrigatorio">*</span></label>
-          <input type="text" id="nome-responsavel" name="nome_responsavel" placeholder="Digite o nome completo">
-          <span class="msg-erro" id="erro-nome-responsavel">Campo obrigatório.</span>
-        </div>
-        <div class="linha-dupla">
-          <div class="campo-grupo">
-            <label for="cpf-responsavel">CPF <span class="obrigatorio">*</span></label>
-            <input type="text" id="cpf-responsavel" name="cpf_responsavel" placeholder="000.000.000-00" maxlength="14">
-            <span class="msg-erro" id="erro-cpf-responsavel">CPF inválido.</span>
-          </div>
-          <div class="campo-grupo">
-            <label for="nasc-responsavel">Data de Nascimento <span class="obrigatorio">*</span></label>
-            <input type="date" id="nasc-responsavel" name="nasc_responsavel">
-            <span class="msg-erro" id="erro-nasc-responsavel">Campo obrigatório.</span>
-          </div>
-        </div>
-        <div class="linha-dupla">
-          <div class="campo-grupo">
-            <label for="email-responsavel">E-mail <span class="obrigatorio">*</span></label>
-            <input type="email" id="email-responsavel" name="email_responsavel" placeholder="seunome@email.com">
-            <span class="msg-erro" id="erro-email-responsavel">E-mail inválido.</span>
-          </div>
-          <div class="campo-grupo">
-            <label for="telefone-responsavel">Telefone <span class="obrigatorio">*</span></label>
-            <input type="tel" id="telefone-responsavel" name="telefone_responsavel" placeholder="(93) 9 0000-0000" maxlength="16">
-            <span class="msg-erro" id="erro-telefone-responsavel">Campo obrigatório.</span>
-          </div>
-        </div>
-        <div class="campo-grupo" id="bloco-unidade-responsavel" style="display:none;">
-          <label for="unidade-responsavel">Unidade Administrativa de Origem <span class="obrigatorio">*</span></label>
-          <span class="dica">Obrigatório para Servidores Públicos Municipais (Item VI – Edital 5.7).</span>
-          <select id="unidade-responsavel" name="unidade_responsavel">
-            <option value="">— Selecione a unidade —</option>
-            <option>Procuradoria Geral do Município</option>
-            <option>Secretaria de Integração Municipal</option>
-            <option>Secretaria Municipal de Planejamento e Administração</option>
-            <option>Secretaria Municipal de Agricultura</option>
-            <option>Secretaria Municipal de Assistência Social</option>
-            <option>Secretaria Municipal de Cultura e Turismo</option>
-            <option>Secretaria Municipal de Infraestrutura</option>
-            <option>Secretaria Municipal de Educação</option>
-            <option>Secretaria Municipal de Finanças</option>
-            <option>Secretaria Municipal de Meio Ambiente e Mineração</option>
-            <option>Secretaria Municipal de Obras e Habitação</option>
-            <option>Secretaria Municipal de Saúde</option>
-            <option>Secretaria Municipal de Segurança Pública e Defesa Social</option>
-            <option>Secretaria Municipal de Comunicação</option>
-            <option>Secretaria Municipal da Juventude</option>
-            <option value="outro">Outro</option>
-          </select>
-          <span class="msg-erro" id="erro-unidade-responsavel">Campo obrigatório para Servidores.</span>
-        </div>
-        <div class="campo-grupo" id="campo-outra-unidade" style="display:none;">
-          <label for="outra-unidade">Especifique a Unidade <span class="obrigatorio">*</span></label>
-          <input type="text" id="outra-unidade" name="outra_unidade" placeholder="Nome da unidade administrativa">
-        </div>
-        <div class="wizard-nav">
-          <button type="button" class="btn-anterior" onclick="voltar(2)"><i class="bi bi-arrow-left"></i> Anterior</button>
-          <span class="wizard-progresso">Etapa 2 de 7</span>
-          <button type="button" class="btn-proximo" onclick="avancar(2)">Próximo <i class="bi bi-arrow-right"></i></button>
-        </div>
-      </div>
-
-      <!-- ETAPA 3 -->
-      <div class="etapa" id="etapa-3">
-        <div class="secao-titulo">
-          <span class="secao-num">3</span>
-          Dados Completos da Equipe
-          <span class="ref-edital">Item VII – Edital 5.7</span>
-        </div>
-        <div class="secao-desc">A equipe deve ter <strong>exatamente 3 integrantes</strong> no total (incluindo o responsável). Preencha os dados dos dois integrantes adicionais.</div>
-
-        <div class="integrante-bloco">
-          <div class="integrante-titulo"><i class="bi bi-person-fill"></i> Integrante 2 <span class="tag" style="background:var(--azul-principal);">Obrigatório</span></div>
-          <div class="campo-grupo">
-            <label for="nome-int2">Nome Completo <span class="obrigatorio">*</span></label>
-            <input type="text" id="nome-int2" name="nome_int2" placeholder="Nome completo">
-            <span class="msg-erro" id="erro-nome-int2">Campo obrigatório.</span>
-          </div>
-          <div class="linha-tripla">
-            <div class="campo-grupo">
-              <label for="cpf-int2">CPF <span class="obrigatorio">*</span></label>
-              <input type="text" id="cpf-int2" name="cpf_int2" placeholder="000.000.000-00" maxlength="14">
-              <span class="msg-erro" id="erro-cpf-int2">CPF inválido.</span>
-            </div>
-            <div class="campo-grupo">
-              <label for="nasc-int2">Data de Nascimento <span class="obrigatorio">*</span></label>
-              <input type="date" id="nasc-int2" name="nasc_int2">
-              <span class="msg-erro" id="erro-nasc-int2">Campo obrigatório.</span>
-            </div>
-            <div class="campo-grupo" id="bloco-unidade-int2" style="display:none;">
-              <label for="unidade-int2">Unidade Administrativa</label>
-              <select id="unidade-int2" name="unidade_int2">
-                <option value="">— Selecione —</option>
-                <option>Procuradoria Geral do Município</option><option>Secretaria de Integração Municipal</option><option>Secretaria Municipal de Planejamento e Administração</option><option>Secretaria Municipal de Agricultura</option><option>Secretaria Municipal de Assistência Social</option><option>Secretaria Municipal de Cultura e Turismo</option><option>Secretaria Municipal de Infraestrutura</option><option>Secretaria Municipal de Educação</option><option>Secretaria Municipal de Finanças</option><option>Secretaria Municipal de Meio Ambiente e Mineração</option><option>Secretaria Municipal de Obras e Habitação</option><option>Secretaria Municipal de Saúde</option><option>Secretaria Municipal de Segurança Pública e Defesa Social</option><option>Secretaria Municipal de Comunicação</option><option>Secretaria Municipal da Juventude</option><option>Outro</option>
-              </select>
-            </div>
+            <label class="checkbox-grupo" id="label-termo-lgpd">
+              <input type="checkbox" id="check-lgpd" name="check_lgpd">
+              <span class="checkbox-label"><strong>Autorizo o tratamento de dados:</strong> autorizo a Prefeitura Municipal de Oriximiná / SEMEG a tratar os dados pessoais fornecidos exclusivamente para fins de gestão do concurso, em conformidade com a LGPD (Lei nº 13.709/2018).</span>
+            </label>
+            <span class="msg-erro" id="erro-check-lgpd">Esta autorização é obrigatória.</span>
           </div>
         </div>
 
-        <div class="integrante-bloco">
-          <div class="integrante-titulo"><i class="bi bi-person-fill"></i> Integrante 3 <span class="tag" style="background:var(--azul-principal);">Obrigatório</span></div>
-          <div class="campo-grupo">
-            <label for="nome-int3">Nome Completo <span class="obrigatorio">*</span></label>
-            <input type="text" id="nome-int3" name="nome_int3" placeholder="Nome completo">
-            <span class="msg-erro" id="erro-nome-int3">Campo obrigatório.</span>
-          </div>
-          <div class="linha-tripla">
-            <div class="campo-grupo">
-              <label for="cpf-int3">CPF <span class="obrigatorio">*</span></label>
-              <input type="text" id="cpf-int3" name="cpf_int3" placeholder="000.000.000-00" maxlength="14">
-              <span class="msg-erro" id="erro-cpf-int3">CPF inválido.</span>
-            </div>
-            <div class="campo-grupo">
-              <label for="nasc-int3">Data de Nascimento <span class="obrigatorio">*</span></label>
-              <input type="date" id="nasc-int3" name="nasc_int3">
-              <span class="msg-erro" id="erro-nasc-int3">Campo obrigatório.</span>
-            </div>
-            <div class="campo-grupo" id="bloco-unidade-int3" style="display:none;">
-              <label for="unidade-int3">Unidade Administrativa</label>
-              <select id="unidade-int3" name="unidade_int3">
-                <option value="">— Selecione —</option>
-                <option>Procuradoria Geral do Município</option><option>Secretaria de Integração Municipal</option><option>Secretaria Municipal de Planejamento e Administração</option><option>Secretaria Municipal de Agricultura</option><option>Secretaria Municipal de Assistência Social</option><option>Secretaria Municipal de Cultura e Turismo</option><option>Secretaria Municipal de Infraestrutura</option><option>Secretaria Municipal de Educação</option><option>Secretaria Municipal de Finanças</option><option>Secretaria Municipal de Meio Ambiente e Mineração</option><option>Secretaria Municipal de Obras e Habitação</option><option>Secretaria Municipal de Saúde</option><option>Secretaria Municipal de Segurança Pública e Defesa Social</option><option>Secretaria Municipal de Comunicação</option><option>Secretaria Municipal da Juventude</option><option>Outro</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="wizard-nav">
-          <button type="button" class="btn-anterior" onclick="voltar(3)"><i class="bi bi-arrow-left"></i> Anterior</button>
-          <span class="wizard-progresso">Etapa 3 de 7</span>
-          <button type="button" class="btn-proximo" onclick="avancar(3)">Próximo <i class="bi bi-arrow-right"></i></button>
-        </div>
-      </div>
-
-      <!-- ETAPA 4 -->
-      <div class="etapa" id="etapa-4">
-        <div class="secao-titulo">
-          <span class="secao-num">4</span>
-          Descrição da Ideia Inovadora
-          <span class="ref-edital">Itens I, VIII e IX – Edital 5.7</span>
-        </div>
-        <div class="campo-grupo">
-          <label for="titulo-iniciativa">Título da Ideia Inovadora <span class="obrigatorio">*</span></label>
-          <input type="text" id="titulo-iniciativa" name="titulo_iniciativa" placeholder="Nome da sua ideia ou projeto">
-          <span class="msg-erro" id="erro-titulo-iniciativa">Campo obrigatório.</span>
-        </div>
-        <div class="campo-grupo">
-          <label for="descricao-iniciativa">Descrição Detalhada <span class="obrigatorio">*</span></label>
-          <span class="dica">Descreva o problema, solução, ações e resultados esperados. Mín. 200 caracteres — ou faça upload do documento abaixo (máx. 7 páginas, sendo até 2 de anexos, conforme Anexo IV).</span>
-          <textarea id="descricao-iniciativa" name="descricao_iniciativa" placeholder="Descreva sua ideia ou utilize o campo de upload abaixo..." rows="8"></textarea>
-          <span class="msg-erro" id="erro-descricao-iniciativa">Preencha com mínimo 200 caracteres ou faça o upload do documento.</span>
-        </div>
-        <div class="campo-grupo">
-          <label>Upload do Documento da Ideia <span style="font-weight:400;font-size:.82rem;color:#777;">(PDF – máx. 7 páginas / 10 MB)</span></label>
-          <span class="dica">Conforme modelo do Anexo IV. Substitui ou complementa o campo de texto acima.</span>
-          <div class="upload-area">
-            <input type="file" id="arquivo-descricao" name="arquivo_descricao" accept=".pdf">
-            <span class="upload-icon"><i class="bi bi-file-earmark-pdf-fill" style="color:#c0392b;font-size:2rem;"></i></span>
-            <div class="upload-texto"><strong>Clique para selecionar</strong> ou arraste o PDF aqui</div>
-            <div class="upload-nome" id="nome-arquivo-descricao"></div>
-          </div>
-        </div>
-        <div class="campo-grupo">
-          <label for="evidencias">Evidências e Materiais Complementares</label>
-          <span class="dica">Links de vídeos, imagens, protótipos ou outros registros (Item IX – Edital 5.7).</span>
-          <textarea id="evidencias" name="evidencias" placeholder="Cole links ou descreva as evidências disponíveis..." rows="4"></textarea>
-        </div>
-        <div class="campo-grupo">
-          <label>Upload de Evidências <span style="font-weight:400;font-size:.82rem;color:#777;">(opcional – imagem, PDF ou apresentação, máx. 10 MB)</span></label>
-          <div class="upload-area">
-            <input type="file" id="arquivo-evidencias" name="arquivo_evidencias" accept=".pdf,.png,.jpg,.jpeg,.pptx,.docx">
-            <span class="upload-icon"><i class="bi bi-paperclip" style="font-size:2rem;"></i></span>
-            <div class="upload-texto"><strong>Clique para selecionar</strong> ou arraste o arquivo aqui</div>
-            <div class="upload-nome" id="nome-arquivo-evidencias"></div>
-          </div>
-        </div>
-        <div class="wizard-nav">
-          <button type="button" class="btn-anterior" onclick="voltar(4)"><i class="bi bi-arrow-left"></i> Anterior</button>
-          <span class="wizard-progresso">Etapa 4 de 7</span>
-          <button type="button" class="btn-proximo" onclick="avancar(4)">Próximo <i class="bi bi-arrow-right"></i></button>
-        </div>
-      </div>
-
-      <!-- ETAPA 5 -->
-      <div class="etapa" id="etapa-5">
-        <div class="secao-titulo">
-          <span class="secao-num">5</span>
-          Justificativa dos Critérios de Avaliação
-          <span class="ref-edital">Item X – Edital 5.7</span>
-        </div>
-        <div class="secao-desc">Demonstre, em um único texto, como sua ideia atende aos três critérios do Edital: <strong>Inovação</strong>, <strong>Economicidade</strong> e <strong>Aplicabilidade</strong>.</div>
-        <div class="campo-grupo">
-          <label for="justificativa-criterios">Justificativa <span class="obrigatorio">*</span></label>
-          <span class="dica">Aborde os três critérios claramente: <strong>(1) Inovação</strong> — como inova nos processos ou serviços públicos; <strong>(2) Economicidade</strong> — como gerou ou pode gerar economia; <strong>(3) Aplicabilidade</strong> — como pode ser replicada.</span>
-          <textarea id="justificativa-criterios" name="justificativa_criterios" placeholder="(1) Inovação: ...&#10;(2) Economicidade: ...&#10;(3) Aplicabilidade: ..." rows="10"></textarea>
-          <span class="msg-erro" id="erro-justificativa-criterios">Campo obrigatório (mínimo 100 caracteres).</span>
-        </div>
-        <div class="wizard-nav">
-          <button type="button" class="btn-anterior" onclick="voltar(5)"><i class="bi bi-arrow-left"></i> Anterior</button>
-          <span class="wizard-progresso">Etapa 5 de 7</span>
-          <button type="button" class="btn-proximo" onclick="avancar(5)">Próximo <i class="bi bi-arrow-right"></i></button>
-        </div>
-      </div>
-
-      <!-- ETAPA 6 -->
-      <div class="etapa" id="etapa-6">
-        <div class="secao-titulo">
-          <span class="secao-num">6</span>
-          Documentação Obrigatória
-          <span class="ref-edital">Item XI e 5.7.1 – Edital</span>
-        </div>
-        <div class="campo-grupo">
-          <label>Termo de Responsabilidade (Anexo V) <span class="obrigatorio">*</span></label>
-          <span class="dica">Faça upload do Termo devidamente assinado, declarando autoria, ineditismo e veracidade das informações. <a href="pdf/regulamentos/ANEXO V - TERMO DE RESPONSABILIDADE.pdf" target="_blank">Baixar modelo ↗</a></span>
-          <div class="upload-area">
-            <input type="file" id="arquivo-termo" name="arquivo_termo" accept=".pdf,.jpg,.jpeg,.png">
-            <span class="upload-icon"><i class="bi bi-file-earmark-check-fill" style="color:var(--verde-ok);font-size:2rem;"></i></span>
-            <div class="upload-texto"><strong>Clique para selecionar</strong> o Termo assinado</div>
-            <div class="upload-nome" id="nome-arquivo-termo"></div>
-          </div>
-          <span class="msg-erro" id="erro-arquivo-termo">O Termo de Responsabilidade assinado é obrigatório.</span>
-        </div>
-
-        <!-- Menor CIDADÃO -->
-        <div id="bloco-menor-cidadao" style="display:none;">
-          <div class="aviso-atencao">
-            <i class="bi bi-exclamation-triangle-fill" style="color:#f59e0b;margin-top:2px;flex-shrink:0;font-size:1.1rem;"></i>
-            <span><strong>Participante menor de 18 anos (Categoria Cidadão).</strong> Conforme o item 5.7.1 do Edital, é obrigatória a apresentação do <strong>Termo de Responsabilidade do Menor</strong>, assinado pelo responsável legal. A ausência implicará no <strong>indeferimento da inscrição</strong>.</span>
-          </div>
-          <div class="campo-grupo">
-            <label>Termo de Responsabilidade do Menor – Cidadão (Anexo V) <span class="obrigatorio">*</span></label>
-            <span class="dica">Documento assinado pelo responsável legal. <a href="pdf/regulamentos/ANEXO V - TERMO-MENOR-CIDADAO.pdf" target="_blank">Baixar modelo ↗</a></span>
-            <div class="upload-area">
-              <input type="file" id="arquivo-termo-menor-cidadao" name="arquivo_termo_menor_cidadao" accept=".pdf,.jpg,.jpeg,.png">
-              <span class="upload-icon"><i class="bi bi-file-earmark-person-fill" style="color:#f59e0b;font-size:2rem;"></i></span>
-              <div class="upload-texto"><strong>Clique para selecionar</strong> o Termo do Menor assinado</div>
-              <div class="upload-nome" id="nome-termo-menor-cidadao"></div>
-            </div>
-            <span class="msg-erro" id="erro-termo-menor-cidadao">Obrigatório para cidadão menor de idade.</span>
-          </div>
-        </div>
-
-        <!-- Menor SERVIDOR -->
-        <div id="bloco-menor-servidor" style="display:none;">
-          <div class="aviso-atencao">
-            <i class="bi bi-exclamation-triangle-fill" style="color:#f59e0b;margin-top:2px;flex-shrink:0;font-size:1.1rem;"></i>
-            <span><strong>Participante menor de 18 anos (Categoria Servidor).</strong> Conforme o item 5.7.1 do Edital, é obrigatória a apresentação do Termo de Autorização do Responsável Legal e do documento de identificação. A <strong>ausência implicará no indeferimento da inscrição</strong>.</span>
-          </div>
-          <div class="campo-grupo">
-            <label>Termo de Autorização do Responsável Legal <span class="obrigatorio">*</span></label>
-            <span class="dica"><a href="pdf/regulamentos/ANEXO V - AUTORIZACAO-MENOR.pdf" target="_blank">Baixar modelo ↗</a></span>
-            <div class="upload-area">
-              <input type="file" id="arquivo-autorizacao-menor" name="arquivo_autorizacao_menor" accept=".pdf,.jpg,.jpeg,.png">
-              <span class="upload-icon"><i class="bi bi-file-earmark-person-fill" style="color:var(--azul-claro);font-size:2rem;"></i></span>
-              <div class="upload-texto"><strong>Clique para selecionar</strong> a autorização assinada</div>
-              <div class="upload-nome" id="nome-autorizacao-menor"></div>
-            </div>
-            <span class="msg-erro" id="erro-autorizacao-menor">Obrigatório para servidor menor de idade.</span>
-          </div>
-          <div class="campo-grupo">
-            <label>Documento de Identificação do Responsável Legal <span class="obrigatorio">*</span></label>
-            <span class="dica">RG, CNH ou outro documento oficial com foto.</span>
-            <div class="upload-area">
-              <input type="file" id="arquivo-doc-responsavel-legal" name="arquivo_doc_responsavel_legal" accept=".pdf,.jpg,.jpeg,.png">
-              <span class="upload-icon"><i class="bi bi-credit-card-fill" style="color:#555;font-size:2rem;"></i></span>
-              <div class="upload-texto"><strong>Clique para selecionar</strong> o documento de identificação</div>
-              <div class="upload-nome" id="nome-doc-responsavel-legal"></div>
-            </div>
-            <span class="msg-erro" id="erro-doc-responsavel-legal">Obrigatório para servidor menor de idade.</span>
-          </div>
-        </div>
-
-        <div class="wizard-nav">
-          <button type="button" class="btn-anterior" onclick="voltar(6)"><i class="bi bi-arrow-left"></i> Anterior</button>
-          <span class="wizard-progresso">Etapa 6 de 7</span>
-          <button type="button" class="btn-proximo" onclick="avancar(6)">Próximo <i class="bi bi-arrow-right"></i></button>
-        </div>
-      </div>
-
-      <!-- ETAPA 7 -->
-      <div class="etapa" id="etapa-7">
-        <div class="secao-titulo">
-          <span class="secao-num">7</span>
-          Declarações e Concordâncias
-        </div>
-        <div class="campo-grupo">
-          <label class="checkbox-grupo" id="label-termo-autoria">
-            <input type="checkbox" id="check-autoria" name="check_autoria">
-            <span class="checkbox-label"><strong>Declaro autoria e ineditismo:</strong> confirmo que a ideia é de minha autoria (ou da equipe), é original e inédita, e que todas as informações são verdadeiras, sob responsabilidade civil e criminal — Edital 5.7, Item XI.</span>
-          </label>
-          <span class="msg-erro" id="erro-check-autoria">Esta declaração é obrigatória.</span>
-
-          <label class="checkbox-grupo" id="label-termo-edital">
-            <input type="checkbox" id="check-edital" name="check_edital">
-            <span class="checkbox-label"><strong>Concordo com o Edital:</strong> li e aceito todas as normas, prazos e critérios do concurso, ciente de que inscrições fora do prazo ou com documentação incompleta serão indeferidas — Edital, itens 5.8 e 5.9.</span>
-          </label>
-          <span class="msg-erro" id="erro-check-edital">Esta concordância é obrigatória.</span>
-
-          <label class="checkbox-grupo" id="label-termo-lgpd">
-            <input type="checkbox" id="check-lgpd" name="check_lgpd">
-            <span class="checkbox-label"><strong>Autorizo o tratamento de dados:</strong> autorizo a Prefeitura Municipal de Oriximiná / SEMEG a tratar os dados pessoais fornecidos exclusivamente para fins de gestão do concurso, em conformidade com a LGPD (Lei nº 13.709/2018).</span>
-          </label>
-          <span class="msg-erro" id="erro-check-lgpd">Esta autorização é obrigatória.</span>
-        </div>
-        <div class="wizard-nav">
-          <button type="button" class="btn-anterior" onclick="voltar(7)"><i class="bi bi-arrow-left"></i> Anterior</button>
-          <span class="wizard-progresso">Etapa 7 de 7</span>
-          <button type="button" class="btn-enviar" id="btn-enviar" onclick="enviarFormulario()">
+        <!-- RODAPÉ -->
+        <div class="form-footer">
+          <button type="submit" class="btn-enviar" id="btn-enviar">
             <span class="spinner"></span>
             <span class="btn-texto"><i class="bi bi-send-fill"></i> &nbsp;Enviar Inscrição</span>
           </button>
+          <p class="aviso-lgpd">
+            <i class="bi bi-lock-fill"></i>
+            Dados protegidos pela LGPD (Lei nº 13.709/2018), utilizados exclusivamente para a gestão do concurso pela SEMEG / Prefeitura Municipal de Oriximiná.
+          </p>
         </div>
-      </div>
+
+      </div><!-- /bloco-formulario -->
 
     </form>
   </div>
@@ -596,107 +583,7 @@
   const db = getFirestore(app);
   const storage = getStorage(app);
 
-  /* STEPPER */
-  let etapaAtual = 1;
-
-  function irParaEtapa(n) {
-    document.getElementById('etapa-' + etapaAtual)?.classList.remove('ativa');
-    document.getElementById('etapa-' + n)?.classList.add('ativa');
-    document.querySelectorAll('.step-item').forEach(el => {
-      const s = parseInt(el.dataset.step);
-      el.classList.toggle('ativo', s === n);
-      el.classList.toggle('concluido', s < n);
-    });
-    etapaAtual = n;
-    window.scrollTo({ top: document.querySelector('.form-body').offsetTop - 20, behavior: 'smooth' });
-  }
-
-  /* VALIDAÇÃO POR ETAPA */
-  function checar(id, erroId, tipo) {
-    const el = document.getElementById(id);
-    if (!el) return true;
-    const erroEl = document.getElementById(erroId);
-    const val = el.value.trim();
-    let ok = true;
-    if (['texto','select'].includes(tipo)) ok = val !== '';
-    else if (tipo === 'email')  ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-    else if (tipo === 'cpf')    ok = val.replace(/\D/g,'').length === 11;
-    else if (tipo === 'min200') ok = val.length >= 200 || document.getElementById('arquivo-descricao')?.files.length > 0;
-    else if (tipo === 'min100') ok = val.length >= 100;
-    el.classList.toggle('campo-erro', !ok);
-    erroEl?.classList.toggle('visivel', !ok);
-    return ok;
-  }
-
-  function validarEtapa(n) {
-    let ok = true;
-    if (n === 1) {
-      const cat = document.querySelector('input[name="categoria"]:checked');
-      if (!cat) { document.getElementById('erro-categoria').classList.add('visivel'); ok = false; }
-      else document.getElementById('erro-categoria').classList.remove('visivel');
-    }
-    if (n === 2) {
-      ok = checar('nome-responsavel','erro-nome-responsavel','texto') && ok;
-      ok = checar('cpf-responsavel','erro-cpf-responsavel','cpf') && ok;
-      ok = checar('nasc-responsavel','erro-nasc-responsavel','texto') && ok;
-      ok = checar('email-responsavel','erro-email-responsavel','email') && ok;
-      ok = checar('telefone-responsavel','erro-telefone-responsavel','texto') && ok;
-      if (document.querySelector('input[name="categoria"]:checked')?.value === 'servidores')
-        ok = checar('unidade-responsavel','erro-unidade-responsavel','select') && ok;
-    }
-    if (n === 3) {
-      ok = checar('nome-int2','erro-nome-int2','texto') && ok;
-      ok = checar('cpf-int2','erro-cpf-int2','cpf') && ok;
-      ok = checar('nasc-int2','erro-nasc-int2','texto') && ok;
-      ok = checar('nome-int3','erro-nome-int3','texto') && ok;
-      ok = checar('cpf-int3','erro-cpf-int3','cpf') && ok;
-      ok = checar('nasc-int3','erro-nasc-int3','texto') && ok;
-    }
-    if (n === 4) {
-      ok = checar('titulo-iniciativa','erro-titulo-iniciativa','texto') && ok;
-      ok = checar('descricao-iniciativa','erro-descricao-iniciativa','min200') && ok;
-    }
-    if (n === 5) {
-      ok = checar('justificativa-criterios','erro-justificativa-criterios','min100') && ok;
-    }
-    if (n === 6) {
-      const termo = document.getElementById('arquivo-termo');
-      const erroTermo = document.getElementById('erro-arquivo-termo');
-      if (!termo?.files?.length) { erroTermo.classList.add('visivel'); ok = false; }
-      else erroTermo.classList.remove('visivel');
-      if (document.getElementById('bloco-menor-cidadao').style.display !== 'none') {
-        const el = document.getElementById('arquivo-termo-menor-cidadao');
-        const er = document.getElementById('erro-termo-menor-cidadao');
-        if (!el?.files?.length) { er.classList.add('visivel'); ok = false; } else er.classList.remove('visivel');
-      }
-      if (document.getElementById('bloco-menor-servidor').style.display !== 'none') {
-        ['arquivo-autorizacao-menor','arquivo-doc-responsavel-legal'].forEach(id => {
-          const el = document.getElementById(id), er = document.getElementById('erro-' + id);
-          if (!el?.files?.length) { er.classList.add('visivel'); ok = false; } else er.classList.remove('visivel');
-        });
-      }
-    }
-    if (n === 7) {
-      ['check-autoria','check-edital','check-lgpd'].forEach(id => {
-        const el = document.getElementById(id);
-        const label = document.getElementById('label-termo-' + id.replace('check-',''));
-        const er = document.getElementById('erro-' + id);
-        label?.classList.toggle('checkbox-erro', !el.checked);
-        er?.classList.toggle('visivel', !el.checked);
-        if (!el.checked) ok = false;
-      });
-    }
-    if (!ok) {
-      document.querySelector('#etapa-' + n + ' .campo-erro, #etapa-' + n + ' .checkbox-erro')
-        ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    return ok;
-  }
-
-  window.avancar = n => { if (validarEtapa(n)) irParaEtapa(n + 1); };
-  window.voltar  = n => irParaEtapa(n - 1);
-
-  /* CATEGORIA */
+  /* ── CATEGORIA ── */
   window.selecionarCategoria = function(cat) {
     ['servidores','cidadaos'].forEach(c => {
       document.getElementById('card-' + c).classList.toggle('selecionado', c === cat);
@@ -704,19 +591,49 @@
       document.getElementById('cat-' + c).checked = c === cat;
     });
     document.getElementById('erro-categoria').classList.remove('visivel');
+
+    // Mostra o formulário completo
+    const bloco = document.getElementById('bloco-formulario');
+    bloco.classList.add('visivel');
+
+    // Badge de categoria
+    const nomes = { servidores: 'Servidores Públicos Municipais', cidadaos: 'Cidadãos' };
+    document.getElementById('badge-categoria-texto').textContent = 'Categoria: ' + nomes[cat];
+
+    // Unidade do responsável (só servidores)
     document.getElementById('bloco-unidade-responsavel').style.display = cat === 'servidores' ? 'block' : 'none';
     if (cat !== 'servidores') {
       document.getElementById('unidade-responsavel').value = '';
       document.getElementById('campo-outra-unidade').style.display = 'none';
     }
+
+    // Unidade dos integrantes (só servidores)
     ['bloco-unidade-int2','bloco-unidade-int3'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.style.display = cat === 'servidores' ? 'block' : 'none';
     });
+
     verificarMenor();
+
+    // Scroll suave até o formulário
+    setTimeout(() => {
+      document.getElementById('bloco-formulario').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
   };
 
-  /* MÁSCARAS */
+  /* ── MUDAR CATEGORIA ── */
+  window.mudarCategoria = function() {
+    // Desmarca tudo
+    ['servidores','cidadaos'].forEach(c => {
+      document.getElementById('card-' + c).classList.remove('selecionado');
+      document.getElementById('check-' + c).innerHTML = '';
+      document.getElementById('cat-' + c).checked = false;
+    });
+    document.getElementById('bloco-formulario').classList.remove('visivel');
+    window.scrollTo({ top: document.querySelector('.form-body').offsetTop - 20, behavior: 'smooth' });
+  };
+
+  /* ── MÁSCARAS ── */
   function mascaraCPF(el) {
     let v = el.value.replace(/\D/g,'').slice(0,11);
     v = v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');
@@ -733,7 +650,7 @@
     document.getElementById('campo-outra-unidade').style.display = this.value === 'outro' ? 'block' : 'none';
   });
 
-  /* MENOR DE IDADE */
+  /* ── MENOR DE IDADE ── */
   function verificarMenor() {
     const hoje = new Date();
     const datas = ['nasc-responsavel','nasc-int2','nasc-int3'].map(id => document.getElementById(id)?.value).filter(Boolean);
@@ -748,9 +665,8 @@
     document.getElementById('bloco-menor-servidor').style.display = (ehMenor && cat === 'servidores') ? 'block' : 'none';
   }
   ['nasc-responsavel','nasc-int2','nasc-int3'].forEach(id => document.getElementById(id)?.addEventListener('change', verificarMenor));
-  document.querySelectorAll('input[name="categoria"]').forEach(el => el.addEventListener('change', verificarMenor));
 
-  /* UPLOADS */
+  /* ── UPLOADS ── */
   [['arquivo-descricao','nome-arquivo-descricao'],['arquivo-evidencias','nome-arquivo-evidencias'],
    ['arquivo-termo','nome-arquivo-termo'],['arquivo-termo-menor-cidadao','nome-termo-menor-cidadao'],
    ['arquivo-autorizacao-menor','nome-autorizacao-menor'],['arquivo-doc-responsavel-legal','nome-doc-responsavel-legal']
@@ -762,7 +678,83 @@
     });
   });
 
-  /* UPLOAD STORAGE */
+  /* ── VALIDAÇÃO COMPLETA ── */
+  function checar(id, erroId, tipo) {
+    const el = document.getElementById(id);
+    if (!el) return true;
+    const erroEl = document.getElementById(erroId);
+    const val = el.value.trim();
+    let ok = true;
+    if (['texto','select'].includes(tipo)) ok = val !== '';
+    else if (tipo === 'email')  ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    else if (tipo === 'cpf')    ok = val.replace(/\D/g,'').length === 11;
+    else if (tipo === 'min200') ok = val.length >= 200 || document.getElementById('arquivo-descricao')?.files.length > 0;
+    else if (tipo === 'min100') ok = val.length >= 100;
+    el.classList.toggle('campo-erro', !ok);
+    erroEl?.classList.toggle('visivel', !ok);
+    return ok;
+  }
+
+  function validarTudo() {
+    let ok = true;
+    const cat = document.querySelector('input[name="categoria"]:checked');
+    if (!cat) { document.getElementById('erro-categoria').classList.add('visivel'); ok = false; }
+
+    ok = checar('nome-responsavel','erro-nome-responsavel','texto') && ok;
+    ok = checar('cpf-responsavel','erro-cpf-responsavel','cpf') && ok;
+    ok = checar('nasc-responsavel','erro-nasc-responsavel','texto') && ok;
+    ok = checar('email-responsavel','erro-email-responsavel','email') && ok;
+    ok = checar('telefone-responsavel','erro-telefone-responsavel','texto') && ok;
+    if (cat?.value === 'servidores') ok = checar('unidade-responsavel','erro-unidade-responsavel','select') && ok;
+
+    ok = checar('nome-int2','erro-nome-int2','texto') && ok;
+    ok = checar('cpf-int2','erro-cpf-int2','cpf') && ok;
+    ok = checar('nasc-int2','erro-nasc-int2','texto') && ok;
+    ok = checar('nome-int3','erro-nome-int3','texto') && ok;
+    ok = checar('cpf-int3','erro-cpf-int3','cpf') && ok;
+    ok = checar('nasc-int3','erro-nasc-int3','texto') && ok;
+
+    ok = checar('titulo-iniciativa','erro-titulo-iniciativa','texto') && ok;
+    ok = checar('descricao-iniciativa','erro-descricao-iniciativa','min200') && ok;
+    ok = checar('justificativa-criterios','erro-justificativa-criterios','min100') && ok;
+
+    // Termo obrigatório
+    const termo = document.getElementById('arquivo-termo');
+    const erroTermo = document.getElementById('erro-arquivo-termo');
+    if (!termo?.files?.length) { erroTermo.classList.add('visivel'); ok = false; }
+    else erroTermo.classList.remove('visivel');
+
+    // Menor cidadão
+    if (document.getElementById('bloco-menor-cidadao').style.display !== 'none') {
+      const el = document.getElementById('arquivo-termo-menor-cidadao');
+      const er = document.getElementById('erro-termo-menor-cidadao');
+      if (!el?.files?.length) { er.classList.add('visivel'); ok = false; } else er.classList.remove('visivel');
+    }
+    // Menor servidor
+    if (document.getElementById('bloco-menor-servidor').style.display !== 'none') {
+      ['arquivo-autorizacao-menor','arquivo-doc-responsavel-legal'].forEach(id => {
+        const el = document.getElementById(id), er = document.getElementById('erro-' + id);
+        if (!el?.files?.length) { er.classList.add('visivel'); ok = false; } else er.classList.remove('visivel');
+      });
+    }
+
+    // Checkboxes
+    ['check-autoria','check-edital','check-lgpd'].forEach(id => {
+      const el = document.getElementById(id);
+      const label = document.getElementById('label-termo-' + id.replace('check-',''));
+      const er = document.getElementById('erro-' + id);
+      label?.classList.toggle('checkbox-erro', !el.checked);
+      er?.classList.toggle('visivel', !el.checked);
+      if (!el.checked) ok = false;
+    });
+
+    if (!ok) {
+      document.querySelector('.campo-erro, .checkbox-erro')?.scrollIntoView({ behavior:'smooth', block:'center' });
+    }
+    return ok;
+  }
+
+  /* ── SUBMIT ── */
   async function uploadArquivo(file, pasta) {
     if (!file) return null;
     const r = ref(storage, pasta + '/' + Date.now() + '_' + file.name);
@@ -770,9 +762,9 @@
     return getDownloadURL(r);
   }
 
-  /* ENVIAR */
-  window.enviarFormulario = async function() {
-    if (!validarEtapa(7)) return;
+  document.getElementById('form-inscricao').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!validarTudo()) return;
     const btn = document.getElementById('btn-enviar');
     btn.classList.add('carregando'); btn.disabled = true;
     try {
@@ -803,22 +795,22 @@
         criadoEm: new Date()
       });
       document.getElementById('modal-sucesso').classList.add('ativo');
-      document.getElementById('form-inscricao').reset();
+      this.reset();
       ['servidores','cidadaos'].forEach(c => {
         document.getElementById('card-'+c).classList.remove('selecionado');
         document.getElementById('check-'+c).innerHTML='';
       });
       document.querySelectorAll('.upload-nome').forEach(el => { el.style.display='none'; el.textContent=''; });
-      ['bloco-unidade-responsavel','campo-outra-unidade','bloco-menor-cidadao','bloco-menor-servidor']
-        .forEach(id => { document.getElementById(id).style.display='none'; });
-      irParaEtapa(1);
+      ['bloco-unidade-responsavel','campo-outra-unidade','bloco-menor-cidadao','bloco-menor-servidor','bloco-formulario']
+        .forEach(id => { const el = document.getElementById(id); if(el) el.style.display=''; });
+      document.getElementById('bloco-formulario').classList.remove('visivel');
     } catch(err) {
       console.error(err);
       alert('Erro ao enviar. Verifique sua conexão e tente novamente.\nSe o problema persistir, entre em contato com a SEMEG.');
     } finally {
       btn.classList.remove('carregando'); btn.disabled = false;
     }
-  };
+  });
 
   window.fecharModal = function() {
     document.getElementById('modal-sucesso').classList.remove('ativo');
