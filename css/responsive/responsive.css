@@ -1,27 +1,251 @@
-@media (max-width: 600px) {
+/* ================================================
+   RESPONSIVO – BREAKPOINTS
+   768px → tablet
+   480px → mobile
+================================================ */
+
+/* ── TABLET (≤ 768px) ── */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .header-brand img {
+    height: 40px;
+  }
+
+  .brand-text h1 {
+    font-size: 15px;
+  }
+
+  /* MENU DROPDOWN */
+  .menu-dropdown {
+    right: auto;
+    left: 0;
+    min-width: 200px;
+  }
+
+  /* BANNER */
+  .banner-home,
+  .banner-2025 {
+    min-height: 260px;
+    background-size: cover;
+  }
+
+  /* CONTAINER */
+  .container {
+    margin: 24px auto 40px;
+    padding: 0 16px;
+  }
+
+  /* TEXTO INTRO */
+  .texto-intro h2 {
+    font-size: 1.5rem;
+  }
+
+  .texto-intro p {
+    font-size: 0.97rem;
+  }
+
+  /* CARDS DE AÇÃO */
+  .acoes-concurso {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .acao-card {
+    padding: 24px 20px;
+  }
+
+  /* LISTA DE PROJETOS */
+  .projeto-card {
+    padding: 16px;
+  }
+
+  /* BLOCO DE DOCUMENTOS */
+  .bloco-documentos {
+    padding: 18px 16px;
+  }
+
+  /* FOOTER */
+  .footer-fino-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .footer-orgao {
+    text-align: center;
+  }
+
+  /* BARRA VOLTAR */
+  .barra-voltar {
+    padding: 0 16px;
+  }
+}
+
+/* ── MOBILE (≤ 480px) ── */
+@media (max-width: 480px) {
+
+  /* HEADER */
+  .header-brand img {
+    height: 34px;
+  }
+
+  .brand-text h1 {
+    font-size: 13px;
+  }
+
+  .brand-text span {
+    font-size: 11px;
+  }
+
+  /* BANNER */
+  .banner-home,
+  .banner-2025 {
+    min-height: 180px;
+  }
+
+  /* TEXTO INTRO */
+  .texto-intro {
+    margin-bottom: 32px;
+  }
+
+  .texto-intro h2 {
+    font-size: 1.3rem;
+  }
+
+  /* CARDS DE AÇÃO */
+  .acao-card {
+    padding: 20px 16px;
+  }
+
+  .acao-card h3 {
+    font-size: 1rem;
+  }
+
+  /* PROJETO CARD */
+  .projeto-topo {
+    flex-direction: column;
+  }
+
+  .projeto-foto {
+    width: 100%;
+    height: 160px;
+  }
+
+  /* FOOTER DO CARD */
   .projeto-footer {
     flex-direction: column;
     align-items: stretch;
+    gap: 8px;
   }
 
   .projeto-footer a {
     width: 100%;
     text-align: center;
+    justify-content: center;
   }
 
   .selo-podio {
     order: -1;
     align-self: flex-start;
   }
-}
 
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    gap: 14px;
+  /* BLOCO DOCUMENTOS */
+  .bloco-documentos {
+    padding: 14px 12px;
   }
 
-  .acoes-concurso {
+  .lista-documentos a {
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 12px;
+  }
+
+  /* LINHA DUPLA / TRIPLA (formulários) */
+  .linha-dupla,
+  .linha-tripla {
     grid-template-columns: 1fr;
+  }
+
+  /* CATEGORIA CARDS */
+  .categoria-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* BOTÕES */
+  .btn-enviar,
+  .btn-proximo,
+  .btn-anterior {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .wizard-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .wizard-progresso {
+    order: -1;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* STEPPER */
+  .step-label {
+    display: none;
+  }
+
+  .step-bolinha {
+    width: 26px;
+    height: 26px;
+    font-size: 0.7rem;
+  }
+
+  /* FORM BODY */
+  .form-header {
+    padding: 24px 18px 20px;
+  }
+
+  .form-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .form-body {
+    padding: 0 18px 28px;
+  }
+
+  /* INTEGRANTE BLOCO */
+  .integrante-bloco {
+    padding: 14px 14px;
+  }
+
+  /* UPLOAD */
+  .upload-area {
+    padding: 18px 14px;
+  }
+
+  /* CHECKBOX */
+  .checkbox-grupo {
+    padding: 14px 14px;
+  }
+
+  /* CONTAINER */
+  .container {
+    padding: 0 12px;
+  }
+
+  /* LIGHTBOX NAV */
+  .lightbox-nav {
+    font-size: 32px;
+    padding: 6px 10px;
   }
 }
