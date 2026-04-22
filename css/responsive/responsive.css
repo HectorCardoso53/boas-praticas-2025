@@ -1,7 +1,7 @@
 /* ================================================
    RESPONSIVO – BREAKPOINTS
-   768px → tablet
-   480px → mobile
+   768px → tablet / landscape mobile
+   480px → mobile portrait
 ================================================ */
 
 /* ── TABLET (≤ 768px) ── */
@@ -9,19 +9,20 @@
 
   /* HEADER */
   .header-container {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
     gap: 10px;
     padding: 12px 16px;
   }
 
   .header-brand {
-    flex: 1;
-    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
   .header-brand img {
     height: 38px;
-    flex-shrink: 0;
   }
 
   .brand-text h1 {
@@ -32,52 +33,35 @@
     font-size: 11px;
   }
 
+  /* BOTÃO DO MENU: ocupa largura total */
   .header-nav {
     width: 100%;
   }
 
   .menu-edicoes {
     width: 100%;
+    position: relative;
   }
 
   .menu-botao {
     width: 100%;
     justify-content: center;
     font-size: 0.85rem;
+    padding: 10px 14px;
   }
 
+  /* DROPDOWN: alinha à esquerda, largura total */
   .menu-dropdown {
     left: 0;
     right: 0;
     width: 100%;
     min-width: unset;
   }
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 16px;
-  }
-
-  .header-brand img {
-    height: 40px;
-  }
-
-  .brand-text h1 {
-    font-size: 15px;
-  }
-
-  /* MENU DROPDOWN */
-  .menu-dropdown {
-    right: auto;
-    left: 0;
-    min-width: 200px;
-  }
 
   /* BANNER */
   .banner-home,
   .banner-2025 {
-    min-height: 260px;
+    min-height: 220px;
     background-size: cover;
   }
 
@@ -88,6 +72,10 @@
   }
 
   /* TEXTO INTRO */
+  .texto-intro {
+    margin-bottom: 36px;
+  }
+
   .texto-intro h2 {
     font-size: 1.5rem;
   }
@@ -106,7 +94,7 @@
     padding: 24px 20px;
   }
 
-  /* LISTA DE PROJETOS */
+  /* PROJETO CARD */
   .projeto-card {
     padding: 16px;
   }
@@ -138,87 +126,44 @@
 @media (max-width: 480px) {
 
   /* HEADER */
-  .header-container {
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 12px 16px;
-  }
-
-  .header-brand {
-    flex: 1;
-    min-width: 0;
-  }
-
   .header-brand img {
-    height: 38px;
-    flex-shrink: 0;
-  }
-
-  .brand-text h1 {
-    font-size: 14px;
-  }
-
-  .brand-text span {
-    font-size: 11px;
-  }
-
-  .header-nav {
-    width: 100%;
-  }
-
-  .menu-edicoes {
-    width: 100%;
-  }
-
-  .menu-botao {
-    width: 100%;
-    justify-content: center;
-    font-size: 0.85rem;
-  }
-
-  .menu-dropdown {
-    left: 0;
-    right: 0;
-    width: 100%;
-    min-width: unset;
-  }
-  .header-brand img {
-    height: 34px;
+    height: 32px;
   }
 
   .brand-text h1 {
     font-size: 13px;
   }
 
-  .brand-text span {
-    font-size: 11px;
-  }
-
   /* BANNER */
   .banner-home,
   .banner-2025 {
-    min-height: 180px;
+    min-height: 160px;
   }
 
   /* TEXTO INTRO */
   .texto-intro {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
   .texto-intro h2 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 
   /* CARDS DE AÇÃO */
   .acao-card {
-    padding: 20px 16px;
+    padding: 18px 14px;
   }
 
   .acao-card h3 {
     font-size: 1rem;
   }
 
-  /* PROJETO CARD */
+  /* CONTAINER */
+  .container {
+    padding: 0 12px;
+  }
+
+  /* PROJETO TOPO (foto + info) */
   .projeto-topo {
     flex-direction: column;
   }
@@ -246,7 +191,7 @@
     align-self: flex-start;
   }
 
-  /* BLOCO DOCUMENTOS */
+  /* DOCUMENTOS */
   .bloco-documentos {
     padding: 14px 12px;
   }
@@ -254,26 +199,17 @@
   .lista-documentos a {
     flex-direction: column;
     gap: 6px;
-    padding: 12px 12px;
+    padding: 12px;
   }
 
-  /* LINHA DUPLA / TRIPLA (formulários) */
+  /* FORMULÁRIOS */
   .linha-dupla,
   .linha-tripla {
     grid-template-columns: 1fr;
   }
 
-  /* CATEGORIA CARDS */
   .categoria-cards {
     grid-template-columns: 1fr;
-  }
-
-  /* BOTÕES */
-  .btn-enviar,
-  .btn-proximo,
-  .btn-anterior {
-    width: 100%;
-    justify-content: center;
   }
 
   .wizard-nav {
@@ -287,6 +223,13 @@
     width: 100%;
   }
 
+  .btn-enviar,
+  .btn-proximo,
+  .btn-anterior {
+    width: 100%;
+    justify-content: center;
+  }
+
   /* STEPPER */
   .step-label {
     display: none;
@@ -298,9 +241,9 @@
     font-size: 0.7rem;
   }
 
-  /* FORM BODY */
+  /* FORM */
   .form-header {
-    padding: 24px 18px 20px;
+    padding: 22px 16px 18px;
   }
 
   .form-header h2 {
@@ -308,32 +251,18 @@
   }
 
   .form-body {
-    padding: 0 18px 28px;
+    padding: 0 16px 24px;
   }
 
-  /* INTEGRANTE BLOCO */
-  .integrante-bloco {
-    padding: 14px 14px;
-  }
-
-  /* UPLOAD */
-  .upload-area {
-    padding: 18px 14px;
-  }
-
-  /* CHECKBOX */
+  .integrante-bloco,
+  .upload-area,
   .checkbox-grupo {
-    padding: 14px 14px;
+    padding: 14px 12px;
   }
 
-  /* CONTAINER */
-  .container {
-    padding: 0 12px;
-  }
-
-  /* LIGHTBOX NAV */
+  /* LIGHTBOX */
   .lightbox-nav {
-    font-size: 32px;
+    font-size: 30px;
     padding: 6px 10px;
   }
 }
