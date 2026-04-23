@@ -1,0 +1,18 @@
+# Variáveis de ambiente (chaves, senhas)
+.env
+.env.local
+.env.production
+
+# Config Firebase (credenciais reais — NÃO versionar)
+config/firebase-config.js
+
+# Dependências
+node_modules/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
