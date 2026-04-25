@@ -3,15 +3,15 @@
  * Cloud Function v2 – firebase-functions >= 5.x
  */
 
-const { onDocumentCreated } = require('firebase-functions/v2/firestore');
-const admin      = require('firebase-admin');
-const nodemailer = require('nodemailer');
+const { onDocumentCreated } = require("firebase-functions/v2/firestore");
+const admin = require("firebase-admin");
+const nodemailer = require("nodemailer");
 
 admin.initializeApp();
 
 function criarTransporter() {
   return nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
@@ -20,13 +20,20 @@ function criarTransporter() {
 }
 
 function templateEmail(dados) {
-  const { nome_responsavel, email_responsavel, categoria, titulo_iniciativa, unidade_responsavel } = dados;
-  const catLabel = categoria === 'servidores' ? 'Servidores Públicos Municipais' : 'Cidadãos';
+  const {
+    nome_responsavel,
+    email_responsavel,
+    categoria,
+    titulo_iniciativa,
+    unidade_responsavel,
+  } = dados;
+  const catLabel =
+    categoria === "servidores" ? "Servidores Públicos Municipais" : "Cidadãos";
 
   return {
-    from:    process.env.EMAIL_FROM,
-    to:      email_responsavel,
-    subject: '✅ Inscrição confirmada – II Concurso de Boas Práticas 2026',
+    from: process.env.EMAIL_FROM,
+    to: email_responsavel,
+    subject: "✅ Inscrição confirmada – II Concurso de Boas Práticas 2026",
     html: `
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -46,7 +53,9 @@ function templateEmail(dados) {
         </tr>
         <tr>
           <td align="center" style="padding:36px 32px 20px;">
-            <div style="width:72px;height:72px;background:#ffd21f;border-radius:50%;font-size:32px;line-height:72px;text-align:center;">🏆</div>
+            <img src="https://boaspraticas.oriximina.pa.gov.br/src/img/prefeitura_oriximina.png" 
+     alt="Prefeitura de Oriximiná"
+     style="height:72px;margin-bottom:10px;">
             <h1 style="margin:20px 0 8px;color:#001b3d;font-size:22px;">Inscrição Confirmada!</h1>
             <p style="margin:0;color:#555;font-size:15px;">Sua participação foi registrada com sucesso.</p>
           </td>
@@ -59,7 +68,7 @@ function templateEmail(dados) {
                 <table width="100%">
                   <tr><td style="padding:6px 0;color:#666;font-size:13px;width:40%;">Responsável</td><td style="padding:6px 0;color:#222;font-size:13px;font-weight:600;">${nome_responsavel}</td></tr>
                   <tr><td style="padding:6px 0;color:#666;font-size:13px;">Categoria</td><td style="padding:6px 0;color:#222;font-size:13px;font-weight:600;">${catLabel}</td></tr>
-                  ${unidade_responsavel ? `<tr><td style="padding:6px 0;color:#666;font-size:13px;">Unidade</td><td style="padding:6px 0;color:#222;font-size:13px;font-weight:600;">${unidade_responsavel}</td></tr>` : ''}
+                  ${unidade_responsavel ? `<tr><td style="padding:6px 0;color:#666;font-size:13px;">Unidade</td><td style="padding:6px 0;color:#222;font-size:13px;font-weight:600;">${unidade_responsavel}</td></tr>` : ""}
                   <tr><td style="padding:6px 0;color:#666;font-size:13px;">Ideia</td><td style="padding:6px 0;color:#001b3d;font-size:13px;font-weight:700;">${titulo_iniciativa}</td></tr>
                 </table>
               </td></tr>
@@ -70,8 +79,6 @@ function templateEmail(dados) {
           <td style="padding:0 32px 32px;">
             <p style="margin:0 0 12px;color:#001b3d;font-size:14px;font-weight:700;">Próximos passos</p>
             <p style="margin:0 0 8px;color:#555;font-size:13px;line-height:1.6;">📋 Sua inscrição será avaliada na fase de <strong>Habilitação</strong>.</p>
-            <p style="margin:0 0 8px;color:#555;font-size:13px;line-height:1.6;">📢 Resultados em <a href="https://boaspraticas.oriximina.pa.gov.br" style="color:#001b3d;font-weight:600;">boaspraticas.oriximina.pa.gov.br</a>.</p>
-            <p style="margin:0;color:#555;font-size:13px;line-height:1.6;">❓ Dúvidas? Entre em contato com a SEMEG.</p>
           </td>
         </tr>
         <tr>
@@ -97,21 +104,26 @@ function templateEmail(dados) {
 }
 
 exports.enviarEmailInscricao = onDocumentCreated(
-  { document: 'inscricoes/{docId}', region: 'us-east1' },
+  { document: "inscricoes/{docId}", region: "us-east1" },
   async (event) => {
     const dados = event.data?.data();
     if (!dados?.email_responsavel) {
-      console.warn('Inscrição sem e-mail:', event.params.docId);
+      console.warn("Inscrição sem e-mail:", event.params.docId);
       return null;
     }
     try {
       const transporter = criarTransporter();
       const info = await transporter.sendMail(templateEmail(dados));
-      console.log('E-mail enviado:', info.messageId, '→', dados.email_responsavel);
+      console.log(
+        "E-mail enviado:",
+        info.messageId,
+        "→",
+        dados.email_responsavel,
+      );
       return null;
     } catch (err) {
-      console.error('Erro ao enviar e-mail:', err);
+      console.error("Erro ao enviar e-mail:", err);
       throw err;
     }
-  }
+  },
 );

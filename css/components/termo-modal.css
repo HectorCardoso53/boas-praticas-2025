@@ -1,0 +1,230 @@
+/* ============================================================
+   termo-modal.css
+   Modal: Termo de Responsabilidade — Anexo V
+   Importado em: css/pages/inscricao-2026.css ou direto no HTML
+   ============================================================ */
+
+/* ── OVERLAY ──────────────────────────────────────────────── */
+#modal-termo-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+#modal-termo-overlay.aberto { display: flex; }
+
+/* ── MODAL BOX ────────────────────────────────────────────── */
+#modal-termo-box {
+  background: #fff;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 660px;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 40px rgba(0,0,0,.22);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── HEADER DO MODAL ──────────────────────────────────────── */
+.mth {
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 2;
+  border-radius: 14px 14px 0 0;
+}
+.mth-titulo { font-size: 15px; font-weight: 600; color: #1a1a1a; margin: 0; }
+.mth-sub    { font-size: 12px; color: #6b7280; margin: 2px 0 0; }
+.mth-fechar {
+  background: none; border: none; cursor: pointer;
+  color: #9ca3af; font-size: 20px; line-height: 1; padding: 0 4px; flex-shrink: 0;
+}
+.mth-fechar:hover { color: #374151; }
+
+/* ── BARRA DE PROGRESSO ───────────────────────────────────── */
+.mt-progresso {
+  padding: 8px 22px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; color: #6b7280;
+}
+.mt-prog-bar {
+  flex: 1; height: 4px;
+  background: #e5e7eb; border-radius: 2px; overflow: hidden;
+}
+.mt-prog-fill {
+  height: 100%; background: #1a7a4a;
+  border-radius: 2px; transition: width .3s;
+}
+
+/* ── ABAS ─────────────────────────────────────────────────── */
+.mt-abas {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 22px; gap: 4px;
+  background: #f9fafb;
+  overflow-x: auto;
+}
+.mt-aba {
+  padding: 10px 16px; font-size: 13px; color: #6b7280;
+  cursor: pointer;
+  border-bottom: 2px solid transparent; white-space: nowrap;
+  background: none; border-top: none; border-left: none; border-right: none;
+  display: flex; align-items: center; gap: 6px;
+  transition: color .15s;
+}
+.mt-aba:hover { color: #1a7a4a; }
+.mt-aba.ativa { color: #1a7a4a; border-bottom-color: #1a7a4a; font-weight: 500; }
+.mt-aba-check {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #d1fae5; color: #1a7a4a;
+  display: none; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; flex-shrink: 0;
+}
+.mt-aba-check.ok { display: inline-flex; }
+
+/* ── CORPO DA ABA ─────────────────────────────────────────── */
+.mt-corpo { padding: 20px 22px; }
+
+/* ── CARD DE DADOS PUXADOS ────────────────────────────────── */
+.mt-dados-card {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+.mt-dados-label {
+  font-size: 10px; text-transform: uppercase;
+  letter-spacing: .05em; color: #6b7280; font-weight: 600; margin-bottom: 8px;
+}
+.mt-dados-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mt-dado-item p { margin: 0; }
+.mt-dado-rotulo { font-size: 10px; color: #9ca3af; }
+.mt-dado-valor  { font-size: 13px; font-weight: 500; color: #111827; }
+
+/* ── CAMPOS MANUAIS (fallback) ────────────────────────────── */
+.mt-campo { margin-bottom: 12px; }
+.mt-campo label {
+  display: block; font-size: 12px;
+  color: #374151; margin-bottom: 4px; font-weight: 500;
+}
+.mt-campo input,
+.mt-campo select {
+  width: 100%; box-sizing: border-box;
+  padding: 8px 10px; font-size: 13px;
+  border: 1px solid #d1d5db; border-radius: 6px;
+  color: #111827; background: #fff;
+}
+.mt-campo input:focus,
+.mt-campo select:focus {
+  outline: none; border-color: #1a7a4a;
+  box-shadow: 0 0 0 3px rgba(26,122,74,.12);
+}
+.mt-dupla { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* ── TEXTO DO TERMO ───────────────────────────────────────── */
+.mt-termo-texto {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 12px; color: #4b5563; line-height: 1.7;
+  margin-bottom: 16px;
+  max-height: 130px; overflow-y: auto;
+}
+
+/* ── CANVAS ASSINATURA ────────────────────────────────────── */
+.mt-canvas-wrap {
+  border: 1px solid #d1d5db;
+  border-radius: 8px; overflow: hidden;
+  background: #fff; margin-bottom: 6px;
+}
+.mt-canvas {
+  display: block; width: 100%; height: 130px;
+  cursor: crosshair; touch-action: none;
+}
+.mt-canvas-actions {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 14px;
+}
+.mt-canvas-hint { font-size: 11px; color: #9ca3af; }
+.mt-btn-limpar {
+  font-size: 11px; padding: 4px 10px;
+  background: none; border: 1px solid #d1d5db;
+  border-radius: 5px; cursor: pointer; color: #6b7280;
+}
+.mt-btn-limpar:hover { background: #f3f4f6; }
+
+/* ── CHECKBOX CONCORDO ────────────────────────────────────── */
+.mt-check-linha {
+  display: flex; align-items: flex-start; gap: 8px; margin-bottom: 16px;
+}
+.mt-check-linha input { margin-top: 2px; flex-shrink: 0; cursor: pointer; }
+.mt-check-linha label { font-size: 12px; color: #374151; line-height: 1.5; cursor: pointer; }
+
+/* ── MENSAGEM DE ERRO ─────────────────────────────────────── */
+.mt-erro { font-size: 12px; color: #dc2626; margin-bottom: 10px; display: none; }
+
+/* ── FOOTER DO MODAL ──────────────────────────────────────── */
+.mt-footer {
+  display: flex; gap: 10px;
+  padding: 16px 22px 20px;
+  border-top: 1px solid #e5e7eb;
+  position: sticky; bottom: 0;
+  background: #fff;
+  border-radius: 0 0 14px 14px;
+}
+.mt-btn-sec {
+  flex: 1; padding: 10px; font-size: 13px; cursor: pointer;
+  background: none; border: 1px solid #d1d5db;
+  border-radius: 7px; color: #6b7280;
+}
+.mt-btn-sec:hover { background: #f3f4f6; }
+.mt-btn-prim {
+  flex: 2; padding: 10px; font-size: 13px; font-weight: 600; cursor: pointer;
+  background: #1a7a4a; border: none; border-radius: 7px; color: #fff;
+  transition: background .15s;
+}
+.mt-btn-prim:hover   { background: #15643d; }
+.mt-btn-prim:disabled { background: #9ca3af; cursor: not-allowed; }
+
+/* ── TELA DE SUCESSO ──────────────────────────────────────── */
+#mt-tela-ok { display: none; padding: 32px 22px; text-align: center; }
+.mt-ok-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #d1fae5;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 14px; font-size: 26px;
+}
+.mt-ok-titulo { font-size: 16px; font-weight: 600; color: #111827; margin: 0 0 6px; }
+.mt-ok-sub    { font-size: 13px; color: #6b7280; margin: 0 0 20px; }
+.mt-ok-arquivo {
+  background: #f0fdf4; border: 1px solid #bbf7d0;
+  border-radius: 8px; padding: 12px 16px;
+  text-align: left; margin-bottom: 20px;
+}
+.mt-ok-arquivo p { margin: 0; }
+.mt-ok-rotulo { font-size: 10px; color: #9ca3af; margin-bottom: 2px !important; }
+.mt-ok-nome   { font-size: 13px; font-weight: 500; color: #111827; }
+.mt-ok-btns   { display: flex; gap: 10px; }
+.mt-btn-baixar {
+  flex: 1; padding: 10px; font-size: 13px; font-weight: 600; cursor: pointer;
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 7px; color: #1d4ed8;
+}
+.mt-btn-fechar2 {
+  flex: 1; padding: 10px; font-size: 13px; cursor: pointer;
+  background: none; border: 1px solid #d1d5db; border-radius: 7px; color: #6b7280;
+}
