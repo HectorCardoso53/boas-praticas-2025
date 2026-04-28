@@ -14,6 +14,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/css/pages/inscricao-2026.css">
   <link rel="stylesheet" href="/css/components/termo-modal.css">
+  <link rel="stylesheet" href="/css/components/termo-menor-modal.css">
 </head>
 
 <body>
@@ -75,14 +76,15 @@
         <div class="campo-grupo">
           <label>Selecione a categoria <span class="obrigatorio">*</span></label>
           <div class="categoria-cards">
-            <label class="categoria-card" id="card-servidores" onclick="selecionarCategoria('servidores')">
+            <!-- onclick removido — listener adicionado no JS -->
+            <label class="categoria-card" id="card-servidores">
               <input type="radio" name="categoria" value="servidores" id="cat-servidores">
               <span class="cat-check" id="check-servidores"></span>
               <div class="cat-icon-wrap"><i class="bi bi-building-fill"></i></div>
               <div class="cat-titulo">Servidores Públicos Municipais</div>
               <div class="cat-desc">Servidores ativos do quadro da Prefeitura Municipal de Oriximiná.</div>
             </label>
-            <label class="categoria-card" id="card-cidadaos" onclick="selecionarCategoria('cidadaos')">
+            <label class="categoria-card" id="card-cidadaos">
               <input type="radio" name="categoria" value="cidadaos" id="cat-cidadaos">
               <span class="cat-check" id="check-cidadaos"></span>
               <div class="cat-icon-wrap"><i class="bi bi-people-fill"></i></div>
@@ -93,13 +95,14 @@
           <span class="msg-erro" id="erro-categoria">Selecione uma categoria para continuar.</span>
         </div>
 
-        <!-- RESTO DO FORMULÁRIO (aparece após escolher categoria) -->
+        <!-- RESTO DO FORMULÁRIO -->
         <div id="bloco-formulario">
 
           <div class="badge-categoria visivel" id="badge-categoria">
             <i class="bi bi-check-circle-fill" style="color:var(--amarelo-destaque);"></i>
             <span id="badge-categoria-texto"></span>
-            <button type="button" class="badge-mudar" onclick="mudarCategoria()">
+            <!-- onclick removido — listener adicionado no JS -->
+            <button type="button" class="badge-mudar">
               <i class="bi bi-pencil-fill"></i> Alterar
             </button>
           </div>
@@ -338,7 +341,8 @@
               <label>Termo de Responsabilidade (Anexo V) <span class="obrigatorio">*</span></label>
               <span class="dica">
                 Preencha e assine digitalmente os termos dos 3 integrantes.
-                <button type="button" class="btn-abrir-termo" onclick="abrirModalTermo()">
+                <!-- onclick removido — listener adicionado no JS -->
+                <button type="button" class="btn-abrir-termo">
                   ✍ Preencher e assinar termos ↗
                 </button>
               </span>
@@ -355,11 +359,16 @@
             <div id="bloco-menor-cidadao" style="display:none;">
               <div class="aviso-atencao">
                 <i class="bi bi-exclamation-triangle-fill" style="color:#f59e0b;margin-top:2px;flex-shrink:0;font-size:1.1rem;"></i>
-                <span><strong>Participante menor de 18 anos (Cidadão).</strong> É obrigatório o Termo de Responsabilidade do Menor assinado pelo responsável legal. A ausência implica <strong>indeferimento</strong>.</span>
+                <span><strong>Participante menor de 18 anos (Cidadão).</strong> É obrigatório o Termo de Autorização do Responsável Legal. A ausência implica <strong>indeferimento</strong>.</span>
               </div>
               <div class="campo-grupo">
-                <label>Termo de Responsabilidade do Menor <span class="obrigatorio">*</span></label>
-                <span class="dica"><a href="/pdf/regulamentos/ANEXO V - TERMO-MENOR-CIDADAO.pdf" target="_blank">Baixar modelo ↗</a></span>
+                <label>Termo de Autorização do Responsável Legal <span class="obrigatorio">*</span></label>
+                <span class="dica">
+                  Preencha e assine digitalmente o Termo de Autorização do Responsável Legal.
+                  <button type="button" class="btn-abrir-termo" id="btn-abrir-termo-menor" style="background:#fff8e1;color:#92400e;border-color:#fde68a;">
+                    ✍ Preencher e assinar termo do menor ↗
+                  </button>
+                </span>
                 <div class="upload-area">
                   <input type="file" id="arquivo-termo-menor-cidadao" name="arquivo_termo_menor_cidadao" accept=".pdf,.jpg,.jpeg,.png">
                   <span class="upload-icon"><i class="bi bi-file-earmark-person-fill" style="color:#f59e0b;font-size:2rem;"></i></span>
@@ -370,35 +379,8 @@
               </div>
             </div>
 
-            <!-- Menor SERVIDOR -->
-            <div id="bloco-menor-servidor" style="display:none;">
-              <div class="aviso-atencao">
-                <i class="bi bi-exclamation-triangle-fill" style="color:#f59e0b;margin-top:2px;flex-shrink:0;font-size:1.1rem;"></i>
-                <span><strong>Participante menor de 18 anos (Servidor).</strong> É obrigatória a Autorização do Responsável Legal e o documento de identificação. A ausência implica <strong>indeferimento</strong>.</span>
-              </div>
-              <div class="campo-grupo">
-                <label>Termo de Autorização do Responsável Legal <span class="obrigatorio">*</span></label>
-                <span class="dica"><a href="/pdf/regulamentos/ANEXO V - AUTORIZACAO-MENOR.pdf" target="_blank">Baixar modelo ↗</a></span>
-                <div class="upload-area">
-                  <input type="file" id="arquivo-autorizacao-menor" name="arquivo_autorizacao_menor" accept=".pdf,.jpg,.jpeg,.png">
-                  <span class="upload-icon"><i class="bi bi-file-earmark-person-fill" style="color:#38b6ff;font-size:2rem;"></i></span>
-                  <div class="upload-texto"><strong>Clique para selecionar</strong> a autorização assinada</div>
-                  <div class="upload-nome" id="nome-autorizacao-menor"></div>
-                </div>
-                <span class="msg-erro" id="erro-autorizacao-menor">Obrigatório para servidor menor de idade.</span>
-              </div>
-              <div class="campo-grupo">
-                <label>Documento de Identificação do Responsável Legal <span class="obrigatorio">*</span></label>
-                <span class="dica">RG, CNH ou outro documento oficial com foto.</span>
-                <div class="upload-area">
-                  <input type="file" id="arquivo-doc-responsavel-legal" name="arquivo_doc_responsavel_legal" accept=".pdf,.jpg,.jpeg,.png">
-                  <span class="upload-icon"><i class="bi bi-credit-card-fill" style="color:#555;font-size:2rem;"></i></span>
-                  <div class="upload-texto"><strong>Clique para selecionar</strong> o documento de identificação</div>
-                  <div class="upload-nome" id="nome-doc-responsavel-legal"></div>
-                </div>
-                <span class="msg-erro" id="erro-doc-responsavel-legal">Obrigatório para servidor menor de idade.</span>
-              </div>
-            </div>
+            <!-- Menor SERVIDOR (nunca exibido — servidor não pode ser menor) -->
+            <div id="bloco-menor-servidor" style="display:none;"></div>
           </div>
 
           <!-- SEÇÃO 7: DECLARAÇÕES -->
@@ -451,7 +433,50 @@
       <img src="/src/img/prefeitura_oriximina.png" alt="Prefeitura Municipal de Oriximiná" style="height:60px;margin-bottom:16px;opacity:.9;">
       <h3>Inscrição enviada com sucesso!</h3>
       <p>Sua inscrição foi registrada para o <strong>II Concurso de Boas Práticas</strong>. Em breve você receberá uma confirmação no e-mail informado.</p>
-      <button class="btn-modal" onclick="fecharModal()">Fechar</button>
+      <!-- onclick removido — listener adicionado no JS -->
+      <button class="btn-modal">Fechar</button>
+    </div>
+  </div>
+
+  <!-- ── MODAL TERMO MENOR DE IDADE ─────────────────────────── -->
+  <div id="modal-menor-overlay">
+    <div id="modal-menor-box">
+      <div class="mth-menor">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <img src="/src/img/prefeitura_oriximina.png" alt="Prefeitura de Oriximiná" style="width:34px;height:34px;object-fit:contain;">
+          </div>
+          <div>
+            <p class="mth-menor-titulo">Termo de Autorização do Responsável Legal — Anexo V</p>
+            <p class="mth-menor-sub">Participante menor de 18 anos · Categoria Cidadão · Edital nº 001/2026</p>
+          </div>
+        </div>
+        <button class="mth-menor-fechar" onclick="fecharModalMenor()" title="Fechar">✕</button>
+      </div>
+      <div class="mn-aviso">
+        <i class="bi bi-exclamation-triangle-fill" style="color:#f59e0b;flex-shrink:0;font-size:1rem;margin-top:1px;"></i>
+        <span>Preencha com os dados do <strong>responsável legal</strong> (pai, mãe ou tutor). Os dados do menor são puxados automaticamente do formulário.</span>
+      </div>
+      <div id="mn-tela-form">
+        <div class="mn-corpo" id="mn-corpo"></div>
+        <div class="mn-footer">
+          <button type="button" class="mn-btn-sec" onclick="fecharModalMenor()">Cancelar</button>
+          <button type="button" class="mn-btn-prim" onclick="gerarTermoMenor()">✅ Gerar e assinar termo</button>
+        </div>
+      </div>
+      <div id="mn-tela-ok">
+        <div class="mn-ok-icon">✅</div>
+        <p class="mn-ok-titulo">Termo do menor gerado e anexado!</p>
+        <p class="mn-ok-sub">O PDF foi criado com a assinatura do responsável legal e associado ao campo de upload automaticamente.</p>
+        <div class="mn-ok-arquivo">
+          <p class="mn-ok-rotulo">Arquivo gerado</p>
+          <p class="mn-ok-nome" id="mn-ok-nome-arquivo">termo-menor.pdf</p>
+        </div>
+        <div class="mn-ok-btns">
+          <button class="mn-btn-baixar" id="mn-btn-baixar-ok">⬇ Baixar PDF</button>
+          <button class="mn-btn-fechar2" onclick="fecharModalMenor()">Fechar</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -459,9 +484,14 @@
   <div id="modal-termo-overlay">
     <div id="modal-termo-box">
       <div class="mth">
-        <div>
-          <p class="mth-titulo">Termo de Responsabilidade — Anexo V</p>
-          <p class="mth-sub">Prêmio "Chico Florenzano" 2026 · Preencha e assine para os 3 integrantes</p>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <img src="/src/img/prefeitura_oriximina.png" alt="Prefeitura de Oriximiná" style="width:34px;height:34px;object-fit:contain;">
+          </div>
+          <div>
+            <p class="mth-titulo">Termo de Responsabilidade — Anexo V</p>
+            <p class="mth-sub">Prêmio "Chico Florenzano" 2026 · Preencha e assine para os 3 integrantes</p>
+          </div>
         </div>
         <button class="mth-fechar" onclick="fecharModalTermo()" title="Fechar">✕</button>
       </div>
@@ -522,13 +552,35 @@
 
   <!-- ── SCRIPTS ─────────────────────────────────────────────── -->
 
-  <!-- jsPDF (necessário para termo-modal.js) -->
+  <!-- jsPDF -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-  <!-- Modal do termo (sem Firebase, independente) -->
+  <!-- Modais (scripts normais, não módulos — carregam imediatamente) -->
   <script src="/js/termo-modal.js"></script>
+  <script src="/js/termo-menor-modal.js"></script>
 
-  <!-- Lógica principal do formulário + Firebase -->
+  <!--
+    STUB CRÍTICO: define as funções globais IMEDIATAMENTE (script síncrono),
+    antes do módulo ES6 carregar. Quando o módulo terminar, chama
+    window._inscricaoReady() para substituir pelos implementações reais.
+    Isso resolve o ReferenceError nos onclick do HTML.
+  -->
+  <script>
+    window.selecionarCategoria = function(cat) {
+      // enfileira o clique e executa quando o módulo estiver pronto
+      document.addEventListener('_inscricaoCarregado', () => window.selecionarCategoria(cat), { once: true });
+    };
+    window.mudarCategoria = function() {
+      document.addEventListener('_inscricaoCarregado', () => window.mudarCategoria(), { once: true });
+    };
+    window.fecharModal = function() {
+      document.addEventListener('_inscricaoCarregado', () => window.fecharModal(), { once: true });
+    };
+    // Stub para _inscricaoReady — será sobrescrito pelo módulo
+    window._inscricaoReady = function() {};
+  </script>
+
+  <!-- Módulo Firebase + lógica principal -->
   <script src="/js/inscricao-2026.js" type="module"></script>
 
 </body>

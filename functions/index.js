@@ -91,7 +91,7 @@ function templateEmail(dados) {
             <table width="100%"><tr>
               <td><p style="margin:0;color:#fff;font-size:12px;font-weight:600;">Prefeitura Municipal de Oriximiná</p>
                   <p style="margin:2px 0 0;color:rgba(255,255,255,.6);font-size:11px;">Secretaria Municipal de Eficiência Governamental – SEMEG</p></td>
-              <td align="right"><p style="margin:0;color:rgba(255,255,255,.4);font-size:10px;">A transformação não para</p></td>
+              <td align="right"><p style="margin:0;color:rgba(255,255,255,.4);font-size:10px;">A transformação não vai parar</p></td>
             </tr></table>
           </td>
         </tr>

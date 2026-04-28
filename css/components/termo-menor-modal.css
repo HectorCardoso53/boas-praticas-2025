@@ -1,0 +1,290 @@
+/* ============================================================
+   termo-menor-modal.css
+   Modal: Termo de Autorização do Responsável Legal — Anexo V
+   Importar junto com termo-modal.css no HTML
+   ============================================================ */
+
+#modal-menor-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+#modal-menor-overlay.aberto { display: flex; }
+
+#modal-menor-box {
+  background: #fff;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 660px;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 40px rgba(0,0,0,.22);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header amarelo âmbar — diferencia do termo principal (azul) */
+.mth-menor {
+  padding: 16px 20px;
+  background: #92400e;
+  border-bottom: 3px solid #f59e0b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  border-radius: 14px 14px 0 0;
+}
+.mth-menor-titulo { font-size: 14px; font-weight: 500; color: #fff; margin: 0; }
+.mth-menor-sub    { font-size: 11px; color: rgba(255,255,255,.65); margin: 2px 0 0; }
+.mth-menor-fechar {
+  background: rgba(255,255,255,.12);
+  border: 0.5px solid rgba(255,255,255,.2);
+  color: #fff; border-radius: 6px;
+  width: 28px; height: 28px;
+  cursor: pointer; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.mth-menor-fechar:hover { background: rgba(255,255,255,.22); }
+
+/* Aviso laranja */
+.mn-aviso {
+  background: #fff8e1;
+  border-left: 4px solid #f59e0b;
+  border-radius: 0;
+  padding: 10px 20px;
+  font-size: 12px;
+  color: #78350f;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  border-bottom: 0.5px solid #fde68a;
+}
+
+/* Corpo */
+.mn-corpo { padding: 20px 22px; }
+
+/* Seção interna */
+.mn-secao-titulo {
+  font-size: 10px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 0.5px solid #e5e7eb;
+}
+
+/* Campos */
+.mn-campo { margin-bottom: 12px; }
+.mn-campo label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 4px;
+}
+.mn-campo input, .mn-campo select, .mn-campo textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  font-size: 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  color: #111827;
+  background: #fff;
+  font-family: inherit;
+}
+.mn-campo input:focus, .mn-campo select:focus, .mn-campo textarea:focus {
+  outline: none;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245,158,11,.12);
+}
+.mn-campo textarea { resize: vertical; min-height: 70px; }
+.mn-dupla  { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mn-tripla { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+
+/* Card de dados do menor (puxado do formulário) */
+.mn-dados-card {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+.mn-dados-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: #92400e;
+  margin-bottom: 8px;
+}
+.mn-dados-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mn-dado-rotulo { font-size: 10px; color: #9ca3af; margin: 0; }
+.mn-dado-valor  { font-size: 13px; font-weight: 500; color: #111827; margin: 0; }
+
+/* Texto do termo */
+.mn-termo-texto {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 11.5px;
+  color: #4b5563;
+  line-height: 1.75;
+  margin-bottom: 16px;
+  max-height: 160px;
+  overflow-y: auto;
+}
+.mn-termo-texto strong { color: #92400e; }
+
+/* Declarações */
+.mn-declaracoes {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+.mn-declaracao-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: #374151;
+  line-height: 1.5;
+  padding: 4px 0;
+  border-bottom: 0.5px solid #f3f4f6;
+}
+.mn-declaracao-item:last-child { border-bottom: none; }
+.mn-decl-bullet {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #f59e0b; margin-top: 5px; flex-shrink: 0;
+}
+
+/* Canvas assinatura */
+.mn-canvas-wrap {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: 6px;
+}
+.mn-canvas {
+  display: block;
+  width: 100%;
+  height: 120px;
+  cursor: crosshair;
+  touch-action: none;
+}
+.mn-canvas-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.mn-canvas-hint { font-size: 11px; color: #9ca3af; }
+.mn-btn-limpar-canvas {
+  font-size: 11px; padding: 4px 10px;
+  background: none; border: 1px solid #d1d5db;
+  border-radius: 5px; cursor: pointer; color: #6b7280;
+}
+.mn-btn-limpar-canvas:hover { background: #f3f4f6; }
+
+/* Checkbox concordo */
+.mn-check-linha {
+  display: flex; align-items: flex-start; gap: 8px; margin-bottom: 14px;
+}
+.mn-check-linha input { margin-top: 2px; flex-shrink: 0; cursor: pointer; accent-color: #92400e; }
+.mn-check-linha label { font-size: 12px; color: #374151; line-height: 1.5; cursor: pointer; }
+
+/* Erro */
+.mn-erro { font-size: 12px; color: #dc2626; margin-bottom: 10px; display: none; }
+
+/* Footer */
+.mn-footer {
+  display: flex; gap: 10px;
+  padding: 14px 22px 20px;
+  border-top: 0.5px solid #e5e7eb;
+  position: sticky; bottom: 0;
+  background: #fff;
+  border-radius: 0 0 14px 14px;
+}
+.mn-btn-sec {
+  flex: 1; padding: 9px; font-size: 13px; cursor: pointer;
+  background: none; border: 1px solid #d1d5db;
+  border-radius: 7px; color: #6b7280;
+}
+.mn-btn-sec:hover { background: #f3f4f6; }
+.mn-btn-prim {
+  flex: 2; padding: 9px; font-size: 13px; font-weight: 600; cursor: pointer;
+  background: #92400e; border: none; border-radius: 7px; color: #fff;
+  transition: background .15s;
+}
+.mn-btn-prim:hover { background: #78350f; }
+
+/* Tela de sucesso */
+#mn-tela-ok { display: none; padding: 32px 22px; text-align: center; }
+.mn-ok-icon {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: #fef3c7; border: 0.5px solid #fde68a;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 14px; font-size: 24px;
+}
+.mn-ok-titulo { font-size: 15px; font-weight: 600; color: #111827; margin: 0 0 6px; }
+.mn-ok-sub    { font-size: 13px; color: #6b7280; margin: 0 0 20px; }
+.mn-ok-arquivo {
+  background: #fffbeb; border: 1px solid #fde68a;
+  border-radius: 8px; padding: 12px 14px;
+  text-align: left; margin-bottom: 20px;
+}
+.mn-ok-arquivo p  { margin: 0; }
+.mn-ok-rotulo { font-size: 10px; color: #9ca3af; margin-bottom: 2px !important; }
+.mn-ok-nome   { font-size: 13px; font-weight: 500; color: #111827; }
+.mn-ok-btns   { display: flex; gap: 10px; }
+.mn-btn-baixar {
+  flex: 1; padding: 9px; font-size: 13px; font-weight: 600; cursor: pointer;
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 7px; color: #1d4ed8;
+}
+.mn-btn-fechar2 {
+  flex: 1; padding: 9px; font-size: 13px; cursor: pointer;
+  background: none; border: 1px solid #d1d5db; border-radius: 7px; color: #6b7280;
+}
+
+/* Upload de documentos do responsável */
+.mn-upload-area {
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  position: relative;
+  margin-top: 4px;
+}
+.mn-upload-area:hover { border-color: #f59e0b; background: #fffbeb; }
+.mn-upload-area input[type="file"] {
+  position: absolute; inset: 0; opacity: 0;
+  cursor: pointer; width: 100%; height: 100%;
+}
+.mn-upload-texto { font-size: 12px; color: #6b7280; }
+.mn-upload-texto strong { color: #92400e; }
+.mn-upload-nome {
+  margin-top: 6px; font-size: 11px;
+  color: #1a7a4a; font-weight: 600; display: none;
+}
+
+@keyframes mnFadeInUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
