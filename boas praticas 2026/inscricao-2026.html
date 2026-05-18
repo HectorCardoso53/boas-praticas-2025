@@ -9,7 +9,9 @@
 
   <!-- Fontes -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/pages/inscricao-2026.css">
@@ -18,6 +20,28 @@
 </head>
 
 <body>
+
+  <!-- OVERLAY TEMPORÁRIO — remover quando as inscrições abrirem -->
+  <div id="overlay-em-breve" style="
+    position: fixed; inset: 0; z-index: 9999;
+    background: #f5f7fa;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 2rem;
+    font-family: 'Source Sans 3', sans-serif;
+  ">
+    <img src="/src/img/prefeitura_oriximina.png" alt="Prefeitura de Oriximiná" style="width: 80px; margin-bottom: 1.5rem;">
+    <h1 style="color: #1a3a5c; font-size: 1.8rem; margin-bottom: 0.5rem;">Inscrições em Breve</h1>
+    <p style="color: #555; font-size: 1.1rem; max-width: 480px; line-height: 1.6;">
+      As inscrições para o <strong>II Concurso de Boas Práticas 2026</strong> ainda não estão abertas.<br>
+      Em breve você poderá se inscrever por esta página.
+    </p>
+    <a href="/index.html" style="
+      margin-top: 2rem; padding: 0.75rem 2rem;
+      background: #1a3a5c; color: #fff;
+      border-radius: 6px; text-decoration: none; font-weight: 600;
+    ">Voltar para o início</a>
+  </div>
 
   <!-- ── HEADER ─────────────────────────────────────────────── -->
   <header class="header-institucional">
@@ -46,7 +70,8 @@
         <i class="bi bi-card-checklist"></i> Inscrições abertas · 2026
       </div>
       <h2>Formulário de Inscrição</h2>
-      <p class="subtitle">II Concurso de Boas Práticas e Inovação na Gestão Pública de Oriximiná — Prêmio "Chico Florenzano"</p>
+      <p class="subtitle">II Concurso de Boas Práticas e Inovação na Gestão Pública de Oriximiná — Prêmio "Chico
+        Florenzano"</p>
       <div class="form-header-divider"></div>
     </div>
 
@@ -61,7 +86,8 @@
 
       <div class="aviso-sigilo">
         <i class="bi bi-shield-lock-fill" style="margin-top:2px;"></i>
-        <span>As respostas são <strong>sigilosas</strong> e serão utilizadas apenas para fins da Administração Pública.</span>
+        <span>As respostas são <strong>sigilosas</strong> e serão utilizadas apenas para fins da Administração
+          Pública.</span>
       </div>
 
       <form id="form-inscricao" novalidate>
@@ -122,7 +148,8 @@
             <div class="linha-dupla">
               <div class="campo-grupo">
                 <label for="cpf-responsavel">CPF <span class="obrigatorio">*</span></label>
-                <input type="text" id="cpf-responsavel" name="cpf_responsavel" placeholder="000.000.000-00" maxlength="14">
+                <input type="text" id="cpf-responsavel" name="cpf_responsavel" placeholder="000.000.000-00"
+                  maxlength="14">
                 <span class="msg-erro" id="erro-cpf-responsavel">CPF inválido.</span>
               </div>
               <div class="campo-grupo">
@@ -139,12 +166,14 @@
               </div>
               <div class="campo-grupo">
                 <label for="telefone-responsavel">Telefone <span class="obrigatorio">*</span></label>
-                <input type="tel" id="telefone-responsavel" name="telefone_responsavel" placeholder="(93) 9 0000-0000" maxlength="16">
+                <input type="tel" id="telefone-responsavel" name="telefone_responsavel" placeholder="(93) 9 0000-0000"
+                  maxlength="16">
                 <span class="msg-erro" id="erro-telefone-responsavel">Campo obrigatório.</span>
               </div>
             </div>
             <div class="campo-grupo" id="bloco-unidade-responsavel" style="display:none;">
-              <label for="unidade-responsavel">Unidade Administrativa de Origem <span class="obrigatorio">*</span></label>
+              <label for="unidade-responsavel">Unidade Administrativa de Origem <span
+                  class="obrigatorio">*</span></label>
               <span class="dica">Obrigatório para Servidores Públicos Municipais (Item VI – Edital 5.7).</span>
               <select id="unidade-responsavel" name="unidade_responsavel">
                 <option value="">— Selecione a unidade —</option>
@@ -180,11 +209,13 @@
               Dados Completos da Equipe
               <span class="ref-edital">Item VII – Edital 5.7</span>
             </div>
-            <div class="secao-desc">A equipe deve ter <strong>exatamente 3 integrantes</strong> no total (incluindo o responsável). Preencha os dados dos dois integrantes adicionais.</div>
+            <div class="secao-desc">A equipe deve ter <strong>exatamente 3 integrantes</strong> no total (incluindo o
+              responsável). Preencha os dados dos dois integrantes adicionais.</div>
 
             <!-- Integrante 2 -->
             <div class="integrante-bloco">
-              <div class="integrante-titulo"><i class="bi bi-person-fill"></i> Integrante 2 <span class="tag" style="background:var(--azul-principal);">Obrigatório</span></div>
+              <div class="integrante-titulo"><i class="bi bi-person-fill"></i> Integrante 2 <span class="tag"
+                  style="background:var(--azul-principal);">Obrigatório</span></div>
               <div class="campo-grupo">
                 <label for="nome-int2">Nome Completo <span class="obrigatorio">*</span></label>
                 <input type="text" id="nome-int2" name="nome_int2" placeholder="Nome completo">
@@ -228,7 +259,8 @@
 
             <!-- Integrante 3 -->
             <div class="integrante-bloco">
-              <div class="integrante-titulo"><i class="bi bi-person-fill"></i> Integrante 3 <span class="tag" style="background:var(--azul-principal);">Obrigatório</span></div>
+              <div class="integrante-titulo"><i class="bi bi-person-fill"></i> Integrante 3 <span class="tag"
+                  style="background:var(--azul-principal);">Obrigatório</span></div>
               <div class="campo-grupo">
                 <label for="nome-int3">Nome Completo <span class="obrigatorio">*</span></label>
                 <input type="text" id="nome-int3" name="nome_int3" placeholder="Nome completo">
@@ -280,33 +312,46 @@
             </div>
             <div class="campo-grupo">
               <label for="titulo-iniciativa">Título da Ideia Inovadora <span class="obrigatorio">*</span></label>
-              <input type="text" id="titulo-iniciativa" name="titulo_iniciativa" placeholder="Nome da sua ideia ou projeto">
+              <input type="text" id="titulo-iniciativa" name="titulo_iniciativa"
+                placeholder="Nome da sua ideia ou projeto">
               <span class="msg-erro" id="erro-titulo-iniciativa">Campo obrigatório.</span>
             </div>
             <div class="campo-grupo">
-              <label for="descricao-iniciativa">Descrição Detalhada <span class="obrigatorio">*</span></label>
-              <span class="dica">Mín. 200 caracteres — ou faça upload do documento abaixo (máx. 7 páginas, sendo até 2 de anexos, conforme Anexo IV).</span>
-              <textarea id="descricao-iniciativa" name="descricao_iniciativa" placeholder="Descreva sua ideia..." rows="8"></textarea>
-              <span class="msg-erro" id="erro-descricao-iniciativa">Preencha com mínimo 200 caracteres ou faça o upload do documento.</span>
+              <label for="descricao-iniciativa">Resumo do Projeto <span class="obrigatorio">*</span></label>
+              <span class="dica">Breve resumo da ideia — máx. 500 caracteres.</span>
+              <textarea id="descricao-iniciativa" name="descricao_iniciativa"
+                placeholder="Descreva brevemente sua ideia..." rows="4" maxlength="500"></textarea>
+              <div style="text-align:right;font-size:.78rem;color:#888;margin-top:3px;">
+                <span id="contador-resumo">0</span>/500 caracteres
+              </div>
+              <span class="msg-erro" id="erro-descricao-iniciativa">O resumo é obrigatório.</span>
             </div>
             <div class="campo-grupo">
-              <label>Upload do Documento (PDF – máx. 7 páginas / 10 MB)</label>
+              <label>Upload do Documento Completo (PDF – máx. 7 páginas / 10 MB) <span
+                  class="obrigatorio">*</span></label>
+              <span class="dica">Obrigatório — envie o documento conforme Anexo IV (máx. 7 páginas, sendo até 2 de
+                anexos).</span>
               <div class="upload-area">
                 <input type="file" id="arquivo-descricao" name="arquivo_descricao" accept=".pdf">
-                <span class="upload-icon"><i class="bi bi-file-earmark-pdf-fill" style="color:#c0392b;font-size:2rem;"></i></span>
+                <span class="upload-icon"><i class="bi bi-file-earmark-pdf-fill"
+                    style="color:#c0392b;font-size:2rem;"></i></span>
                 <div class="upload-texto"><strong>Clique para selecionar</strong> ou arraste o PDF aqui</div>
                 <div class="upload-nome" id="nome-arquivo-descricao"></div>
               </div>
+              <span class="msg-erro" id="erro-arquivo-descricao">O upload do documento é obrigatório.</span>
             </div>
             <div class="campo-grupo">
               <label for="evidencias">Evidências e Materiais Complementares</label>
               <span class="dica">Links de vídeos, imagens, protótipos ou outros registros (Item IX – Edital 5.7).</span>
-              <textarea id="evidencias" name="evidencias" placeholder="Cole links ou descreva as evidências..." rows="4"></textarea>
+              <textarea id="evidencias" name="evidencias" placeholder="Cole links ou descreva as evidências..."
+                rows="4"></textarea>
             </div>
             <div class="campo-grupo">
-              <label>Upload de Evidências <span style="font-weight:400;font-size:.82rem;color:#777;">(opcional – máx. 10 MB)</span></label>
+              <label>Upload de Evidências <span style="font-weight:400;font-size:.82rem;color:#777;">(opcional – máx. 10
+                  MB)</span></label>
               <div class="upload-area">
-                <input type="file" id="arquivo-evidencias" name="arquivo_evidencias" accept=".pdf,.png,.jpg,.jpeg,.pptx,.docx">
+                <input type="file" id="arquivo-evidencias" name="arquivo_evidencias"
+                  accept=".pdf,.png,.jpg,.jpeg,.pptx,.docx">
                 <span class="upload-icon"><i class="bi bi-paperclip" style="font-size:2rem;"></i></span>
                 <div class="upload-texto"><strong>Clique para selecionar</strong> ou arraste o arquivo aqui</div>
                 <div class="upload-nome" id="nome-arquivo-evidencias"></div>
@@ -321,11 +366,16 @@
               Justificativa dos Critérios de Avaliação
               <span class="ref-edital">Item X – Edital 5.7</span>
             </div>
-            <div class="secao-desc">Demonstre como sua ideia atende aos três critérios: <strong>Inovação</strong>, <strong>Economicidade</strong> e <strong>Aplicabilidade</strong>.</div>
+            <div class="secao-desc">Demonstre como sua ideia atende aos três critérios: <strong>Inovação</strong>,
+              <strong>Economicidade</strong> e <strong>Aplicabilidade</strong>.</div>
             <div class="campo-grupo">
               <label for="justificativa-criterios">Justificativa <span class="obrigatorio">*</span></label>
-              <span class="dica"><strong>(1) Inovação</strong> — como inova nos processos; <strong>(2) Economicidade</strong> — como gera economia; <strong>(3) Aplicabilidade</strong> — como pode ser replicada.</span>
-              <textarea id="justificativa-criterios" name="justificativa_criterios" placeholder="(1) Inovação: ...&#10;(2) Economicidade: ...&#10;(3) Aplicabilidade: ..." rows="10"></textarea>
+              <span class="dica"><strong>(1) Inovação</strong> — como inova nos processos; <strong>(2)
+                  Economicidade</strong> — como gera economia; <strong>(3) Aplicabilidade</strong> — como pode ser
+                replicada.</span>
+              <textarea id="justificativa-criterios" name="justificativa_criterios"
+                placeholder="(1) Inovação: ...&#10;(2) Economicidade: ...&#10;(3) Aplicabilidade: ..."
+                rows="10"></textarea>
               <span class="msg-erro" id="erro-justificativa-criterios">Campo obrigatório (mínimo 100 caracteres).</span>
             </div>
           </div>
@@ -338,7 +388,7 @@
               <span class="ref-edital">Item XI e 5.7.1 – Edital</span>
             </div>
             <div class="campo-grupo">
-              <label>Termo de Responsabilidade (Anexo V) <span class="obrigatorio">*</span></label>
+              <label>Termo de Compromisso (Anexo II) <span class="obrigatorio">*</span></label>
               <span class="dica">
                 Preencha e assine digitalmente os termos dos 3 integrantes.
                 <!-- onclick removido — listener adicionado no JS -->
@@ -348,7 +398,8 @@
               </span>
               <div class="upload-area">
                 <input type="file" id="arquivo-termo" name="arquivo_termo" accept=".pdf,.jpg,.jpeg,.png">
-                <span class="upload-icon"><i class="bi bi-file-earmark-check-fill" style="color:#1a7a4a;font-size:2rem;"></i></span>
+                <span class="upload-icon"><i class="bi bi-file-earmark-check-fill"
+                    style="color:#1a7a4a;font-size:2rem;"></i></span>
                 <div class="upload-texto"><strong>Clique para selecionar</strong> o Termo assinado</div>
                 <div class="upload-nome" id="nome-arquivo-termo"></div>
               </div>
@@ -358,20 +409,25 @@
             <!-- Menor CIDADÃO -->
             <div id="bloco-menor-cidadao" style="display:none;">
               <div class="aviso-atencao">
-                <i class="bi bi-exclamation-triangle-fill" style="color:#f59e0b;margin-top:2px;flex-shrink:0;font-size:1.1rem;"></i>
-                <span><strong>Participante menor de 18 anos (Cidadão).</strong> É obrigatório o Termo de Autorização do Responsável Legal. A ausência implica <strong>indeferimento</strong>.</span>
+                <i class="bi bi-exclamation-triangle-fill"
+                  style="color:#f59e0b;margin-top:2px;flex-shrink:0;font-size:1.1rem;"></i>
+                <span><strong>Participante menor de 18 anos (Cidadão).</strong> É obrigatório o Termo de Autorização do
+                  Responsável Legal. A ausência implica <strong>indeferimento</strong>.</span>
               </div>
               <div class="campo-grupo">
                 <label>Termo de Autorização do Responsável Legal <span class="obrigatorio">*</span></label>
                 <span class="dica">
                   Preencha e assine digitalmente o Termo de Autorização do Responsável Legal.
-                  <button type="button" class="btn-abrir-termo" id="btn-abrir-termo-menor" style="background:#fff8e1;color:#92400e;border-color:#fde68a;">
+                  <button type="button" class="btn-abrir-termo" id="btn-abrir-termo-menor"
+                    style="background:#fff8e1;color:#92400e;border-color:#fde68a;">
                     ✍ Preencher e assinar termo do menor ↗
                   </button>
                 </span>
                 <div class="upload-area">
-                  <input type="file" id="arquivo-termo-menor-cidadao" name="arquivo_termo_menor_cidadao" accept=".pdf,.jpg,.jpeg,.png">
-                  <span class="upload-icon"><i class="bi bi-file-earmark-person-fill" style="color:#f59e0b;font-size:2rem;"></i></span>
+                  <input type="file" id="arquivo-termo-menor-cidadao" name="arquivo_termo_menor_cidadao"
+                    accept=".pdf,.jpg,.jpeg,.png">
+                  <span class="upload-icon"><i class="bi bi-file-earmark-person-fill"
+                      style="color:#f59e0b;font-size:2rem;"></i></span>
                   <div class="upload-texto"><strong>Clique para selecionar</strong> o Termo do Menor assinado</div>
                   <div class="upload-nome" id="nome-termo-menor-cidadao"></div>
                 </div>
@@ -392,19 +448,25 @@
             <div class="campo-grupo">
               <label class="checkbox-grupo" id="label-termo-autoria">
                 <input type="checkbox" id="check-autoria" name="check_autoria">
-                <span class="checkbox-label"><strong>Declaro autoria e ineditismo:</strong> a ideia é de minha autoria (ou da equipe), original e inédita. Todas as informações são verdadeiras, sob responsabilidade civil e criminal — Edital 5.7, Item XI.</span>
+                <span class="checkbox-label"><strong>Declaro autoria e ineditismo:</strong> a ideia é de minha autoria
+                  (ou da equipe), original e inédita. Todas as informações são verdadeiras, sob responsabilidade civil e
+                  criminal — Edital 5.7, Item XI.</span>
               </label>
               <span class="msg-erro" id="erro-check-autoria">Esta declaração é obrigatória.</span>
 
               <label class="checkbox-grupo" id="label-termo-edital">
                 <input type="checkbox" id="check-edital" name="check_edital">
-                <span class="checkbox-label"><strong>Concordo com o Edital:</strong> li e aceito todas as normas, prazos e critérios. Inscrições fora do prazo ou com documentação incompleta serão indeferidas — Edital, itens 5.8 e 5.9.</span>
+                <span class="checkbox-label"><strong>Concordo com o Edital:</strong> li e aceito todas as normas, prazos
+                  e critérios. Inscrições fora do prazo ou com documentação incompleta serão indeferidas — Edital, itens
+                  5.8 e 5.9.</span>
               </label>
               <span class="msg-erro" id="erro-check-edital">Esta concordância é obrigatória.</span>
 
               <label class="checkbox-grupo" id="label-termo-lgpd">
                 <input type="checkbox" id="check-lgpd" name="check_lgpd">
-                <span class="checkbox-label"><strong>Autorizo o tratamento de dados:</strong> autorizo a Prefeitura / SEMEG a tratar os dados pessoais exclusivamente para fins de gestão do concurso — LGPD (Lei nº 13.709/2018).</span>
+                <span class="checkbox-label"><strong>Autorizo o tratamento de dados:</strong> autorizo a Prefeitura /
+                  SEMEG a tratar os dados pessoais exclusivamente para fins de gestão do concurso — LGPD (Lei nº
+                  13.709/2018).</span>
               </label>
               <span class="msg-erro" id="erro-check-lgpd">Esta autorização é obrigatória.</span>
             </div>
@@ -430,9 +492,11 @@
   <!-- ── MODAL SUCESSO ───────────────────────────────────────── -->
   <div class="modal-overlay" id="modal-sucesso">
     <div class="modal-box">
-      <img src="/src/img/prefeitura_oriximina.png" alt="Prefeitura Municipal de Oriximiná" style="height:60px;margin-bottom:16px;opacity:.9;">
+      <img src="/src/img/prefeitura_oriximina.png" alt="Prefeitura Municipal de Oriximiná"
+        style="height:60px;margin-bottom:16px;opacity:.9;">
       <h3>Inscrição enviada com sucesso!</h3>
-      <p>Sua inscrição foi registrada para o <strong>II Concurso de Boas Práticas</strong>. Em breve você receberá uma confirmação no e-mail informado.</p>
+      <p>Sua inscrição foi registrada para o <strong>II Concurso de Boas Práticas</strong>. Em breve você receberá uma
+        confirmação no e-mail informado.</p>
       <!-- onclick removido — listener adicionado no JS -->
       <button class="btn-modal">Fechar</button>
     </div>
@@ -443,8 +507,10 @@
     <div id="modal-menor-box">
       <div class="mth-menor">
         <div style="display:flex;align-items:center;gap:12px;">
-          <div style="width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <img src="/src/img/prefeitura_oriximina.png" alt="Prefeitura de Oriximiná" style="width:34px;height:34px;object-fit:contain;">
+          <div
+            style="width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <img src="/src/img/prefeitura_oriximina.png" alt="Prefeitura de Oriximiná"
+              style="width:34px;height:34px;object-fit:contain;">
           </div>
           <div>
             <p class="mth-menor-titulo">Termo de Autorização do Responsável Legal — Anexo V</p>
@@ -454,8 +520,10 @@
         <button class="mth-menor-fechar" onclick="fecharModalMenor()" title="Fechar">✕</button>
       </div>
       <div class="mn-aviso">
-        <i class="bi bi-exclamation-triangle-fill" style="color:#f59e0b;flex-shrink:0;font-size:1rem;margin-top:1px;"></i>
-        <span>Preencha com os dados do <strong>responsável legal</strong> (pai, mãe ou tutor). Os dados do menor são puxados automaticamente do formulário.</span>
+        <i class="bi bi-exclamation-triangle-fill"
+          style="color:#f59e0b;flex-shrink:0;font-size:1rem;margin-top:1px;"></i>
+        <span>Preencha com os dados do <strong>responsável legal</strong> (pai, mãe ou tutor). Os dados do menor são
+          puxados automaticamente do formulário.</span>
       </div>
       <div id="mn-tela-form">
         <div class="mn-corpo" id="mn-corpo"></div>
@@ -467,7 +535,8 @@
       <div id="mn-tela-ok">
         <div class="mn-ok-icon">✅</div>
         <p class="mn-ok-titulo">Termo do menor gerado e anexado!</p>
-        <p class="mn-ok-sub">O PDF foi criado com a assinatura do responsável legal e associado ao campo de upload automaticamente.</p>
+        <p class="mn-ok-sub">O PDF foi criado com a assinatura do responsável legal e associado ao campo de upload
+          automaticamente.</p>
         <div class="mn-ok-arquivo">
           <p class="mn-ok-rotulo">Arquivo gerado</p>
           <p class="mn-ok-nome" id="mn-ok-nome-arquivo">termo-menor.pdf</p>
@@ -485,11 +554,13 @@
     <div id="modal-termo-box">
       <div class="mth">
         <div style="display:flex;align-items:center;gap:12px;">
-          <div style="width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <img src="/src/img/prefeitura_oriximina.png" alt="Prefeitura de Oriximiná" style="width:34px;height:34px;object-fit:contain;">
+          <div
+            style="width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <img src="/src/img/prefeitura_oriximina.png" alt="Prefeitura de Oriximiná"
+              style="width:34px;height:34px;object-fit:contain;">
           </div>
           <div>
-            <p class="mth-titulo">Termo de Responsabilidade — Anexo V</p>
+            <p class="mth-titulo">Termo de Compromisso — ANEXO II</p>
             <p class="mth-sub">Prêmio "Chico Florenzano" 2026 · Preencha e assine para os 3 integrantes</p>
           </div>
         </div>
@@ -523,7 +594,8 @@
       <div id="mt-tela-ok">
         <div class="mt-ok-icon">✅</div>
         <p class="mt-ok-titulo">Termos gerados e anexados!</p>
-        <p class="mt-ok-sub">O PDF com os termos e assinaturas dos 3 integrantes foi criado e associado ao campo de upload automaticamente.</p>
+        <p class="mt-ok-sub">O PDF com os termos e assinaturas dos 3 integrantes foi criado e associado ao campo de
+          upload automaticamente.</p>
         <div class="mt-ok-arquivo">
           <p class="mt-ok-rotulo">Arquivo gerado</p>
           <p class="mt-ok-nome" id="mt-ok-nome-arquivo">termo-responsabilidade.pdf</p>
@@ -566,22 +638,23 @@
     Isso resolve o ReferenceError nos onclick do HTML.
   -->
   <script>
-    window.selecionarCategoria = function(cat) {
+    window.selecionarCategoria = function (cat) {
       // enfileira o clique e executa quando o módulo estiver pronto
       document.addEventListener('_inscricaoCarregado', () => window.selecionarCategoria(cat), { once: true });
     };
-    window.mudarCategoria = function() {
+    window.mudarCategoria = function () {
       document.addEventListener('_inscricaoCarregado', () => window.mudarCategoria(), { once: true });
     };
-    window.fecharModal = function() {
+    window.fecharModal = function () {
       document.addEventListener('_inscricaoCarregado', () => window.fecharModal(), { once: true });
     };
     // Stub para _inscricaoReady — será sobrescrito pelo módulo
-    window._inscricaoReady = function() {};
+    window._inscricaoReady = function () { };
   </script>
 
   <!-- Módulo Firebase + lógica principal -->
   <script src="/js/inscricao-2026.js" type="module"></script>
 
 </body>
+
 </html>
