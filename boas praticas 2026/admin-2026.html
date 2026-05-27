@@ -270,7 +270,7 @@
       <div class="detalhe-item"><label>Nome</label><span>${fmt(i.nome)}</span></div>
       <div class="detalhe-item"><label>CPF</label><span>${fmt(i.cpf)}</span></div>
       <div class="detalhe-item"><label>Nascimento</label><span>${fmt(i.nasc)}</span></div>
-      <div class="detalhe-item"><label>Unidade</label><span>${fmt(i.unidade)}</span></div>
+      <div class="detalhe-item"><label>Unidade</label><span>${fmt(i.outra_unidade || i.unidade)}</span></div>
     `;
 
     const docLinks = [
@@ -378,11 +378,13 @@
   }
 </script>
 
+<script src="/config/firebase-config.js"></script>
 <script type="module">
   import { initializeApp }    from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js';
   import { getFirestore, collection, getDocs, orderBy, query }
     from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js';
-  import firebaseConfig from '/config/firebase-config.js';
+
+  const firebaseConfig = window.firebaseConfig;
 
   const app = initializeApp(firebaseConfig);
   const db  = getFirestore(app);

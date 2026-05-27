@@ -127,6 +127,13 @@ function selecionarCategoria(cat) {
   if (cat !== "servidores") {
     document.getElementById("unidade-responsavel").value = "";
     document.getElementById("campo-outra-unidade").style.display = "none";
+    document.getElementById("outra-unidade").value = "";
+    ["int2", "int3"].forEach(sfx => {
+      const sel = document.getElementById(`unidade-${sfx}`);
+      const inp = document.getElementById(`outra-unidade-${sfx}`);
+      if (sel) sel.value = "";
+      if (inp) { inp.style.display = "none"; inp.value = ""; }
+    });
   }
   ["bloco-unidade-int2", "bloco-unidade-int3"].forEach(id => {
     const el = document.getElementById(id);
@@ -396,14 +403,16 @@ async function handleSubmit(e) {
       integrante2: {
         nome:    document.getElementById("nome-int2").value,
         cpf:     document.getElementById("cpf-int2").value.replace(/\D/g, ""),
-        nasc:    document.getElementById("nasc-int2").value,
-        unidade: document.getElementById("unidade-int2").value,
+        nasc:         document.getElementById("nasc-int2").value,
+        unidade:      document.getElementById("unidade-int2").value,
+        outra_unidade: document.getElementById("outra-unidade-int2").value,
       },
       integrante3: {
         nome:    document.getElementById("nome-int3").value,
         cpf:     document.getElementById("cpf-int3").value.replace(/\D/g, ""),
-        nasc:    document.getElementById("nasc-int3").value,
-        unidade: document.getElementById("unidade-int3").value,
+        nasc:         document.getElementById("nasc-int3").value,
+        unidade:      document.getElementById("unidade-int3").value,
+        outra_unidade: document.getElementById("outra-unidade-int3").value,
       },
       titulo_iniciativa:       document.getElementById("titulo-iniciativa").value,
       descricao_iniciativa:    document.getElementById("descricao-iniciativa").value,
@@ -480,12 +489,21 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("telefone-responsavel")
     ?.addEventListener("input", function () { mascaraTel(this); });
 
-  // Campo "outra unidade"
+  // Campo "outra unidade" — responsável e integrantes
   document.getElementById("unidade-responsavel")
     ?.addEventListener("change", function () {
       document.getElementById("campo-outra-unidade").style.display =
         this.value === "outro" ? "block" : "none";
+      if (this.value !== "outro") document.getElementById("outra-unidade").value = "";
     });
+  ["int2", "int3"].forEach(sfx => {
+    document.getElementById(`unidade-${sfx}`)
+      ?.addEventListener("change", function () {
+        const el = document.getElementById(`outra-unidade-${sfx}`);
+        el.style.display = this.value === "outro" ? "block" : "none";
+        if (this.value !== "outro") el.value = "";
+      });
+  });
 
   // Nascimento
   ["nasc-responsavel", "nasc-int2", "nasc-int3"].forEach(id => {
