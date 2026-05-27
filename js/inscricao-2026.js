@@ -49,6 +49,17 @@ async function emailJaCadastrado(email) {
   return !snap.empty;
 }
 
+async function buscarCategoriaPorNome(nome) {
+  const n = nome.trim().toLowerCase().replace(/\s+/g, " ");
+  if (!n) return null;
+  const snap = await getDocs(query(
+    collection(db, "inscricoes"),
+    where("nomes_lower", "array-contains", n),
+  ));
+  if (!snap.empty) return snap.docs[0].data().categoria;
+  return null;
+}
+
 /* ── MÁSCARAS ────────────────────────────────────────────────── */
 function mascaraCPF(el) {
   let v = el.value.replace(/\D/g, "").slice(0, 11);
@@ -208,6 +219,20 @@ function validarTudo() {
     }
   });
 
+  // Nomes duplicados na equipe
+  const nomeIds = ["nome-responsavel", "nome-int2", "nome-int3"];
+  const nomesEquipe = nomeIds.map(id =>
+    document.getElementById(id).value.trim().toLowerCase().replace(/\s+/g, " ")
+  );
+  nomeIds.forEach((id, i) => {
+    if (nomesEquipe[i] && nomesEquipe.filter(n => n === nomesEquipe[i]).length > 1) {
+      document.getElementById(id).classList.add("campo-erro");
+      const er = document.getElementById("erro-" + id);
+      if (er) { er.textContent = "Nome repetido na equipe."; er.classList.add("visivel"); }
+      ok = false;
+    }
+  });
+
   ok = checar("titulo-iniciativa", "erro-titulo-iniciativa", "texto") && ok;
 
   // ── Resumo obrigatório (campo texto, não mais "ou arquivo") ──
@@ -280,37 +305,49 @@ async function handleSubmit(e) {
     const emailResp = document.getElementById("email-responsavel").value.toLowerCase().trim();
     const categoria = document.querySelector('input[name="categoria"]:checked')?.value;
 
-    const [catResp, catInt2, catInt3, emailDup] = await Promise.all([
+    const norm = s => s.trim().toLowerCase().replace(/\s+/g, " ");
+    const nomeResp = norm(document.getElementById("nome-responsavel").value);
+    const nomeInt2 = norm(document.getElementById("nome-int2").value);
+    const nomeInt3 = norm(document.getElementById("nome-int3").value);
+
+    const [catCpfResp, catCpfInt2, catCpfInt3,
+           catNomeResp, catNomeInt2, catNomeInt3,
+           emailDup] = await Promise.all([
       buscarCategoriaPorCpf(cpfResp),
       buscarCategoriaPorCpf(cpfInt2),
       buscarCategoriaPorCpf(cpfInt3),
+      buscarCategoriaPorNome(nomeResp),
+      nomeInt2 ? buscarCategoriaPorNome(nomeInt2) : Promise.resolve(null),
+      nomeInt3 ? buscarCategoriaPorNome(nomeInt3) : Promise.resolve(null),
       emailJaCadastrado(emailResp),
     ]);
 
-    const mensagemCpf = (catEncontrada, catAtual) => {
-      if (!catEncontrada) return null;
-      if (catEncontrada === catAtual) return "Este CPF já possui uma inscrição registrada.";
-      const nome = catEncontrada === "servidores" ? "Servidor Público" : "Cidadão";
-      return `Este CPF já está inscrito como ${nome} e não pode participar em duas categorias.`;
+    const msgCpf = (cat, catAtual) => {
+      if (!cat) return null;
+      if (cat === catAtual) return "Este CPF já possui uma inscrição registrada.";
+      const c = cat === "servidores" ? "Servidor Público" : "Cidadão";
+      return `Este CPF já está inscrito como ${c} e não pode participar em duas categorias.`;
     };
+    const msgNome = cat =>
+      cat ? "Este nome já está cadastrado no sistema. Cada participante só pode se inscrever uma vez." : null;
 
-    const erroCpfResp = mensagemCpf(catResp, categoria);
-    const erroCpfInt2 = cpfInt2.length === 11 ? mensagemCpf(catInt2, categoria) : null;
-    const erroCpfInt3 = cpfInt3.length === 11 ? mensagemCpf(catInt3, categoria) : null;
-
-    let cpfOk = true;
-    [[erroCpfResp, "cpf-responsavel", "erro-cpf-responsavel"],
-     [erroCpfInt2, "cpf-int2",        "erro-cpf-int2"],
-     [erroCpfInt3, "cpf-int3",        "erro-cpf-int3"]].forEach(([msg, inputId, errId]) => {
+    let formOk = true;
+    [
+      [msgCpf(catCpfResp, categoria), "cpf-responsavel",  "erro-cpf-responsavel"],
+      [msgCpf(catCpfInt2, categoria), "cpf-int2",         "erro-cpf-int2"],
+      [msgCpf(catCpfInt3, categoria), "cpf-int3",         "erro-cpf-int3"],
+      [msgNome(catNomeResp),          "nome-responsavel",  "erro-nome-responsavel"],
+      [msgNome(catNomeInt2),          "nome-int2",         "erro-nome-int2"],
+      [msgNome(catNomeInt3),          "nome-int3",         "erro-nome-int3"],
+    ].forEach(([msg, inputId, errId]) => {
       if (!msg) return;
       document.getElementById(inputId).classList.add("campo-erro");
       const er = document.getElementById(errId);
-      er.textContent = msg;
-      er.classList.add("visivel");
-      cpfOk = false;
+      if (er) { er.textContent = msg; er.classList.add("visivel"); }
+      formOk = false;
     });
 
-    if (!cpfOk) {
+    if (!formOk) {
       document.querySelector(".campo-erro").scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
@@ -358,6 +395,7 @@ async function handleSubmit(e) {
       evidencias:              document.getElementById("evidencias").value,
       justificativa_criterios: document.getElementById("justificativa-criterios").value,
       urlDesc, urlEvid, urlTermo, urlTermoMenorCidadao, urlAutMenor, urlDocLegal,
+      nomes_lower: [nomeResp, nomeInt2, nomeInt3].filter(Boolean),
       criadoEm: new Date(),
     });
 
