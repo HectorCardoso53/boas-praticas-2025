@@ -129,10 +129,12 @@ function selecionarCategoria(cat) {
     document.getElementById("campo-outra-unidade").style.display = "none";
     document.getElementById("outra-unidade").value = "";
     ["int2", "int3"].forEach(sfx => {
-      const sel = document.getElementById(`unidade-${sfx}`);
-      const inp = document.getElementById(`outra-unidade-${sfx}`);
+      const sel     = document.getElementById(`unidade-${sfx}`);
+      const wrapper = document.getElementById(`campo-outra-unidade-${sfx}`);
+      const inp     = document.getElementById(`outra-unidade-${sfx}`);
       if (sel) sel.value = "";
-      if (inp) { inp.style.display = "none"; inp.value = ""; }
+      if (wrapper) wrapper.style.display = "none";
+      if (inp) inp.value = "";
     });
   }
   ["bloco-unidade-int2", "bloco-unidade-int3"].forEach(id => {
@@ -439,7 +441,9 @@ async function handleSubmit(e) {
       uploadAreaDesc.style.borderColor = "";
       uploadAreaDesc.style.background  = "";
     }
-    ["bloco-unidade-responsavel", "campo-outra-unidade", "bloco-menor-cidadao", "bloco-menor-servidor"]
+    ["bloco-unidade-responsavel", "campo-outra-unidade",
+     "campo-outra-unidade-int2", "campo-outra-unidade-int3",
+     "bloco-menor-cidadao", "bloco-menor-servidor"]
       .forEach(id => { const el = document.getElementById(id); if (el) el.style.display = "none"; });
     document.getElementById("bloco-formulario").classList.remove("visivel");
     // Resetar contador
@@ -499,9 +503,10 @@ document.addEventListener("DOMContentLoaded", () => {
   ["int2", "int3"].forEach(sfx => {
     document.getElementById(`unidade-${sfx}`)
       ?.addEventListener("change", function () {
-        const el = document.getElementById(`outra-unidade-${sfx}`);
-        el.style.display = this.value === "outro" ? "block" : "none";
-        if (this.value !== "outro") el.value = "";
+        const wrapper = document.getElementById(`campo-outra-unidade-${sfx}`);
+        const inp     = document.getElementById(`outra-unidade-${sfx}`);
+        wrapper.style.display = this.value === "outro" ? "block" : "none";
+        if (this.value !== "outro") inp.value = "";
       });
   });
 
