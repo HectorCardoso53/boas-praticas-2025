@@ -233,6 +233,23 @@ function validarTudo() {
     }
   });
 
+  // Servidores: responsável não pode ter o mesmo nome de nenhum participante
+  if (cat?.value === "servidores") {
+    const nomeResp = nomesEquipe[0];
+    [["nome-int2", "erro-nome-int2", 1], ["nome-int3", "erro-nome-int3", 2]].forEach(([inputId, errId, i]) => {
+      if (nomeResp && nomesEquipe[i] && nomeResp === nomesEquipe[i]) {
+        const msg = "O nome do responsável não pode ser igual ao de um participante.";
+        document.getElementById("nome-responsavel").classList.add("campo-erro");
+        const erResp = document.getElementById("erro-nome-responsavel");
+        if (erResp) { erResp.textContent = msg; erResp.classList.add("visivel"); }
+        document.getElementById(inputId).classList.add("campo-erro");
+        const er = document.getElementById(errId);
+        if (er) { er.textContent = msg; er.classList.add("visivel"); }
+        ok = false;
+      }
+    });
+  }
+
   ok = checar("titulo-iniciativa", "erro-titulo-iniciativa", "texto") && ok;
 
   // ── Resumo obrigatório (campo texto, não mais "ou arquivo") ──
