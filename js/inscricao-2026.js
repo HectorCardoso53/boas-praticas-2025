@@ -32,13 +32,14 @@ function cpfValido(cpf) {
 }
 
 /* ── UNICIDADE NO FIRESTORE ──────────────────────────────────── */
-async function cpfJaCadastrado(cpf) {
+async function buscarCategoriaPorCpf(cpf) {
   const n = cpf.replace(/\D/g, "");
+  if (n.length !== 11) return null;
   for (const campo of ["cpf_responsavel", "integrante2.cpf", "integrante3.cpf"]) {
     const snap = await getDocs(query(collection(db, "inscricoes"), where(campo, "==", n)));
-    if (!snap.empty) return true;
+    if (!snap.empty) return snap.docs[0].data().categoria;
   }
-  return false;
+  return null;
 }
 async function emailJaCadastrado(email) {
   const snap = await getDocs(query(
@@ -274,19 +275,43 @@ async function handleSubmit(e) {
 
   try {
     const cpfResp   = document.getElementById("cpf-responsavel").value.replace(/\D/g, "");
+    const cpfInt2   = document.getElementById("cpf-int2").value.replace(/\D/g, "");
+    const cpfInt3   = document.getElementById("cpf-int3").value.replace(/\D/g, "");
     const emailResp = document.getElementById("email-responsavel").value.toLowerCase().trim();
+    const categoria = document.querySelector('input[name="categoria"]:checked')?.value;
 
-    const [cpfDup, emailDup] = await Promise.all([
-      cpfJaCadastrado(cpfResp),
+    const [catResp, catInt2, catInt3, emailDup] = await Promise.all([
+      buscarCategoriaPorCpf(cpfResp),
+      buscarCategoriaPorCpf(cpfInt2),
+      buscarCategoriaPorCpf(cpfInt3),
       emailJaCadastrado(emailResp),
     ]);
 
-    if (cpfDup) {
-      const er = document.getElementById("erro-cpf-responsavel");
-      document.getElementById("cpf-responsavel").classList.add("campo-erro");
-      er.textContent = "Este CPF já possui uma inscrição registrada.";
+    const mensagemCpf = (catEncontrada, catAtual) => {
+      if (!catEncontrada) return null;
+      if (catEncontrada === catAtual) return "Este CPF já possui uma inscrição registrada.";
+      const nome = catEncontrada === "servidores" ? "Servidor Público" : "Cidadão";
+      return `Este CPF já está inscrito como ${nome} e não pode participar em duas categorias.`;
+    };
+
+    const erroCpfResp = mensagemCpf(catResp, categoria);
+    const erroCpfInt2 = cpfInt2.length === 11 ? mensagemCpf(catInt2, categoria) : null;
+    const erroCpfInt3 = cpfInt3.length === 11 ? mensagemCpf(catInt3, categoria) : null;
+
+    let cpfOk = true;
+    [[erroCpfResp, "cpf-responsavel", "erro-cpf-responsavel"],
+     [erroCpfInt2, "cpf-int2",        "erro-cpf-int2"],
+     [erroCpfInt3, "cpf-int3",        "erro-cpf-int3"]].forEach(([msg, inputId, errId]) => {
+      if (!msg) return;
+      document.getElementById(inputId).classList.add("campo-erro");
+      const er = document.getElementById(errId);
+      er.textContent = msg;
       er.classList.add("visivel");
-      document.getElementById("cpf-responsavel").scrollIntoView({ behavior: "smooth", block: "center" });
+      cpfOk = false;
+    });
+
+    if (!cpfOk) {
+      document.querySelector(".campo-erro").scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
     if (emailDup) {
