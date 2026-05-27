@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Inscrições 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    * { box-sizing: border-box; }
+
+    #overlay-login {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #f5f7fa;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 1rem;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    #overlay-login img { width: 72px; }
+    #overlay-login h2 { color: #1a3a5c; margin: 0; font-size: 1.5rem; }
+    #overlay-login p { color: #666; margin: 0; font-size: .95rem; }
+    #overlay-login input {
+      padding: .75rem 1.25rem;
+      border: 2px solid #d0d9e3;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 280px;
+      outline: none;
+      font-family: inherit;
+    }
+    #overlay-login input:focus { border-color: #1a3a5c; }
+    #overlay-login .btn-entrar {
+      padding: .75rem 0;
+      width: 280px;
+      background: #1a3a5c;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    #overlay-login .btn-entrar:hover { background: #15304e; }
+    .erro-senha { color: #c62828; font-size: .88rem; display: none; }
+
+    .admin-main { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+    .admin-topo {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    .admin-titulo { color: #1a3a5c; font-size: 1.4rem; font-weight: 700; margin: 0; }
+    .btn-sair {
+      background: none; border: 1px solid #d0d9e3;
+      padding: .4rem 1rem; border-radius: 6px;
+      cursor: pointer; color: #555; font-size: .9rem;
+      font-family: inherit;
+    }
+    .btn-sair:hover { background: #f0f0f0; }
+
+    .abas { display: flex; gap: 0; border-bottom: 2px solid #e8edf2; margin-bottom: 1.5rem; }
+    .aba-btn {
+      padding: .65rem 1.5rem;
+      border: none; background: none;
+      font-size: .98rem; color: #666;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 600;
+      transition: color .15s;
+      display: flex; align-items: center; gap: .4rem;
+    }
+    .aba-btn.ativa { color: #1a3a5c; border-bottom-color: #1a3a5c; }
+    .aba-btn:hover:not(.ativa) { color: #333; }
+    .aba-count {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #e8edf2; color: #555;
+      border-radius: 99px; font-size: .78rem; font-weight: 700;
+      padding: 0 .55rem; height: 20px; min-width: 20px;
+    }
+    .aba-btn.ativa .aba-count { background: #1a3a5c; color: #fff; }
+
+    .painel { display: none; }
+    .painel.ativo { display: block; }
+
+    .loading { text-align: center; padding: 3rem; color: #888; font-family: 'Source Sans 3', sans-serif; }
+    .vazio { text-align: center; padding: 3rem; color: #aaa; font-family: 'Source Sans 3', sans-serif; }
+    .vazio i { font-size: 2.5rem; display: block; margin-bottom: .5rem; }
+
+    .tabela-wrapper { overflow-x: auto; border-radius: 8px; border: 1px solid #e8edf2; }
+    table { width: 100%; border-collapse: collapse; font-size: .91rem; font-family: 'Source Sans 3', sans-serif; }
+    th {
+      text-align: left; padding: .75rem 1rem;
+      background: #f0f4f8; color: #1a3a5c;
+      font-weight: 700; border-bottom: 2px solid #d0d9e3;
+      white-space: nowrap;
+    }
+    td { padding: .7rem 1rem; border-bottom: 1px solid #eef1f5; vertical-align: middle; color: #333; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fafbfc; }
+    .td-titulo { max-width: 220px; }
+    .td-titulo span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .td-int { font-size: .82rem; color: #666; line-height: 1.5; }
+    .btn-ver {
+      background: none; border: 1px solid #d0d9e3; border-radius: 6px;
+      padding: .3rem .65rem; cursor: pointer; font-size: .82rem;
+      color: #1a3a5c; font-family: inherit;
+      display: flex; align-items: center; gap: .3rem;
+    }
+    .btn-ver:hover { background: #f0f4f8; }
+
+    /* Modal */
+    .modal-fundo {
+      position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem;
+    }
+    .modal-caixa {
+      background: #fff; border-radius: 12px; padding: 2rem;
+      max-width: 660px; width: 100%; max-height: 85vh; overflow-y: auto;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .modal-titulo { font-size: 1.15rem; font-weight: 700; color: #1a3a5c; margin: 0 0 1.25rem; }
+    .detalhe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem 1.5rem; }
+    .detalhe-item label { font-size: .75rem; color: #888; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; display: block; margin-bottom: .15rem; }
+    .detalhe-item span { font-size: .93rem; color: #222; word-break: break-word; }
+    .detalhe-full { grid-column: 1 / -1; }
+    .detalhe-divider { grid-column: 1 / -1; border: none; border-top: 1px solid #eef1f5; margin: .25rem 0; }
+    .detalhe-subtitulo { grid-column: 1 / -1; font-size: .82rem; font-weight: 700; color: #1a3a5c; text-transform: uppercase; letter-spacing: .05em; padding-top: .25rem; }
+    .docs-lista { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .doc-link { color: #1a3a5c; font-size: .88rem; display: flex; align-items: center; gap: .3rem; text-decoration: none; }
+    .doc-link:hover { text-decoration: underline; }
+    .btn-fechar {
+      margin-top: 1.5rem; padding: .6rem 1.5rem;
+      background: #1a3a5c; color: #fff; border: none;
+      border-radius: 8px; cursor: pointer; font-size: .95rem;
+      font-weight: 600; font-family: inherit;
+    }
+    .btn-fechar:hover { background: #15304e; }
+
+    @media (max-width: 768px) {
+      .admin-main { padding: 1rem; }
+      .detalhe-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── LOGIN ──────────────────────────────────────────────────────── -->
+<div id="overlay-login">
+  <img src="/src/img/prefeitura_oriximina.png" alt="Prefeitura de Oriximiná">
+  <h2>Área Administrativa</h2>
+  <p>Inscrições 2026 — Acesso restrito</p>
+  <input type="password" id="input-senha" placeholder="Senha"
+         onkeydown="if(event.key==='Enter') verificarSenha()">
+  <button class="btn-entrar" onclick="verificarSenha()">Entrar</button>
+  <p class="erro-senha" id="erro-senha">Senha incorreta.</p>
+</div>
+
+<!-- ── CONTEÚDO ────────────────────────────────────────────────────── -->
+<div id="admin-content" style="display:none">
+
+  <header class="header-institucional">
+    <div class="header-container">
+      <a href="/index.html" class="header-brand">
+        <img src="/src/img/prefeitura_oriximina.png" alt="Prefeitura Municipal de Oriximiná">
+        <div class="brand-text">
+          <h1>Concurso de Boas Práticas</h1>
+          <span>Painel Administrativo · 2026</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <div class="admin-main">
+
+    <div class="admin-topo">
+      <h2 class="admin-titulo"><i class="bi bi-table"></i> Inscrições recebidas</h2>
+      <button class="btn-sair" onclick="sair()">
+        <i class="bi bi-box-arrow-right"></i> Sair
+      </button>
+    </div>
+
+    <div class="abas">
+      <button class="aba-btn ativa" id="aba-btn-servidores" onclick="trocarAba('servidores')">
+        <i class="bi bi-person-badge"></i> Servidores
+        <span class="aba-count" id="count-servidores">…</span>
+      </button>
+      <button class="aba-btn" id="aba-btn-cidadaos" onclick="trocarAba('cidadaos')">
+        <i class="bi bi-people"></i> Cidadãos
+        <span class="aba-count" id="count-cidadaos">…</span>
+      </button>
+    </div>
+
+    <div class="painel ativo" id="painel-servidores">
+      <div class="loading"><i class="bi bi-arrow-repeat"></i> Carregando…</div>
+    </div>
+    <div class="painel" id="painel-cidadaos">
+      <div class="loading"><i class="bi bi-arrow-repeat"></i> Carregando…</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── MODAL DETALHE ──────────────────────────────────────────────── -->
+<div class="modal-fundo" id="modal-fundo" style="display:none" onclick="fecharModalFundo(event)">
+  <div class="modal-caixa" id="modal-caixa"></div>
+</div>
+
+<!-- ── SCRIPTS ────────────────────────────────────────────────────── -->
+<script>
+  const SENHA = 'admin2026';
+
+  // Restaura sessão se já autenticado
+  if (sessionStorage.getItem('admin_auth') === '1') _mostrarConteudo();
+
+  function verificarSenha() {
+    if (document.getElementById('input-senha').value === SENHA) {
+      sessionStorage.setItem('admin_auth', '1');
+      _mostrarConteudo();
+      window._carregarDados && window._carregarDados();
+    } else {
+      document.getElementById('erro-senha').style.display = 'block';
+    }
+  }
+
+  function _mostrarConteudo() {
+    document.getElementById('overlay-login').style.display = 'none';
+    document.getElementById('admin-content').style.display = 'block';
+  }
+
+  function sair() {
+    sessionStorage.removeItem('admin_auth');
+    location.reload();
+  }
+
+  function trocarAba(cat) {
+    document.querySelectorAll('.aba-btn').forEach(b => b.classList.remove('ativa'));
+    document.querySelectorAll('.painel').forEach(p => p.classList.remove('ativo'));
+    document.getElementById('aba-btn-' + cat).classList.add('ativa');
+    document.getElementById('painel-' + cat).classList.add('ativo');
+  }
+
+  function fecharModalFundo(e) {
+    if (e.target === document.getElementById('modal-fundo')) fecharModal();
+  }
+
+  function fecharModal() {
+    document.getElementById('modal-fundo').style.display = 'none';
+  }
+
+  // Armazena todos os docs indexados por ID para o modal
+  window._inscricoes = {};
+
+  function abrirDetalhe(id) {
+    const d = window._inscricoes[id];
+    if (!d) return;
+
+    const fmt = v => v || '—';
+    const fmtData = ts => ts?.toDate ? ts.toDate().toLocaleDateString('pt-BR') : '—';
+
+    const integrante = (num, i) => !i?.nome ? '' : `
+      <hr class="detalhe-divider">
+      <div class="detalhe-subtitulo">Integrante ${num}</div>
+      <div class="detalhe-item"><label>Nome</label><span>${fmt(i.nome)}</span></div>
+      <div class="detalhe-item"><label>CPF</label><span>${fmt(i.cpf)}</span></div>
+      <div class="detalhe-item"><label>Nascimento</label><span>${fmt(i.nasc)}</span></div>
+      <div class="detalhe-item"><label>Unidade</label><span>${fmt(i.unidade)}</span></div>
+    `;
+
+    const docLinks = [
+      d.urlDesc  && `<a href="${d.urlDesc}"  target="_blank" class="doc-link"><i class="bi bi-file-earmark-text"></i> Descrição</a>`,
+      d.urlEvid  && `<a href="${d.urlEvid}"  target="_blank" class="doc-link"><i class="bi bi-file-earmark-text"></i> Evidências</a>`,
+      d.urlTermo && `<a href="${d.urlTermo}" target="_blank" class="doc-link"><i class="bi bi-file-earmark-check"></i> Termo</a>`,
+      d.urlAutMenor   && `<a href="${d.urlAutMenor}"   target="_blank" class="doc-link"><i class="bi bi-file-earmark-person"></i> Aut. Menor</a>`,
+      d.urlDocLegal   && `<a href="${d.urlDocLegal}"   target="_blank" class="doc-link"><i class="bi bi-file-earmark-lock"></i> Doc. Legal</a>`,
+    ].filter(Boolean).join('');
+
+    document.getElementById('modal-caixa').innerHTML = `
+      <p class="modal-titulo">${fmt(d.titulo_iniciativa)}</p>
+      <div class="detalhe-grid">
+        <div class="detalhe-item">
+          <label>Categoria</label>
+          <span>${d.categoria === 'servidores' ? 'Servidor Público' : 'Cidadão'}</span>
+        </div>
+        <div class="detalhe-item">
+          <label>Data de inscrição</label>
+          <span>${fmtData(d.criadoEm)}</span>
+        </div>
+
+        <hr class="detalhe-divider">
+        <div class="detalhe-subtitulo">Responsável</div>
+        <div class="detalhe-item"><label>Nome</label><span>${fmt(d.nome_responsavel)}</span></div>
+        <div class="detalhe-item"><label>CPF</label><span>${fmt(d.cpf_responsavel)}</span></div>
+        <div class="detalhe-item"><label>E-mail</label><span>${fmt(d.email_responsavel)}</span></div>
+        <div class="detalhe-item"><label>Telefone</label><span>${fmt(d.telefone_responsavel)}</span></div>
+        ${d.unidade_responsavel ? `
+          <div class="detalhe-item detalhe-full">
+            <label>Unidade</label>
+            <span>${fmt(d.outra_unidade || d.unidade_responsavel)}</span>
+          </div>` : ''}
+
+        ${integrante(2, d.integrante2)}
+        ${integrante(3, d.integrante3)}
+
+        <hr class="detalhe-divider">
+        <div class="detalhe-item detalhe-full">
+          <label>Descrição da iniciativa</label>
+          <span>${fmt(d.descricao_iniciativa)}</span>
+        </div>
+        <div class="detalhe-item detalhe-full">
+          <label>Justificativa</label>
+          <span>${fmt(d.justificativa_criterios)}</span>
+        </div>
+
+        ${docLinks ? `
+          <div class="detalhe-item detalhe-full">
+            <label>Documentos</label>
+            <div class="docs-lista">${docLinks}</div>
+          </div>` : ''}
+      </div>
+      <button class="btn-fechar" onclick="fecharModal()">Fechar</button>
+    `;
+    document.getElementById('modal-fundo').style.display = 'flex';
+  }
+
+  function renderizarTabela(painelId, docs) {
+    const painel = document.getElementById(painelId);
+    if (!docs.length) {
+      painel.innerHTML = '<div class="vazio"><i class="bi bi-inbox"></i>Nenhuma inscrição encontrada.</div>';
+      return;
+    }
+
+    const linhas = docs.map((d, i) => {
+      window._inscricoes[d.id] = d;
+      const data = d.criadoEm?.toDate ? d.criadoEm.toDate().toLocaleDateString('pt-BR') : '—';
+      const unidade = d.outra_unidade || d.unidade_responsavel || '—';
+      const integrantes = [d.integrante2?.nome, d.integrante3?.nome].filter(Boolean);
+      return `<tr>
+        <td>${i + 1}</td>
+        <td style="white-space:nowrap">${data}</td>
+        <td>${d.nome_responsavel || '—'}</td>
+        <td>${d.email_responsavel || '—'}</td>
+        <td class="td-titulo"><span title="${(d.titulo_iniciativa || '').replace(/"/g, '&quot;')}">${d.titulo_iniciativa || '—'}</span></td>
+        <td>${unidade}</td>
+        <td class="td-int">${integrantes.length ? integrantes.join('<br>') : '—'}</td>
+        <td>
+          <button class="btn-ver" onclick="abrirDetalhe('${d.id}')">
+            <i class="bi bi-eye"></i> Ver
+          </button>
+        </td>
+      </tr>`;
+    }).join('');
+
+    painel.innerHTML = `
+      <div class="tabela-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Data</th>
+              <th>Responsável</th>
+              <th>E-mail</th>
+              <th>Título da iniciativa</th>
+              <th>Unidade</th>
+              <th>Integrantes</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>${linhas}</tbody>
+        </table>
+      </div>`;
+  }
+</script>
+
+<script type="module">
+  import { initializeApp }    from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js';
+  import { getFirestore, collection, getDocs, orderBy, query }
+    from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js';
+  import firebaseConfig from '/config/firebase-config.js';
+
+  const app = initializeApp(firebaseConfig);
+  const db  = getFirestore(app);
+
+  async function carregarDados() {
+    try {
+      const q    = query(collection(db, 'inscricoes'), orderBy('criadoEm', 'desc'));
+      const snap = await getDocs(q);
+
+      const servidores = [], cidadaos = [];
+      snap.forEach(doc => {
+        const d = { id: doc.id, ...doc.data() };
+        (d.categoria === 'servidores' ? servidores : cidadaos).push(d);
+      });
+
+      document.getElementById('count-servidores').textContent = servidores.length;
+      document.getElementById('count-cidadaos').textContent   = cidadaos.length;
+
+      renderizarTabela('painel-servidores', servidores);
+      renderizarTabela('painel-cidadaos',   cidadaos);
+    } catch (err) {
+      console.error(err);
+      ['painel-servidores', 'painel-cidadaos'].forEach(id => {
+        document.getElementById(id).innerHTML =
+          '<div class="vazio"><i class="bi bi-exclamation-circle"></i>Erro ao carregar dados.</div>';
+      });
+    }
+  }
+
+  // Expõe para o script síncrono chamar ao fazer login
+  window._carregarDados = carregarDados;
+
+  // Se já autenticado ao carregar a página
+  if (sessionStorage.getItem('admin_auth') === '1') carregarDados();
+</script>
+
+</body>
+</html>
