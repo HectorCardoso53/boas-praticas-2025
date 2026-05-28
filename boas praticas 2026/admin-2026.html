@@ -122,7 +122,7 @@
     }
     .modal-caixa {
       background: #fff; border-radius: 12px; padding: 2rem;
-      max-width: 660px; width: 100%; max-height: 85vh; overflow-y: auto;
+      max-width: 780px; width: 100%; max-height: 90vh; overflow-y: auto;
       font-family: 'Source Sans 3', sans-serif;
     }
     .modal-titulo { font-size: 1.15rem; font-weight: 700; color: #1a3a5c; margin: 0 0 1.25rem; }
@@ -261,68 +261,99 @@
     const d = window._inscricoes[id];
     if (!d) return;
 
-    const fmt = v => v || '—';
-    const fmtData = ts => ts?.toDate ? ts.toDate().toLocaleDateString('pt-BR') : '—';
+    const fmt    = v => v || '—';
+    const fmtTs  = ts => ts?.toDate ? ts.toDate().toLocaleString('pt-BR') : '—';
+    const fmtDt  = s  => {
+      if (!s) return '—';
+      const [y, m, dia] = s.split('-');
+      return dia ? `${dia}/${m}/${y}` : s;
+    };
 
     const integrante = (num, i) => !i?.nome ? '' : `
       <hr class="detalhe-divider">
       <div class="detalhe-subtitulo">Integrante ${num}</div>
       <div class="detalhe-item"><label>Nome</label><span>${fmt(i.nome)}</span></div>
       <div class="detalhe-item"><label>CPF</label><span>${fmt(i.cpf)}</span></div>
-      <div class="detalhe-item"><label>Nascimento</label><span>${fmt(i.nasc)}</span></div>
-      <div class="detalhe-item"><label>Unidade</label><span>${fmt(i.outra_unidade || i.unidade)}</span></div>
+      <div class="detalhe-item"><label>Nascimento</label><span>${fmtDt(i.nasc)}</span></div>
+      ${(i.outra_unidade || i.unidade) ? `<div class="detalhe-item detalhe-full"><label>Unidade</label><span>${fmt(i.outra_unidade || i.unidade)}</span></div>` : ''}
     `;
 
-    const docLinks = [
-      d.urlDesc  && `<a href="${d.urlDesc}"  target="_blank" class="doc-link"><i class="bi bi-file-earmark-text"></i> Descrição</a>`,
-      d.urlEvid  && `<a href="${d.urlEvid}"  target="_blank" class="doc-link"><i class="bi bi-file-earmark-text"></i> Evidências</a>`,
-      d.urlTermo && `<a href="${d.urlTermo}" target="_blank" class="doc-link"><i class="bi bi-file-earmark-check"></i> Termo</a>`,
-      d.urlAutMenor   && `<a href="${d.urlAutMenor}"   target="_blank" class="doc-link"><i class="bi bi-file-earmark-person"></i> Aut. Menor</a>`,
-      d.urlDocLegal   && `<a href="${d.urlDocLegal}"   target="_blank" class="doc-link"><i class="bi bi-file-earmark-lock"></i> Doc. Legal</a>`,
-    ].filter(Boolean).join('');
+    const docItem = (url, icone, label) => url
+      ? `<a href="${url}" target="_blank" class="doc-link">
+           <i class="bi bi-${icone}"></i> ${label}
+         </a>`
+      : '';
 
     document.getElementById('modal-caixa').innerHTML = `
       <p class="modal-titulo">${fmt(d.titulo_iniciativa)}</p>
+
       <div class="detalhe-grid">
+
+        <!-- Cabeçalho -->
         <div class="detalhe-item">
           <label>Categoria</label>
           <span>${d.categoria === 'servidores' ? 'Servidor Público' : 'Cidadão'}</span>
         </div>
         <div class="detalhe-item">
           <label>Data de inscrição</label>
-          <span>${fmtData(d.criadoEm)}</span>
+          <span>${fmtTs(d.criadoEm)}</span>
         </div>
 
+        <!-- Responsável -->
         <hr class="detalhe-divider">
         <div class="detalhe-subtitulo">Responsável</div>
         <div class="detalhe-item"><label>Nome</label><span>${fmt(d.nome_responsavel)}</span></div>
         <div class="detalhe-item"><label>CPF</label><span>${fmt(d.cpf_responsavel)}</span></div>
+        <div class="detalhe-item"><label>Nascimento</label><span>${fmtDt(d.nasc_responsavel)}</span></div>
         <div class="detalhe-item"><label>E-mail</label><span>${fmt(d.email_responsavel)}</span></div>
         <div class="detalhe-item"><label>Telefone</label><span>${fmt(d.telefone_responsavel)}</span></div>
-        ${d.unidade_responsavel ? `
+        ${(d.outra_unidade || d.unidade_responsavel) ? `
           <div class="detalhe-item detalhe-full">
             <label>Unidade</label>
             <span>${fmt(d.outra_unidade || d.unidade_responsavel)}</span>
           </div>` : ''}
 
+        <!-- Integrantes -->
         ${integrante(2, d.integrante2)}
         ${integrante(3, d.integrante3)}
 
+        <!-- Iniciativa -->
         <hr class="detalhe-divider">
+        <div class="detalhe-subtitulo">Iniciativa</div>
         <div class="detalhe-item detalhe-full">
-          <label>Descrição da iniciativa</label>
-          <span>${fmt(d.descricao_iniciativa)}</span>
+          <label>Título</label>
+          <span>${fmt(d.titulo_iniciativa)}</span>
         </div>
         <div class="detalhe-item detalhe-full">
-          <label>Justificativa</label>
-          <span>${fmt(d.justificativa_criterios)}</span>
+          <label>Descrição</label>
+          <span style="white-space:pre-wrap">${fmt(d.descricao_iniciativa)}</span>
+        </div>
+        ${d.evidencias ? `
+        <div class="detalhe-item detalhe-full">
+          <label>Evidências e materiais</label>
+          <span style="white-space:pre-wrap">${fmt(d.evidencias)}</span>
+        </div>` : ''}
+        <div class="detalhe-item detalhe-full">
+          <label>Justificativa dos critérios</label>
+          <span style="white-space:pre-wrap">${fmt(d.justificativa_criterios)}</span>
         </div>
 
-        ${docLinks ? `
-          <div class="detalhe-item detalhe-full">
-            <label>Documentos</label>
-            <div class="docs-lista">${docLinks}</div>
-          </div>` : ''}
+        <!-- Documentos -->
+        <hr class="detalhe-divider">
+        <div class="detalhe-subtitulo">Documentos enviados</div>
+        <div class="detalhe-item detalhe-full">
+          <div class="docs-lista">
+            ${docItem(d.urlDesc,              'file-earmark-text',   'Documento de Descrição')}
+            ${docItem(d.urlEvid,              'file-earmark-text',   'Documento de Evidências')}
+            ${docItem(d.urlTermo,             'file-earmark-check',  'Termo de Consentimento')}
+            ${docItem(d.urlTermoMenorCidadao, 'file-earmark-person', 'Termo Menor Cidadão')}
+            ${docItem(d.urlAutMenor,          'file-earmark-person', 'Autorização de Menor')}
+            ${docItem(d.urlDocLegal,          'file-earmark-lock',   'Documento Responsável Legal')}
+          </div>
+          ${!d.urlDesc && !d.urlEvid && !d.urlTermo && !d.urlTermoMenorCidadao && !d.urlAutMenor && !d.urlDocLegal
+            ? '<span style="color:#aaa;font-size:.88rem">Nenhum documento anexado.</span>' : ''}
+        </div>
+
       </div>
       <button class="btn-fechar" onclick="fecharModal()">Fechar</button>
     `;
