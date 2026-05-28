@@ -559,6 +559,8 @@ doc.text('II Concurso de Boas Práticas e Inovação na Gestão Pública de Orix
       try {
         const el = document.querySelector(s);
         if (!el) continue;
+        el.disabled = false;
+        el.closest(".upload-area")?.classList.remove("upload-bloqueado");
         const dt = new DataTransfer();
         dt.items.add(file);
         el.files = dt.files;
