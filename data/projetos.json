@@ -103,7 +103,7 @@
       }
     ],
     "consideracoes": "O projeto representa um avanço significativo na modernização da Secretaria Municipal de Educação de Oriximiná, assegurando maior segurança, integridade e acessibilidade aos documentos provenientes de escolas extintas. A centralização e digitalização do acervo fortalecem a gestão educacional, promovem sustentabilidade administrativa e garantem o direito de acesso à informação à população.",
-    "pdf": "/pdf/001-Documentacao-Transformando-o-Passado-em-Acesso.pdf"
+    "pdf": "/pdf/projetos_2025/001-documentacao-transformando-o-passado-em-acesso.pdf"
   },
   {
     "id": 2,
@@ -188,7 +188,7 @@
       }
     ],
     "consideracoes": "O projeto SpokaMundi representa uma solução inovadora e de alto impacto para a gestão pública municipal, promovendo a modernização do atendimento ao cidadão e fortalecendo a governança digital. Ao integrar tecnologia, participação social e gestão orientada por dados, o projeto posiciona Oriximiná como referência regional no uso inteligente de ferramentas digitais para a administração pública.",
-    "pdf": "/pdf/002 - SPOKAMUNDI.pdf"
+    "pdf": "/pdf/projetos_2025/002 - SPOKAMUNDI.pdf"
   },
   {
     "id": 3,
@@ -271,7 +271,7 @@
       }
     ],
     "consideracoes": "O projeto Patrimônio Inteligente configura-se como um instrumento de transformação da gestão patrimonial municipal, promovendo inovação tecnológica, responsabilidade fiscal e transparência. Ao alinhar controle eficiente, participação social e economicidade, fortalece a Diretoria de Patrimônio como pilar estratégico da administração pública de Oriximiná.",
-    "pdf": "/pdf/003 - PATRIMÔNIO INTELIGENTE.pdf"
+    "pdf": "/pdf/projetos_2025/003 - PATRIMÔNIO INTELIGENTE.pdf"
   },
   {
     "id": 4,
@@ -362,7 +362,7 @@
       }
     ],
     "consideracoes": "O projeto Recicla Oriximiná constitui uma proposta estruturante para a gestão de resíduos sólidos no município, integrando infraestrutura adequada, educação ambiental contínua e inclusão social. A iniciativa contribui para a redução da pressão sobre o lixão municipal, gera economia orçamentária, promove sustentabilidade ambiental e fortalece uma consciência coletiva voltada ao desenvolvimento sustentável de Oriximiná.",
-    "pdf": "/pdf/004 - recicla.pdf"
+    "pdf": "/pdf/projetos_2025/004 - recicla.pdf"
   },
   {
     "id": 5,
@@ -434,7 +434,7 @@
       }
     ],
     "consideracoes": "O projeto CRAS Conectado configura-se como uma prática exitosa no CRAS Ribeirinho, transformando a comunicação em uma ponte efetiva entre os direitos socioassistenciais e os cidadãos. Sua sistematização assegura continuidade, fortalecimento institucional e replicação, consolidando a Assistência Social como promotora de cidadania informada, participativa e humanizada.",
-    "pdf": "/pdf/005 - CRAS Conectado.pdf"
+    "pdf": "/pdf/projetos_2025/005 - CRAS Conectado.pdf"
   },
   {
   "id": 6,
@@ -492,7 +492,7 @@
     { "item": "Contingência", "valor": "R$ 2.000,00" }
   ],
   "consideracoes": "O projeto Letrando Saberes na Terceira Idade representa uma iniciativa de elevado impacto social, reafirmando o compromisso da administração pública com inclusão, equidade e desenvolvimento humano. Ao garantir o acesso à alfabetização, promove dignidade, autonomia e fortalecimento dos vínculos comunitários, contribuindo para a redução de desigualdades históricas.",
-  "pdf": "/pdf/006 - Letrando Saberes na Terceira Idade.pdf"
+  "pdf": "/pdf/projetos_2025/006 - Letrando Saberes na Terceira Idade.pdf"
 }
 ,
   {
@@ -506,7 +506,7 @@
     "metodologia": "Ações culturais itinerantes.",
     "resultados": "Ampliação do acesso cultural.",
     "impacto": "Inclusão e valorização cultural.",
-    "pdf": "/pdf/007 - CULTURA VIVA NAS ESCOLAS, COMUNIDADE E HOSPITAIS.pdf"
+    "pdf": "/pdf/projetos_2025/007 - CULTURA VIVA NAS ESCOLAS, COMUNIDADE E HOSPITAIS.pdf"
   },
   {
     "id": 8,
@@ -519,7 +519,7 @@
     "metodologia": "Mutirões e campanhas ambientais.",
     "resultados": "Melhoria ambiental.",
     "impacto": "Qualidade de vida da população.",
-    "pdf": "/pdf/008 - Agenda verde - Orixi mais limpa.pdf"
+    "pdf": "/pdf/projetos_2025/008 - Agenda verde - Orixi mais limpa.pdf"
   },
   {
     "id": 9,
@@ -532,7 +532,7 @@
     "metodologia": "Oficinas práticas de robótica.",
     "resultados": "Maior interesse dos alunos.",
     "impacto": "Formação tecnológica.",
-    "pdf": "/pdf/009 - Projeto de Robótica e Inclusão.pdf"
+    "pdf": "/pdf/projetos_2025/009 - Projeto de Robótica e Inclusão.pdf"
   },
   {
     "id": 10,
@@ -545,7 +545,7 @@
     "metodologia": "Implantação de sistema eletrônico.",
     "resultados": "Maior controle e transparência.",
     "impacto": "Eficiência administrativa.",
-    "pdf": "/pdf/010 - Relógio de Ponto Eletrônico Ferramenta Tecnológica para a Otimização do Trabalho.pdf"
+    "pdf": "/pdf/projetos_2025/010 - Relógio de Ponto Eletrônico Ferramenta Tecnológica para a Otimização do Trabalho.pdf"
   },
   {
     "id": 11,
@@ -558,7 +558,7 @@
     "metodologia": "Atividades lúdicas.",
     "resultados": "Melhora no desempenho escolar.",
     "impacto": "Qualidade do ensino.",
-    "pdf": "/pdf/011 - DO LÚDICO AO SABER-PMEIC COMO PONTE DE APRENDIZAGEM.pdf"
+    "pdf": "/pdf/projetos_2025/011 - DO LÚDICO AO SABER-PMEIC COMO PONTE DE APRENDIZAGEM.pdf"
   },
   {
     "id": 12,
@@ -571,7 +571,7 @@
     "metodologia": "Compra institucional.",
     "resultados": "Aumento da produção local.",
     "impacto": "Desenvolvimento rural.",
-    "pdf": "/pdf/012 - PAA ORIXIMINÁ – FORTALECIMENTO DA AGRICULTURA FAMILIAR E SEGURANÇA ALIMENTAR..pdf"
+    "pdf": "/pdf/projetos_2025/012 - PAA ORIXIMINÁ – FORTALECIMENTO DA AGRICULTURA FAMILIAR E SEGURANÇA ALIMENTAR..pdf"
   },
   {
     "id": 13,
@@ -584,7 +584,7 @@
     "metodologia": "Centralização e redistribuição.",
     "resultados": "Economia de recursos.",
     "impacto": "Eficiência administrativa.",
-    "pdf": "/pdf/013 - CEMUREP – Centro Municipal de Redistribuição de Excedentes Públicos.pdf"
+    "pdf": "/pdf/projetos_2025/013 - CEMUREP – Centro Municipal de Redistribuição de Excedentes Públicos.pdf"
   },
   {
     "id": 14,
@@ -597,7 +597,7 @@
     "metodologia": "Monitoramento e acompanhamento.",
     "resultados": "Redução da evasão.",
     "impacto": "Qualidade educacional.",
-    "pdf": "/pdf/014 - Educacao Presente - DITEC SEMED.pdf"
+    "pdf": "/pdf/projetos_2025/014 - Educacao Presente - DITEC SEMED.pdf"
   },
   {
     "id": 15,
@@ -610,7 +610,7 @@
     "metodologia": "Aplicação da metodologia 5S.",
     "resultados": "Ambientes mais produtivos.",
     "impacto": "Eficiência organizacional.",
-    "pdf": "/pdf/015 - Projeto 5S's.pdf"
+    "pdf": "/pdf/projetos_2025/015 - Projeto 5S's.pdf"
   },
   {
     "id": 16,
@@ -623,7 +623,7 @@
     "metodologia": "Reorganização dos fluxos.",
     "resultados": "Redução do tempo de espera.",
     "impacto": "Satisfação dos usuários.",
-    "pdf": "/pdf/016 - Otimização dos Atendimentos do Serviço de Saúde de Oriximiná-Pará.pdf"
+    "pdf": "/pdf/projetos_2025/016 - Otimização dos Atendimentos do Serviço de Saúde de Oriximiná-Pará.pdf"
   },
   {
     "id": 17,
@@ -636,7 +636,7 @@
     "metodologia": "Implantação tecnológica.",
     "resultados": "Gestão integrada.",
     "impacto": "Eficiência administrativa.",
-    "pdf": "/pdf/017 - IMPLEMENTAÇÃO SIGIC, SIGEPAZ E SIGPAD NA GESTÃO PÚBLICA DE ORIXIMINÁ..pdf"
+    "pdf": "/pdf/projetos_2025/017 - IMPLEMENTAÇÃO SIGIC, SIGEPAZ E SIGPAD NA GESTÃO PÚBLICA DE ORIXIMINÁ..pdf"
   },
   {
     "id": 18,
@@ -649,7 +649,7 @@
     "metodologia": "Implantação de infraestrutura.",
     "resultados": "Acesso digital ampliado.",
     "impacto": "Inclusão digital.",
-    "pdf": "/pdf/018 - Projeto conecta Rural a Oriximiná gestão presente em todo lugar.pdf"
+    "pdf": "/pdf/projetos_2025/018 - Projeto conecta Rural a Oriximiná gestão presente em todo lugar.pdf"
   },
   {
     "id": 19,
@@ -662,7 +662,7 @@
     "metodologia": "Campanhas e atividades literárias.",
     "resultados": "Aumento do interesse pela leitura.",
     "impacto": "Formação educacional.",
-    "pdf": "/pdf/019 - PROJETO EU AMO LER ORIXI.pdf"
+    "pdf": "/pdf/projetos_2025/019 - PROJETO EU AMO LER ORIXI.pdf"
   },
   {
     "id": 20,
@@ -675,6 +675,6 @@
     "metodologia": "Implantação de sistema digital.",
     "resultados": "Agilidade nos processos.",
     "impacto": "Sustentabilidade e eficiência.",
-    "pdf": "/pdf/020 - Pagamento Verde Modernizaçao Digital na Secretaria de Meio Ambiente e Mineracao.pdf"
+    "pdf": "/pdf/projetos_2025/020 - Pagamento Verde Modernizaçao Digital na Secretaria de Meio Ambiente e Mineracao.pdf"
   }
 ]
