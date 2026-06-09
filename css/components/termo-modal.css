@@ -135,6 +135,14 @@
 }
 .mt-dupla { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
+@media (max-width: 480px) {
+  .mt-dupla { grid-template-columns: 1fr; }
+  .mt-dados-grid { grid-template-columns: 1fr; }
+  .mt-corpo { padding: 16px 14px; }
+  .mth { padding: 14px 16px 12px; }
+  .mt-footer { padding: 12px 14px 16px; }
+}
+
 /* ── TEXTO DO TERMO ───────────────────────────────────────── */
 .mt-termo-texto {
   background: #f9fafb;

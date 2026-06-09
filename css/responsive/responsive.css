@@ -60,7 +60,8 @@
 
   /* BANNER */
   .banner-home,
-  .banner-2025 {
+  .banner-2025,
+  .banner-2026 {
     min-height: 220px;
     background-size: cover;
   }
@@ -136,7 +137,8 @@
 
   /* BANNER */
   .banner-home,
-  .banner-2025 {
+  .banner-2025,
+  .banner-2026 {
     min-height: 160px;
   }
 
@@ -147,6 +149,10 @@
 
   .texto-intro h2 {
     font-size: 1.25rem;
+  }
+
+  .texto-intro p {
+    font-size: 0.93rem;
   }
 
   /* CARDS DE AÇÃO */
@@ -196,10 +202,18 @@
     padding: 14px 12px;
   }
 
+  .bloco-documentos h3 {
+    font-size: 1rem;
+  }
+
   .lista-documentos a {
     flex-direction: column;
     gap: 6px;
     padding: 12px;
+  }
+
+  .lista-documentos a i {
+    font-size: 1.4rem;
   }
 
   /* FORMULÁRIOS */

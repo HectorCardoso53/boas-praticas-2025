@@ -113,6 +113,14 @@
 .mn-dupla  { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .mn-tripla { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
 
+@media (max-width: 480px) {
+  .mn-dupla, .mn-tripla { grid-template-columns: 1fr; }
+  .mn-dados-grid { grid-template-columns: 1fr; }
+  .mn-corpo { padding: 16px 14px; }
+  .mth-menor { padding: 14px 16px; }
+  .mn-footer { padding: 12px 14px 16px; }
+}
+
 /* Card de dados do menor (puxado do formulário) */
 .mn-dados-card {
   background: #fffbeb;
