@@ -29,6 +29,95 @@
   margin-top: 20px;
 }
 
+/* EDIÇÕES HOME */
+.edicoes-home {
+  margin-top: 16px;
+  padding-top: 32px;
+  border-top: 1px solid #e2e6ea;
+}
+
+.edicoes-titulo {
+  font-size: 1.3rem;
+  color: var(--azul-principal);
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.edicoes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.edicao-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 24px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.edicao-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.edicao-ano {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.edicao-nome {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.edicao-status {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+.edicao-concluida {
+  background: #f0f4f8;
+  border-color: #cbd5e0;
+  color: #4a5568;
+}
+
+.edicao-concluida .edicao-status {
+  background: #e2e8f0;
+  color: #4a5568;
+}
+
+.edicao-ativa {
+  background: #001b3d;
+  border-color: #ffd21f;
+  color: #fff;
+}
+
+.edicao-ativa .edicao-ano {
+  color: #ffd21f;
+}
+
+.edicao-ativa .edicao-status {
+  background: #ffd21f;
+  color: #001b3d;
+}
+
 .botoes-cta {
   display: flex;
   gap: 12px;

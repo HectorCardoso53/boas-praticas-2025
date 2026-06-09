@@ -98,6 +98,20 @@
     text-align: center;
   }
 
+  /* EDIÇÕES HOME */
+  .edicoes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .edicao-ano {
+    font-size: 1.6rem;
+  }
+
+  .edicao-nome {
+    font-size: 0.78rem;
+  }
+
   /* CARDS DE AÇÃO */
   .acoes-concurso {
     grid-template-columns: 1fr;
@@ -157,7 +171,7 @@
 
   /* TEXTO INTRO */
   .texto-intro {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   .texto-intro h2 {
@@ -166,6 +180,19 @@
 
   .texto-intro p {
     font-size: 0.93rem;
+  }
+
+  /* EDIÇÕES HOME */
+  .edicao-card {
+    padding: 18px 10px;
+  }
+
+  .edicao-ano {
+    font-size: 1.4rem;
+  }
+
+  .edicao-nome {
+    font-size: 0.72rem;
   }
 
   /* CARDS DE AÇÃO */
