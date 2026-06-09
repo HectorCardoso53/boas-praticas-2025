@@ -1,6 +1,7 @@
 /**
  * functions/index.js
  * Cloud Function v2 – firebase-functions >= 5.x
+ * redeploy: 2026-05-27
  */
 
 const { onDocumentCreated } = require("firebase-functions/v2/firestore");
@@ -28,7 +29,7 @@ function templateEmail(dados) {
     unidade_responsavel,
   } = dados;
   const catLabel =
-    categoria === "servidores" ? "Servidores Públicos Municipais" : "Cidadãos";
+    categoria === "servidores" ? "Servidores Públicos Municipais" : "Sociedade";
 
   return {
     from: process.env.EMAIL_FROM,

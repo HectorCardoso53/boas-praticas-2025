@@ -191,16 +191,16 @@
         <i class="bi bi-person-badge"></i> Servidores
         <span class="aba-count" id="count-servidores">…</span>
       </button>
-      <button class="aba-btn" id="aba-btn-cidadaos" onclick="trocarAba('cidadaos')">
-        <i class="bi bi-people"></i> Cidadãos
-        <span class="aba-count" id="count-cidadaos">…</span>
+      <button class="aba-btn" id="aba-btn-sociedade" onclick="trocarAba('sociedade')">
+        <i class="bi bi-people"></i> Sociedade
+        <span class="aba-count" id="count-sociedade">…</span>
       </button>
     </div>
 
     <div class="painel ativo" id="painel-servidores">
       <div class="loading"><i class="bi bi-arrow-repeat"></i> Carregando…</div>
     </div>
-    <div class="painel" id="painel-cidadaos">
+    <div class="painel" id="painel-sociedade">
       <div class="loading"><i class="bi bi-arrow-repeat"></i> Carregando…</div>
     </div>
 
@@ -292,7 +292,7 @@
         <!-- Cabeçalho -->
         <div class="detalhe-item">
           <label>Categoria</label>
-          <span>${d.categoria === 'servidores' ? 'Servidor Público' : 'Cidadão'}</span>
+          <span>${d.categoria === 'servidores' ? 'Servidor Público' : 'Sociedade'}</span>
         </div>
         <div class="detalhe-item">
           <label>Data de inscrição</label>
@@ -346,11 +346,11 @@
             ${docItem(d.urlDesc,              'file-earmark-text',   'Documento de Descrição')}
             ${docItem(d.urlEvid,              'file-earmark-text',   'Documento de Evidências')}
             ${docItem(d.urlTermo,             'file-earmark-check',  'Termo de Consentimento')}
-            ${docItem(d.urlTermoMenorCidadao, 'file-earmark-person', 'Termo Menor Cidadão')}
+            ${docItem(d.urlTermoMenorSociedade, 'file-earmark-person', 'Termo Menor Sociedade')}
             ${docItem(d.urlAutMenor,          'file-earmark-person', 'Autorização de Menor')}
             ${docItem(d.urlDocLegal,          'file-earmark-lock',   'Documento Responsável Legal')}
           </div>
-          ${!d.urlDesc && !d.urlEvid && !d.urlTermo && !d.urlTermoMenorCidadao && !d.urlAutMenor && !d.urlDocLegal
+          ${!d.urlDesc && !d.urlEvid && !d.urlTermo && !d.urlTermoMenorSociedade && !d.urlAutMenor && !d.urlDocLegal
             ? '<span style="color:#aaa;font-size:.88rem">Nenhum documento anexado.</span>' : ''}
         </div>
 
@@ -425,20 +425,20 @@
       const q    = query(collection(db, 'inscricoes'), orderBy('criadoEm', 'desc'));
       const snap = await getDocs(q);
 
-      const servidores = [], cidadaos = [];
+      const servidores = [], sociedade = [];
       snap.forEach(doc => {
         const d = { id: doc.id, ...doc.data() };
-        (d.categoria === 'servidores' ? servidores : cidadaos).push(d);
+        (d.categoria === 'servidores' ? servidores : sociedade).push(d);
       });
 
       document.getElementById('count-servidores').textContent = servidores.length;
-      document.getElementById('count-cidadaos').textContent   = cidadaos.length;
+      document.getElementById('count-sociedade').textContent  = sociedade.length;
 
       renderizarTabela('painel-servidores', servidores);
-      renderizarTabela('painel-cidadaos',   cidadaos);
+      renderizarTabela('painel-sociedade',  sociedade);
     } catch (err) {
       console.error(err);
-      ['painel-servidores', 'painel-cidadaos'].forEach(id => {
+      ['painel-servidores', 'painel-sociedade'].forEach(id => {
         document.getElementById(id).innerHTML =
           '<div class="vazio"><i class="bi bi-exclamation-circle"></i>Erro ao carregar dados.</div>';
       });

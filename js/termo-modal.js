@@ -123,7 +123,7 @@
             <p class="mt-dado-rotulo">Categoria</p>
             <p class="mt-dado-valor">${
               d.categoria === "servidores" ? "Servidor Público" :
-              d.categoria === "cidadaos"   ? "Cidadão" : d.categoria
+              d.categoria === "sociedade"  ? "Sociedade" : d.categoria
             }</p>
           </div>` : ""}
           <div class="mt-dado-item">
@@ -157,7 +157,7 @@
           <select id="${id}-inp-categoria">
             <option value="">— Selecione —</option>
             <option value="servidores">Servidor Público Municipal</option>
-            <option value="cidadaos">Cidadão</option>
+            <option value="sociedade">Sociedade</option>
           </select>
         </div>
       </div>`;
@@ -457,7 +457,7 @@ doc.text('II Concurso de Boas Práticas e Inovação na Gestão Pública de Orix
         doc.setFont("helvetica", "bold").text("Servidor Público Municipal", ml + 105, y + 18);
       } else {
         doc.setFont("helvetica", "normal").text("Categoria:", ml + 80, y + 12);
-        doc.setFont("helvetica", "bold").text("Cidadão", ml + 105, y + 12);
+        doc.setFont("helvetica", "bold").text("Sociedade", ml + 105, y + 12);
       }
 
       doc.setFont("helvetica", "normal").text("Data:", ml + 80, y + (isServ ? 24 : 18));

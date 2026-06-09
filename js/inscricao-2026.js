@@ -111,13 +111,13 @@ function verificarMenor() {
     .map(id => document.getElementById(id)?.value).filter(Boolean);
   const ehMenor = datas.some(d => calcularIdade(d) < 18);
   const cat = document.querySelector('input[name="categoria"]:checked')?.value;
-  document.getElementById("bloco-menor-cidadao").style.display = (ehMenor && cat === "cidadaos") ? "block" : "none";
+  document.getElementById("bloco-menor-sociedade").style.display = (ehMenor && cat === "sociedade") ? "block" : "none";
   document.getElementById("bloco-menor-servidor").style.display = "none";
 }
 
 /* ── CATEGORIA ───────────────────────────────────────────────── */
 function selecionarCategoria(cat) {
-  ["servidores", "cidadaos"].forEach(c => {
+  ["servidores", "sociedade"].forEach(c => {
     document.getElementById("card-" + c).classList.toggle("selecionado", c === cat);
     document.getElementById("check-" + c).innerHTML = c === cat ? '<i class="bi bi-check-lg"></i>' : "";
     document.getElementById("cat-" + c).checked = c === cat;
@@ -142,7 +142,7 @@ function selecionarCategoria(cat) {
     if (el) el.style.display = cat === "servidores" ? "block" : "none";
   });
   document.getElementById("bloco-formulario").classList.add("visivel");
-  const nomes = { servidores: "Servidores Públicos Municipais", cidadaos: "Cidadãos" };
+  const nomes = { servidores: "Servidores Públicos Municipais", sociedade: "Sociedade" };
   document.getElementById("badge-categoria-texto").textContent = "Categoria: " + nomes[cat];
   verificarMenor();
   setTimeout(() => {
@@ -151,7 +151,7 @@ function selecionarCategoria(cat) {
 }
 
 function mudarCategoria() {
-  ["servidores", "cidadaos"].forEach(c => {
+  ["servidores", "sociedade"].forEach(c => {
     document.getElementById("card-" + c).classList.remove("selecionado");
     document.getElementById("check-" + c).innerHTML = "";
     document.getElementById("cat-" + c).checked = false;
@@ -281,9 +281,9 @@ function validarTudo() {
   else erTermo.classList.remove("visivel");
 
   // Menor cidadão
-  if (document.getElementById("bloco-menor-cidadao").style.display !== "none") {
-    const el = document.getElementById("arquivo-termo-menor-cidadao");
-    const er = document.getElementById("erro-termo-menor-cidadao");
+  if (document.getElementById("bloco-menor-sociedade").style.display !== "none") {
+    const el = document.getElementById("arquivo-termo-menor-sociedade");
+    const er = document.getElementById("erro-termo-menor-sociedade");
     if (!el?.files?.length) { er.classList.add("visivel"); ok = false; }
     else er.classList.remove("visivel");
   }
@@ -349,7 +349,7 @@ async function handleSubmit(e) {
     const msgCpf = (cat, catAtual) => {
       if (!cat) return null;
       if (cat === catAtual) return "Este CPF já possui uma inscrição registrada.";
-      const c = cat === "servidores" ? "Servidor Público" : "Cidadão";
+      const c = cat === "servidores" ? "Servidor Público" : "Sociedade";
       return `Este CPF já está inscrito como ${c} e não pode participar em duas categorias.`;
     };
     const msgNome = cat =>
@@ -384,11 +384,11 @@ async function handleSubmit(e) {
       return;
     }
 
-    const [urlDesc, urlEvid, urlTermo, urlTermoMenorCidadao, urlAutMenor, urlDocLegal] = await Promise.all([
+    const [urlDesc, urlEvid, urlTermo, urlTermoMenorSociedade, urlAutMenor, urlDocLegal] = await Promise.all([
       uploadArquivo(document.getElementById("arquivo-descricao")?.files?.[0],             "descricoes"),
       uploadArquivo(document.getElementById("arquivo-evidencias")?.files?.[0],            "evidencias"),
       uploadArquivo(document.getElementById("arquivo-termo")?.files?.[0],                 "termos"),
-      uploadArquivo(document.getElementById("arquivo-termo-menor-cidadao")?.files?.[0],   "menores"),
+      uploadArquivo(document.getElementById("arquivo-termo-menor-sociedade")?.files?.[0],   "menores"),
       uploadArquivo(document.getElementById("arquivo-autorizacao-menor")?.files?.[0],     "menores"),
       uploadArquivo(document.getElementById("arquivo-doc-responsavel-legal")?.files?.[0], "menores"),
     ]);
@@ -420,7 +420,7 @@ async function handleSubmit(e) {
       descricao_iniciativa:    document.getElementById("descricao-iniciativa").value,
       evidencias:              document.getElementById("evidencias").value,
       justificativa_criterios: document.getElementById("justificativa-criterios").value,
-      urlDesc, urlEvid, urlTermo, urlTermoMenorCidadao, urlAutMenor, urlDocLegal,
+      urlDesc, urlEvid, urlTermo, urlTermoMenorSociedade, urlAutMenor, urlDocLegal,
       nomes_lower: [nomeResp, nomeInt2, nomeInt3].filter(Boolean),
       criadoEm: new Date(),
     });
@@ -428,7 +428,7 @@ async function handleSubmit(e) {
     document.getElementById("modal-sucesso").classList.add("ativo");
     e.target.reset();
 
-    ["servidores", "cidadaos"].forEach(c => {
+    ["servidores", "sociedade"].forEach(c => {
       document.getElementById("card-" + c).classList.remove("selecionado");
       document.getElementById("check-" + c).innerHTML = "";
     });
@@ -443,7 +443,7 @@ async function handleSubmit(e) {
     }
     ["bloco-unidade-responsavel", "campo-outra-unidade",
      "campo-outra-unidade-int2", "campo-outra-unidade-int3",
-     "bloco-menor-cidadao", "bloco-menor-servidor"]
+     "bloco-menor-sociedade", "bloco-menor-servidor"]
       .forEach(id => { const el = document.getElementById(id); if (el) el.style.display = "none"; });
     document.getElementById("bloco-formulario").classList.remove("visivel");
     // Resetar contador
@@ -468,8 +468,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cards de categoria
   document.getElementById("card-servidores")
     ?.addEventListener("click", () => selecionarCategoria("servidores"));
-  document.getElementById("card-cidadaos")
-    ?.addEventListener("click", () => selecionarCategoria("cidadaos"));
+  document.getElementById("card-sociedade")
+    ?.addEventListener("click", () => selecionarCategoria("sociedade"));
 
   // Botão alterar categoria
   document.querySelector(".badge-mudar")?.addEventListener("click", mudarCategoria);
@@ -535,7 +535,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ["arquivo-descricao",            "nome-arquivo-descricao"],
     ["arquivo-evidencias",           "nome-arquivo-evidencias"],
     ["arquivo-termo",                "nome-arquivo-termo"],
-    ["arquivo-termo-menor-cidadao",  "nome-termo-menor-cidadao"],
+    ["arquivo-termo-menor-sociedade",  "nome-termo-menor-sociedade"],
     ["arquivo-autorizacao-menor",    "nome-autorizacao-menor"],
     ["arquivo-doc-responsavel-legal","nome-doc-responsavel-legal"],
   ].forEach(([inputId, nomeId]) => {

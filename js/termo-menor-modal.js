@@ -1,7 +1,7 @@
 /* ============================================================
    termo-menor-modal.js
    Modal: Termo de Autorização do Responsável Legal — Anexo V
-   Cidadão menor de 18 anos
+   Sociedade menor de 18 anos
    Dependência: jsPDF (carregado via CDN no HTML)
    ============================================================ */
 
@@ -182,7 +182,7 @@
         <br><br>
         <strong>AUTORIZO</strong>, de forma livre, expressa e inequívoca, a participação do(a) menor acima
         identificado(a) no <strong>II Concurso de Boas Práticas e Inovação na Gestão Pública de Oriximiná
-        – Prêmio "Chico Florenzano"</strong>, na Categoria Cidadão, nos termos do Edital nº 001/2026 – SEMEG/PMO.
+        – Prêmio "Chico Florenzano"</strong>, na Categoria Sociedade, nos termos do Edital nº 001/2026 – SEMEG/PMO.
       </div>
 
       <!-- DECLARAÇÕES DO TERMO -->
@@ -422,7 +422,7 @@
     doc.setFontSize(9).setFont('helvetica','normal');
     doc.text('TERMO DE AUTORIZAÇÃO DO RESPONSÁVEL LEGAL — ANEXO V', W/2, 19, {align:'center'});
     doc.setFontSize(8);
-    doc.text('Categoria Cidadão · Participante menor de 18 anos · Edital nº 001/2026 – SEMEG/PMO', W/2, 25, {align:'center'});
+    doc.text('Categoria Sociedade · Participante menor de 18 anos · Edital nº 001/2026 – SEMEG/PMO', W/2, 25, {align:'center'});
     doc.setTextColor(0,0,0);
 
     /* Linha amarela */
@@ -482,7 +482,7 @@
 
     doc.setFont('helvetica','normal').setFontSize(9).setTextColor(55,65,81);
     const textoAuth = doc.splitTextToSize(
-      `Eu, ${nome}, portador(a) do documento de identificação nº ${doc_resp}, CPF nº ${cpf}, residente e domiciliado(a) à ${endereco}, na qualidade de responsável legal pelo(a) menor ${nomeMenor}, nascido(a) em ${nascMenor}, portador(a) do documento de identificação nº ${docMenor}, AUTORIZO, de forma livre, expressa e inequívoca, a participação do(a) menor acima identificado(a) no II Concurso de Boas Práticas e Inovação na Gestão Pública de Oriximiná – Prêmio "Chico Florenzano", na Categoria Cidadão, nos termos do Edital nº 001/2026 – SEMEG/PMO.`,
+      `Eu, ${nome}, portador(a) do documento de identificação nº ${doc_resp}, CPF nº ${cpf}, residente e domiciliado(a) à ${endereco}, na qualidade de responsável legal pelo(a) menor ${nomeMenor}, nascido(a) em ${nascMenor}, portador(a) do documento de identificação nº ${docMenor}, AUTORIZO, de forma livre, expressa e inequívoca, a participação do(a) menor acima identificado(a) no II Concurso de Boas Práticas e Inovação na Gestão Pública de Oriximiná – Prêmio "Chico Florenzano", na Categoria Sociedade, nos termos do Edital nº 001/2026 – SEMEG/PMO.`,
       tw
     );
     doc.text(textoAuth, ml, y);
@@ -558,7 +558,7 @@
   /* ── INJETAR NO INPUT DE UPLOAD DO MENOR ─────────────────── */
   function injetarArquivoMenor(blob, nome) {
     const file = new File([blob], nome, {type:'application/pdf'});
-    for (const s of ['#arquivo-termo-menor-cidadao', '[name="arquivo_termo_menor_cidadao"]']) {
+    for (const s of ['#arquivo-termo-menor-sociedade', '[name="arquivo_termo_menor_sociedade"]']) {
       try {
         const el = document.querySelector(s);
         if (!el) continue;

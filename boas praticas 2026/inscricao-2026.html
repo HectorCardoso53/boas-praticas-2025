@@ -88,12 +88,12 @@
               <div class="cat-titulo">Servidores Públicos Municipais</div>
               <div class="cat-desc">Servidores ativos do quadro da Prefeitura Municipal de Oriximiná.</div>
             </label>
-            <label class="categoria-card" id="card-cidadaos">
-              <input type="radio" name="categoria" value="cidadaos" id="cat-cidadaos">
-              <span class="cat-check" id="check-cidadaos"></span>
+            <label class="categoria-card" id="card-sociedade">
+              <input type="radio" name="categoria" value="sociedade" id="cat-sociedade">
+              <span class="cat-check" id="check-sociedade"></span>
               <div class="cat-icon-wrap"><i class="bi bi-people-fill"></i></div>
-              <div class="cat-titulo">Cidadãos</div>
-              <div class="cat-desc">Qualquer cidadão interessado em contribuir com a gestão pública municipal.</div>
+              <div class="cat-titulo">Sociedade</div>
+              <div class="cat-desc">Qualquer membro da sociedade interessado em contribuir com a gestão pública municipal.</div>
             </label>
           </div>
           <span class="msg-erro" id="erro-categoria">Selecione uma categoria para continuar.</span>
@@ -394,12 +394,12 @@
               <span class="msg-erro" id="erro-arquivo-termo">O Termo de Responsabilidade assinado é obrigatório.</span>
             </div>
 
-            <!-- Menor CIDADÃO -->
-            <div id="bloco-menor-cidadao" style="display:none;">
+            <!-- Menor SOCIEDADE -->
+            <div id="bloco-menor-sociedade" style="display:none;">
               <div class="aviso-atencao">
                 <i class="bi bi-exclamation-triangle-fill"
                   style="color:#f59e0b;margin-top:2px;flex-shrink:0;font-size:1.1rem;"></i>
-                <span><strong>Participante menor de 18 anos (Cidadão).</strong> É obrigatório o Termo de Autorização do
+                <span><strong>Participante menor de 18 anos (Sociedade).</strong> É obrigatório o Termo de Autorização do
                   Responsável Legal. A ausência implica <strong>indeferimento</strong>.</span>
               </div>
               <div class="campo-grupo">
@@ -412,14 +412,14 @@
                   </button>
                 </span>
                 <div class="upload-area">
-                  <input type="file" id="arquivo-termo-menor-cidadao" name="arquivo_termo_menor_cidadao"
+                  <input type="file" id="arquivo-termo-menor-sociedade" name="arquivo_termo_menor_sociedade"
                     accept=".pdf,.jpg,.jpeg,.png">
                   <span class="upload-icon"><i class="bi bi-file-earmark-person-fill"
                       style="color:#f59e0b;font-size:2rem;"></i></span>
                   <div class="upload-texto"><strong>Clique para selecionar</strong> o Termo do Menor assinado</div>
-                  <div class="upload-nome" id="nome-termo-menor-cidadao"></div>
+                  <div class="upload-nome" id="nome-termo-menor-sociedade"></div>
                 </div>
-                <span class="msg-erro" id="erro-termo-menor-cidadao">Obrigatório para cidadão menor de idade.</span>
+                <span class="msg-erro" id="erro-termo-menor-sociedade">Obrigatório para membro da sociedade menor de idade.</span>
               </div>
             </div>
 
@@ -502,7 +502,7 @@
           </div>
           <div>
             <p class="mth-menor-titulo">Termo de Autorização do Responsável Legal — Anexo V</p>
-            <p class="mth-menor-sub">Participante menor de 18 anos · Categoria Cidadão · Edital nº 001/2026</p>
+            <p class="mth-menor-sub">Participante menor de 18 anos · Categoria Sociedade · Edital nº 001/2026</p>
           </div>
         </div>
         <button class="mth-menor-fechar" onclick="fecharModalMenor()" title="Fechar">✕</button>
