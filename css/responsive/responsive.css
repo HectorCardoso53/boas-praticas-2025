@@ -58,31 +58,16 @@
     min-width: unset;
   }
 
-  /* BANNER */
+  /* BANNER — clamp() já cuida do tamanho, só garante cover em tablet */
   .banner-home,
   .banner-2025,
   .banner-2026 {
-    min-height: 220px;
     background-size: cover;
-  }
-
-  /* CONTAINER */
-  .container {
-    margin: 24px auto 40px;
-    padding: 0 16px;
   }
 
   /* TEXTO INTRO */
   .texto-intro {
-    margin-bottom: 28px;
-  }
-
-  .texto-intro h2 {
-    font-size: 1.5rem;
-  }
-
-  .texto-intro p {
-    font-size: 0.97rem;
+    margin-bottom: 20px;
   }
 
   /* BOTÕES CTA HOME */
@@ -162,24 +147,9 @@
     font-size: 13px;
   }
 
-  /* BANNER */
-  .banner-home,
-  .banner-2025,
-  .banner-2026 {
-    min-height: 160px;
-  }
-
   /* TEXTO INTRO */
   .texto-intro {
-    margin-bottom: 16px;
-  }
-
-  .texto-intro h2 {
-    font-size: 1.25rem;
-  }
-
-  .texto-intro p {
-    font-size: 0.93rem;
+    margin-bottom: 12px;
   }
 
   /* EDIÇÕES HOME */
@@ -202,11 +172,6 @@
 
   .acao-card h3 {
     font-size: 1rem;
-  }
-
-  /* CONTAINER */
-  .container {
-    padding: 0 12px;
   }
 
   /* PROJETO TOPO (foto + info) */
