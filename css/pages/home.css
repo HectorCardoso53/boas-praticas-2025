@@ -1,27 +1,27 @@
 .texto-intro {
   max-width: 760px;
-  margin: 0 auto clamp(20px, 5vw, 60px);
+  margin: 0 auto 60px;
   text-align: center;
 }
 
 .texto-intro h2 {
-  font-size: clamp(1.25rem, 4vw, 1.9rem);
+  font-size: 1.9rem;
   color: var(--azul-principal);
-  margin-bottom: clamp(12px, 2.5vw, 20px);
+  margin-bottom: 20px;
 }
 
 .texto-intro h2::after {
   content: '';
   display: block;
-  width: 60px;
+  width: 80px;
   height: 4px;
   background-color: var(--amarelo-destaque);
-  margin: 12px auto 0;
+  margin: 14px auto 0;
   border-radius: 2px;
 }
 
 .texto-intro p {
-  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  font-size: 1.05rem;
   line-height: 1.6;
 }
 
@@ -29,7 +29,21 @@
   margin-top: 20px;
 }
 
-/* EDIÇÕES HOME */
+.botoes-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.btn-cta {
+  text-decoration: none;
+  margin-top: 0;
+  padding: 10px 24px;
+  font-size: 0.9rem;
+}
+
 .edicoes-home {
   margin-top: 16px;
   padding-top: 32px;
@@ -116,19 +130,4 @@
 .edicao-ativa .edicao-status {
   background: #ffd21f;
   color: #001b3d;
-}
-
-.botoes-cta {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 24px;
-}
-
-.btn-cta {
-  text-decoration: none;
-  margin-top: 0;
-  padding: 10px 24px;
-  font-size: 0.9rem;
 }

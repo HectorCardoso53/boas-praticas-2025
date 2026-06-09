@@ -1,13 +1,48 @@
-.banner-home,
-.banner-2025,
-.banner-2026 {
+.banner-home {
+  background-image: url('/src/img/boas-praticas.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   background-color: #e9edf2;
-  height: clamp(220px, 50vw, 420px);
+  min-height: 400px;
+  padding: 40px 0;
 }
 
-.banner-home { background-image: url('/src/img/boas-praticas.png'); }
-.banner-2025 { background-image: url('/src/img/BANNER-1.png'); }
-.banner-2026 { background-image: url('/src/img/BANNER-2026.png'); }
+.banner-2025 {
+  background-image: url('/src/img/BANNER-1.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: #e9edf2;
+  min-height: 400px;
+  padding: 40px 0;
+}
+
+.banner-2026 {
+  background-image: url('/src/img/BANNER-2026.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: #e9edf2;
+  min-height: 400px;
+  padding: 40px 0;
+}
+
+
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .banner-home,
+  .banner-2025,
+  .banner-2026 {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-home,
+  .banner-2025,
+  .banner-2026 {
+    height: 220px;
+  }
+}

@@ -58,16 +58,31 @@
     min-width: unset;
   }
 
-  /* BANNER — clamp() já cuida do tamanho, só garante cover em tablet */
+  /* BANNER */
   .banner-home,
   .banner-2025,
   .banner-2026 {
+    min-height: 220px;
     background-size: cover;
+  }
+
+  /* CONTAINER */
+  .container {
+    margin: 24px auto 40px;
+    padding: 0 16px;
   }
 
   /* TEXTO INTRO */
   .texto-intro {
-    margin-bottom: 20px;
+    margin-bottom: 36px;
+  }
+
+  .texto-intro h2 {
+    font-size: 1.5rem;
+  }
+
+  .texto-intro p {
+    font-size: 0.97rem;
   }
 
   /* BOTÕES CTA HOME */
@@ -85,16 +100,7 @@
 
   /* EDIÇÕES HOME */
   .edicoes-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-  }
-
-  .edicao-ano {
-    font-size: 1.6rem;
-  }
-
-  .edicao-nome {
-    font-size: 0.78rem;
   }
 
   /* CARDS DE AÇÃO */
@@ -147,22 +153,24 @@
     font-size: 13px;
   }
 
+  /* BANNER */
+  .banner-home,
+  .banner-2025,
+  .banner-2026 {
+    min-height: 160px;
+  }
+
   /* TEXTO INTRO */
   .texto-intro {
-    margin-bottom: 12px;
+    margin-bottom: 28px;
   }
 
-  /* EDIÇÕES HOME */
-  .edicao-card {
-    padding: 18px 10px;
+  .texto-intro h2 {
+    font-size: 1.25rem;
   }
 
-  .edicao-ano {
-    font-size: 1.4rem;
-  }
-
-  .edicao-nome {
-    font-size: 0.72rem;
+  .texto-intro p {
+    font-size: 0.93rem;
   }
 
   /* CARDS DE AÇÃO */
@@ -172,6 +180,11 @@
 
   .acao-card h3 {
     font-size: 1rem;
+  }
+
+  /* CONTAINER */
+  .container {
+    padding: 0 12px;
   }
 
   /* PROJETO TOPO (foto + info) */
