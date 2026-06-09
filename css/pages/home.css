@@ -28,3 +28,18 @@
 .acoes-concurso {
   margin-top: 20px;
 }
+
+.botoes-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.btn-cta {
+  text-decoration: none;
+  margin-top: 0;
+  padding: 10px 24px;
+  font-size: 0.9rem;
+}
