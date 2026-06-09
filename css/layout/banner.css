@@ -5,7 +5,7 @@
   background-position: center;
   background-size: contain;
   background-color: #e9edf2;
-  height: clamp(160px, 38vw, 420px);
+  height: clamp(220px, 50vw, 420px);
 }
 
 .banner-home { background-image: url('/src/img/boas-praticas.png'); }
