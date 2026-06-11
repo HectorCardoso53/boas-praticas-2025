@@ -21,6 +21,7 @@
 @import url('./pages/projetos.css');
 @import url('./pages/regulamento.css');
 @import url('./pages/acompanhamento.css');
+@import url('./pages/faq.css');
 
 /* RESPONSIVO */
 @import url('./responsive/responsive.css');
