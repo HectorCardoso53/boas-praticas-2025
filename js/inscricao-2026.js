@@ -124,6 +124,7 @@ function selecionarCategoria(cat) {
   });
   document.getElementById("erro-categoria").classList.remove("visivel");
   document.getElementById("bloco-unidade-responsavel").style.display = cat === "servidores" ? "block" : "none";
+  document.getElementById("bloco-comprovante-residencia").style.display = cat === "sociedade" ? "block" : "none";
   if (cat !== "servidores") {
     document.getElementById("unidade-responsavel").value = "";
     document.getElementById("campo-outra-unidade").style.display = "none";
@@ -280,6 +281,14 @@ function validarTudo() {
   if (!termo?.files?.length) { erTermo.classList.add("visivel"); ok = false; }
   else erTermo.classList.remove("visivel");
 
+  // Comprovante de residência — Sociedade
+  if (document.getElementById("bloco-comprovante-residencia").style.display !== "none") {
+    const el = document.getElementById("arquivo-comprovante-residencia");
+    const er = document.getElementById("erro-comprovante-residencia");
+    if (!el?.files?.length) { er.classList.add("visivel"); ok = false; }
+    else er.classList.remove("visivel");
+  }
+
   // Menor cidadão
   if (document.getElementById("bloco-menor-sociedade").style.display !== "none") {
     const el = document.getElementById("arquivo-termo-menor-sociedade");
@@ -384,13 +393,14 @@ async function handleSubmit(e) {
       return;
     }
 
-    const [urlDesc, urlEvid, urlTermo, urlTermoMenorSociedade, urlAutMenor, urlDocLegal] = await Promise.all([
+    const [urlDesc, urlEvid, urlTermo, urlTermoMenorSociedade, urlAutMenor, urlDocLegal, urlComprovanteResidencia] = await Promise.all([
       uploadArquivo(document.getElementById("arquivo-descricao")?.files?.[0],             "descricoes"),
       uploadArquivo(document.getElementById("arquivo-evidencias")?.files?.[0],            "evidencias"),
       uploadArquivo(document.getElementById("arquivo-termo")?.files?.[0],                 "termos"),
       uploadArquivo(document.getElementById("arquivo-termo-menor-sociedade")?.files?.[0],   "menores"),
       uploadArquivo(document.getElementById("arquivo-autorizacao-menor")?.files?.[0],     "menores"),
       uploadArquivo(document.getElementById("arquivo-doc-responsavel-legal")?.files?.[0], "menores"),
+      uploadArquivo(document.getElementById("arquivo-comprovante-residencia")?.files?.[0], "comprovantes"),
     ]);
 
     await addDoc(collection(db, "inscricoes"), {
@@ -420,7 +430,7 @@ async function handleSubmit(e) {
       descricao_iniciativa:    document.getElementById("descricao-iniciativa").value,
       evidencias:              document.getElementById("evidencias").value,
       justificativa_criterios: document.getElementById("justificativa-criterios").value,
-      urlDesc, urlEvid, urlTermo, urlTermoMenorSociedade, urlAutMenor, urlDocLegal,
+      urlDesc, urlEvid, urlTermo, urlTermoMenorSociedade, urlAutMenor, urlDocLegal, urlComprovanteResidencia,
       nomes_lower: [nomeResp, nomeInt2, nomeInt3].filter(Boolean),
       criadoEm: new Date(),
     });
@@ -443,7 +453,7 @@ async function handleSubmit(e) {
     }
     ["bloco-unidade-responsavel", "campo-outra-unidade",
      "campo-outra-unidade-int2", "campo-outra-unidade-int3",
-     "bloco-menor-sociedade", "bloco-menor-servidor"]
+     "bloco-menor-sociedade", "bloco-menor-servidor", "bloco-comprovante-residencia"]
       .forEach(id => { const el = document.getElementById(id); if (el) el.style.display = "none"; });
     document.getElementById("bloco-formulario").classList.remove("visivel");
     // Resetar contador
@@ -532,12 +542,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Feedback visual de uploads
   [
-    ["arquivo-descricao",            "nome-arquivo-descricao"],
-    ["arquivo-evidencias",           "nome-arquivo-evidencias"],
-    ["arquivo-termo",                "nome-arquivo-termo"],
-    ["arquivo-termo-menor-sociedade",  "nome-termo-menor-sociedade"],
-    ["arquivo-autorizacao-menor",    "nome-autorizacao-menor"],
-    ["arquivo-doc-responsavel-legal","nome-doc-responsavel-legal"],
+    ["arquivo-descricao",             "nome-arquivo-descricao"],
+    ["arquivo-evidencias",            "nome-arquivo-evidencias"],
+    ["arquivo-termo",                 "nome-arquivo-termo"],
+    ["arquivo-termo-menor-sociedade", "nome-termo-menor-sociedade"],
+    ["arquivo-autorizacao-menor",     "nome-autorizacao-menor"],
+    ["arquivo-doc-responsavel-legal", "nome-doc-responsavel-legal"],
+    ["arquivo-comprovante-residencia","nome-comprovante-residencia"],
   ].forEach(([inputId, nomeId]) => {
     document.getElementById(inputId)?.addEventListener("change", function () {
       const el = document.getElementById(nomeId);
